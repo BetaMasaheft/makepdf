@@ -2219,8 +2219,7 @@ else ())}</fo:block>
 declare function fo:ifThereIs($element){
 (:this checks which function, with which parameters to call for each element, if it exists
 if the element is not present nothing is done:)
-if($element) 
-     then switch($element/name())
+switch($element/name())
      case 'msIdentifier' return fo:msidentifier($element)
      case 'history' return fo:history($element)
      case 'contents' return fo:contents($element)
@@ -2233,7 +2232,7 @@ if($element)
      case 'collation' return fo:collation($element)
      case 'objectDesc' return fo:tei2fo($element/tei:physDesc/tei:objectDesc/node()[not(self::tei:collation)])
      default return fo:tei2fo($element/node())
-     else ()
+  
 };
 
 declare function fo:SimpleMsstructureelements($part){
@@ -2248,11 +2247,11 @@ let $anchor := string($part/@xml:id)
        case 'contents' return fo:ifThereIs($part/tei:msContents)
        case 'objectDesc' return fo:ifThereIs($part/tei:physDesc/tei:objectDesc)
        case 'additions' return fo:ifThereIs($part/tei:physDesc/tei:additions)
-       case 'binding' return fo:ifThereIs($part/tei:bindingDesc/tei:binding)
+       case 'binding' return fo:ifThereIs($part/tei:physDesc/tei:bindingDesc/tei:binding)
        case 'collation' return fo:ifThereIs($part/tei:physDesc/tei:objectDesc/tei:collation)
        case 'layout' return fo:ifThereIs($part/tei:pyhsDesc/tei:layoutDesc)
-       case 'hands' return fo:ifThereIs($part/tei:handDesc)
-       case 'decorations' return fo:ifThereIs($part/tei:decoDesc)
+       case 'hands' return fo:ifThereIs($part/tei:physDesc/tei:handDesc)
+       case 'decorations' return fo:ifThereIs($part/tei:physDesc/tei:decoDesc)
        case 'URI' return fo:URL($mainid, $anchor)
        default return ()
        else ()
