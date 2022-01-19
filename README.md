@@ -69,6 +69,8 @@ to need adaptation to meet your encoding choices and desired output in the limit
 authorial decisions.
 The produced PDF will open in your preferred system application for that.
 
+There are two files loaded into the script directly, the list of editors and that of DomLib manuscripts. These can be changed to local lists or removed if not needed.
+
 ### Additional transformation
 You may wish to edit manually your XSL-FO in cases where you did not manage to fix the XQuery for your needs. It is recommended that you limit these changes to a very minumum and that you keep them for the very very end.
 To store the .fo file open driver.xml and click on "Configure Transformation Scenario". Select `catalogue2FO` instead of catalogue2PDF. This will save and open a file called catalogue.fo, overwriting previous versions of it. 
