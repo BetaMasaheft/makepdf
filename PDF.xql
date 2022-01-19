@@ -3341,9 +3341,14 @@ declare function fo:bibliography($r){
                     return
                     <fo:block id="{replace($ptr, ':', '_')}" margin-bottom="2pt" start-indent="0.5cm" text-indent="-0.5cm" >
                     {fo:Zotero($ptr)}
-            {for $bib in $r//tei:bibl[tei:ptr/@target = $ptr] 
-            return <fo:basic-link internal-destination="{$ptr}{generate-id($bib)}">
-            <fo:page-number-citation ref-id="{$ptr}{generate-id($bib)}"/>
+                    
+            {for $bib in $r//tei:bibl[tei:ptr/@target = $ptr][not(parent::tei:listBibl[@type])] 
+            let $bid := string($bib/ancestor::tei:TEI/@xml:id) ||generate-id($bib/tei:ptr) || replace($bib/tei:ptr/@target, ':', '_')
+            return 
+(:            If the place in the code where the citation occurs is not printed in the 
+       manuscript record, this will remain empty and show up as a "blank line" in the output. This will be always the case for listBibl elements not printed from included manuscript records, hence the above limitation :)
+            <fo:basic-link internal-destination="{$bid}">
+            <fo:page-number-citation ref-id="{$bid}"/>
             </fo:basic-link>}                        
          
                 </fo:block>
