@@ -22,7 +22,7 @@ This package will be updated to include a schema to check several of the rules o
 but it does not yet do so.
 
 This package is based on requirements and feedback from publication projects 
-by Dorothea Reule, Denis Nosnitsin and Pietro Liuzzo and was intended 
+by Dorothea Reule, Denis Nosnitsin and Pietro Liuzzo and was published as an independent package 
 initially for a new publication project by Mersha Alehegne. 
 It has been generalized and made a bit more flexible and usable without a browser and only on a local machine 
 to meet the requirements of other projects at the HLCEES. This means it
@@ -69,6 +69,12 @@ to need adaptation to meet your encoding choices and desired output in the limit
 authorial decisions.
 The produced PDF will open in your preferred system application for that.
 
+### Additional transformation
+You may wish to edit manually your XSL-FO in cases where you did not manage to fix the XQuery for your needs. It is recommended that you limit these changes to a very minumum and that you keep them for the very very end.
+To store the .fo file open driver.xml and click on "Configure Transformation Scenario". Select `catalogue2FO` instead of catalogue2PDF. This will save and open a file called catalogue.fo, overwriting previous versions of it. 
+Once you are finished with the final touches, you can transform this into PDF by running from this file the preconfigured transformation FO2PDF.
+Be carefull after modifying this catalogue.fo file. If you run again from `driver.xml` the catalogue2PDF transformation scenario your PDF will be overwritten, not your FO, which will be simply ignored. If you run again from `driver.xml` the catalogue2FO transformation scenario your FO will be overwritten, with no effect on your PDF until you also run FO2PDF. Changing filenames in the output section of the transformation scenario, or moving your output file once transformed,  will allow you to preserve previous version of each file. 
+
 ## driver.xml
 This package was designed for catalogues, although it can be 
 used for other purposes as well, by simply not including the manuscripts.
@@ -113,8 +119,9 @@ of the (Dayr as-Suryān Collection)[https://betamasaheft.eu/DSintro.html].
 ### General behaviours
 
 The Package uses
-- the [EthioStudies Library](https://www.zotero.org/groups/358366/ethiostudies/items) and the [HLZ CSL Style](https://betamasaheft.github.io/bibliography/) to print citations and bibliography
+- the [EthioStudies Library](https://www.zotero.org/groups/358366/ethiostudies/items) and the [HLZ CSL Style](https://betamasaheft.github.io/bibliography/) to print citations and bibliography. These defaults can be changed in `settings.xml`.
 - the [Beta maṣāḥǝft API](https://betamasaheft.eu/apidoc.html) to print standard names of persons, places and manuscripts, as well as the standard title of literary works including their Clavis Aethiopica number (CAe)
+- the DTS protocol to fetch information from other authoritative sources providing this API.
 
 If these resources happen to be unavailable or you have 
 no internet connection to let Oxygen access them, this will not work.

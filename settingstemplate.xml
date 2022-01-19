@@ -7,7 +7,11 @@
         toc, indexes should be omitted-->
     <format>book</format>
     <!--if your manuscripts all use a specific prefix for identification, please state it here-->
-    <localPrefix></localPrefix>
+    <localPrefix></localPrefix> 
+    <!--zotero library in the format https://api.zotero.org/groups/358366/items, which is also the default if no value is provided.-->
+    <zotero></zotero>
+    <!--zotero style. must be one of those available in the public repository, and must be called by its name. Default is hiob-ludolf-centre-for-ethiopian-studies-->
+    <zstyle></zstyle>
     <!-- here you can set the order and existince of parts of your catalogue
         simply move the tags and mark them with yes or no
         more parts can be added, but will require modifications to the package.
