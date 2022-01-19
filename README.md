@@ -77,6 +77,9 @@ To store the .fo file open driver.xml and click on "Configure Transformation Sce
 Once you are finished with the final touches, you can transform this into PDF by running from this file the preconfigured transformation FO2PDF.
 Be carefull after modifying this catalogue.fo file. If you run again from `driver.xml` the catalogue2PDF transformation scenario your PDF will be overwritten, not your FO, which will be simply ignored. If you run again from `driver.xml` the catalogue2FO transformation scenario your FO will be overwritten, with no effect on your PDF until you also run FO2PDF. Changing filenames in the output section of the transformation scenario, or moving your output file once transformed,  will allow you to preserve previous version of each file. 
 
+If you want to check your FO for debugging purposes, you can run from `driver.xml`  both catalogue2FO and catalogue2PDF selecting them both in "Configure Transformation Scenario" .
+
+
 ## driver.xml
 This package was designed for catalogues, although it can be 
 used for other purposes as well, by simply not including the manuscripts.
@@ -271,4 +274,15 @@ Exceptions are the rule and there are several you can set for contents, addition
 If you set indexes to be part of your publication, in `<indexes>` you can decide which indexes to print
     there can be more, and they can be better specified for selection and rendering, 
     
+## Changing layout and style requirement for a publisher other than *Aethiopica*
+
+If you want to use the data and the package, but need to work with a different editor with different requirements, please check first that they will be happy with a PDF delivery. 
+If they are, you will need to change several things in the `PDF.xql` script. Please make a fork before you do this.
+While changes in the order of the parts  of the data or the bibliography style may probably be easily done through `settings.xml` layout requirements will have to be set in
+- the fopconfig.xml
+- the PDF.xql
+- local fonts repository
+
+in the Xquery you will find `fo:` elements, which are wonderfully documented for example at https://www.antennahouse.com/xsl-fo-overview or https://www.data2type.de/xml-xslt-xslfo/xsl-fo. 
+In `PDF.xql` you will find layout master, static simple pages masters, which you can modify to your needs. To check the consistency of your XSL-FO output you can generate the XSL-FO first, Oxygen will validate it.
 

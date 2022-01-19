@@ -2330,10 +2330,14 @@ if(($p = 0) and ($part[descendant::tei:msPart]))
 
 declare function fo:msidentifier($msIdentifier as element(tei:msIdentifier)){
 <fo:block space-before="2mm" space-after="3mm">
-{string-join($msIdentifier/tei:idno/text(), ' ') ||(if($msIdentifier/tei:altIdentifier/tei:idno/text())
+{(
+<fo:inline>{if($msIdentifier/tei:idno/@xml:lang) then fo:lang($msIdentifier/tei:idno/@xml:lang) else ()}{string-join($msIdentifier/tei:idno/text(), ' ')}</fo:inline>,
+if($msIdentifier/tei:altIdentifier/tei:idno/text())
 then
-'. Also identified as ' ||
-string-join($msIdentifier/tei:altIdentifier/tei:idno/text(), ', ')
+('. Also identified as ',
+for $alt in $msIdentifier/tei:altIdentifier/tei:idno
+return
+<fo:inline>{if($alt/@xml:lang) then fo:lang($alt/@xml:lang) else ()}{string-join($alt/text(), ', ')}</fo:inline>)
 else ())}</fo:block>
 };
 
@@ -2717,7 +2721,10 @@ declare function fo:acknow($front){
                 id="Acknowledgement">
                 {fo:tei2fo($front)}
                 <fo:block>This output is based on collaboratively edited data from the project Beta maṣāḥǝft: Manuscripts of Ethiopia and Eritrea (Schriftkultur des christlichen Äthiopiens und Eritreas: eine multimediale Forschungsumgebung). </fo:block>
-                { let $list := for $contrib in distinct-values(($local:entries//(tei:author, tei:editor[not(@role='generalEditor')])/@key, $local:entries//tei:change/@who)) return fo:editorName($contrib) return 
+                { let $values := ($local:entries//(tei:author, tei:editor[not(@role='generalEditor')])/@key, $local:entries//tei:change/@who)
+                 let $contribclean := for $contrib in $values return replace($contrib, '#', '') 
+                let $list := for $contrib in distinct-values($contribclean)
+                return fo:editorName($contrib) return 
                <fo:block>Contributors to the files directly included are: {string-join($list, ', ')}. This list does not include contributors to other related entities. Please follow links to the source data where contributions are listed and versioned.</fo:block>}
             </fo:block-container>
                 </fo:flow>
