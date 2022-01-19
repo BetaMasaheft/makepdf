@@ -286,3 +286,8 @@ While changes in the order of the parts  of the data or the bibliography style m
 in the Xquery you will find `fo:` elements, which are wonderfully documented for example at https://www.antennahouse.com/xsl-fo-overview or https://www.data2type.de/xml-xslt-xslfo/xsl-fo. 
 In `PDF.xql` you will find layout master, static simple pages masters, which you can modify to your needs. To check the consistency of your XSL-FO output you can generate the XSL-FO first, Oxygen will validate it.
 
+## Managing your project
+The Beta maṣāḥǝft Guidelines contain additional, higher level, and finer grained information related to this. See for example
+- [A Digital-first Collaborative Catalogue of Manuscripts](https://betamasaheft.eu/Guidelines/?q=PDF&id=catalogueworkflow)
+- [A Digital-first Collaborative Critical Edition](https://betamasaheft.eu/Guidelines/?q=PDF&id=editionworkflow)
+- [This documentation as a presentation](https://docs.google.com/presentation/d/e/2PACX-1vSe763ALF1tB4B3Jwuf9YVwoN1aB67Cu6eZJJTGq7WU06ikWdQzRSTbm_ScZIwKcPrTEVGOCl2icHI-/pub?start=false&loop=false&delayms=3000&slide=id.gde2f7d93e5_0_0)
