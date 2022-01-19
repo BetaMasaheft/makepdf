@@ -97,11 +97,15 @@ if(string-length($ref) != 2 ) then () else (
 };
 
 declare function fo:printTitleID($ref as xs:string?) as xs:string?{
- json-doc(replace(concat($local:BMappUrl,'api/', replace($ref, ':', '_'),'/title/json'), '\s', ''))?title
+let $r := if(starts-with($ref, $local:BMappUrl)) then substring-after($ref, $local:BMappUrl) else $ref
+return
+ json-doc(replace(concat($local:BMappUrl,'api/', replace($r, ':', '_'),'/title/json'), '\s', ''))?title
 };
 
 declare function fo:getFile($id){
- doc( concat($local:BMappUrl, $id,'.xml'))
+let $r := if(starts-with($id, $local:BMappUrl)) then $local:BMappUrl else ($local:BMappUrl || $id)
+return
+ doc( concat($r,'.xml'))
 };
 
 declare function fo:lang($lang as xs:string) {
@@ -174,10 +178,16 @@ return
                                 else
                                     (),
                               fo:tei2fo($node/node()))
-                        else                            if ($node/@ref) then
+                        else                           
+                        if ($node/@ref) then
+                        
+let $r := if(starts-with($node/@ref, $local:BMappUrl)) then string($node/@ref)  else $local:BMappUrl || 
+                                    '/' || string($node/@ref) 
+                                    
+let $t := if($node/node()) then fo:tei2fo($node/node())  else fo:printTitleID($node/@ref)
+                                    return
                                 <fo:basic-link
-                                    external-destination="{$local:BMappUrl || 
-                                    '/' || string($node/@ref) }">{fo:printTitleID($node/@ref)}</fo:basic-link>
+                                    external-destination="{$r}">{$t}</fo:basic-link>
                             else
                                 'no title provided'
       }</fo:inline>
@@ -211,9 +221,14 @@ return
                                     (),
                               fo:tei2fo($node/node()))
                         else                            if ($node/@ref) then
+                        
+let $r := if(starts-with($node/@ref, $local:BMappUrl)) then string($node/@ref)  else $local:BMappUrl || 
+                                    '/' || string($node/@ref) 
+                                    
+let $t := if($node/node()) then fo:tei2fo($node/node())  else fo:printTitleID($node/@ref)
+                                    return
                                 <fo:basic-link
-                                    external-destination="{$local:BMappUrl || 
-                                    '/' || string($node/@ref) }">{fo:printTitleID($node/@ref)}</fo:basic-link>
+                                    external-destination="{$r}">{$t}</fo:basic-link>
                             else
                                 'no title provided'
       }</fo:inline>
