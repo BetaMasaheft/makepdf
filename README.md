@@ -77,6 +77,8 @@ To store the .fo file open driver.xml and click on "Configure Transformation Sce
 Once you are finished with the final touches, you can transform this into PDF by running from this file the preconfigured transformation FO2PDF.
 Be carefull after modifying this catalogue.fo file. If you run again from `driver.xml` the catalogue2PDF transformation scenario your PDF will be overwritten, not your FO, which will be simply ignored. If you run again from `driver.xml` the catalogue2FO transformation scenario your FO will be overwritten, with no effect on your PDF until you also run FO2PDF. Changing filenames in the output section of the transformation scenario, or moving your output file once transformed,  will allow you to preserve previous version of each file. 
 
+One example of a thing which you may want to change in this way are footnote indentations. You should not have a footnote in a list or in a table, but if you do the margins will add up, so in the final FO, you can go change the one or two occurrences which you really cannot fix in the source. 
+
 If you want to check your FO for debugging purposes, you can run from `driver.xml`  both catalogue2FO and catalogue2PDF selecting them both in "Configure Transformation Scenario" .
 
 
@@ -190,6 +192,8 @@ You can work with this also if your encoding is not very detailed (see example f
 
 The bibliography is compiled from the Zotero EthioStudies Group using both for citations and references the HLZ styles.
 This does not guarantee the correctness of it, please see the relative documentation linked above.
+
+If you want to use a local style or bibliography and avoid the Zotero connection, you may produce a bibliography in the required format and store it alongside the data, then change the ways in which the bibliography and the in-text citations are handled. These changes will depend on many aspects: what export format you use, which source, etc.
 
 #### Identifies entities (persons, places, works)
 If you use `persName` and `placeName`, these will be made into links and if they do not contain text, they will print out the 
