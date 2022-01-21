@@ -281,7 +281,7 @@ let $TITSEL := if($geeztitle) then (
                                     if($maintitleENgez) then
                                     string-join($maintitleENgez/text(), ' ')||' ('||string-join($geeztitle/text(), ' ')||')'
  else
- '“' || string-join($titleENgez/text(), ' ')||'”' ||' ('||string-join($geeztitle/text(), ' ')||')'
+ '‘' || string-join($titleENgez/text(), ' ')||'’' ||' ('||string-join($geeztitle/text(), ' ')||')'
  ) else 
                                string-join($titleENNOgez/text(), ' ')
 return
@@ -1907,6 +1907,28 @@ return
                     </fo:list-item-body>
                 </fo:list-item>
                 }</fo:list-block>) else ()}
+                
+                
+                                 {if($additions//tei:item[starts-with(@xml:id, 'e')][not(tei:desc/@type = $additionsExceptions)]) then 
+ (<fo:block font-style="italic" space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Varia</fo:block>,
+  <fo:list-block
+        provisional-label-separation="1em"
+        provisional-distance-between-starts="2em">
+        {for $addition in $additions//tei:item[starts-with(@xml:id, 'e')]
+            return
+                <fo:list-item>
+                    <fo:list-item-label
+                        end-indent="label-end()">
+                        <fo:block>{count($addition/preceding-sibling::tei:item[starts-with(@xml:id, 'e')])+1})</fo:block>
+                    </fo:list-item-label>
+                    <fo:list-item-body
+                        start-indent="body-start()">
+                        <fo:block>
+                        {if($addition/tei:locus) then concat(fo:tei2fo($addition/tei:locus), ': ') else ()}{if($addition/tei:desc/tei:title) then fo:ContentsTitle($addition//tei:desc/tei:title) else ()}{fo:tei2fo($addition/tei:desc/node()[not(name()='title')])}</fo:block>
+                        {if($addition/tei:q/node()) then <fo:block>{for $q in $addition/tei:q[not(@xml:lang='en')] return (fo:tei2fo($q),  ' ')}</fo:block> else ()}
+                    </fo:list-item-body>
+                </fo:list-item>
+                }</fo:list-block>) else ()}
                  </fo:block>   
         else ()
 };
@@ -1956,7 +1978,7 @@ page-break-inside="avoid" page-break-after="avoid">Decoration</fo:block>,
                         {if($deco/tei:q) then (' Legend: ', 
                         fo:tei2fo($deco/tei:q[@xml:lang='gez']),
                         if($deco/tei:q[@xml:lang='en']) 
-                        then '“'||string-join(fo:tei2fo($deco/tei:q[@xml:lang='en']))|| '”' 
+                        then '‘'||string-join(fo:tei2fo($deco/tei:q[@xml:lang='en']))|| '’' 
                         else())
                          else ()}</fo:block>}
                     </fo:list-item-body>
