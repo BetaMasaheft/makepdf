@@ -281,7 +281,7 @@ let $TITSEL := if($geeztitle) then (
                                     if($maintitleENgez) then
                                     string-join($maintitleENgez/text(), ' ')||' ('||string-join($geeztitle/text(), ' ')||')'
  else
- '“' || string-join($titleENgez/text(), ' ')||'”' ||' ('||string-join($geeztitle/text(), ' ')||')'
+ '‘' || string-join($titleENgez/text(), ' ')||'’' ||' ('||string-join($geeztitle/text(), ' ')||')'
  ) else 
                                string-join($titleENNOgez/text(), ' ')
 return
