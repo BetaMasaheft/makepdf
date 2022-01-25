@@ -81,9 +81,9 @@
     <!--you can add a number here. add 3, to state for example, 
         that you do not wish to report msItems nested lower than the third level-->
     <levelsOfContents>all</levelsOfContents>
-    <!--you can list here, separated by commas, IDs of units which you do not wish to print-->
+    <!--you can list here, separated by commas without whitespace, IDs of units which you do not wish to print-->
     <contentsExceptions></contentsExceptions>
-    <!--you can list here, separted by commas the types of additions (from the list of values allowed for the attribute on additions/item/@type) which you wish to exclude-->
+    <!--you can list here, separted by commas without whitespace the types of additions (from the list of values allowed for the attribute on additions/item/@type) which you wish to exclude-->
     <additionsExceptions></additionsExceptions>
 <!--    if you set indexes above to yes, here you can decide which indexes to print
     there can be more, and they can be better specified for selection and rendering, 
@@ -96,6 +96,6 @@
         <keywords>yes</keywords>
         <languages>yes</languages>
     </indexes>
-    <!--you can list here, separted by commas the keywords you wish to exclude-->
+    <!--you can list here, separted by commas without whitespace the keywords you wish to exclude-->
     <keywordsExceptions></keywordsExceptions>
 </settings>
