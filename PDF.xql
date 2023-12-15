@@ -3431,12 +3431,14 @@ declare function fo:bibliographyb($r){
        
 };
 
-declare function fo:maincontents($r){
-        <fo:page-sequence
+declare function fo:maincontents(){
+for $r in $local:entries
+return
+(<fo:page-sequence
             initial-page-number="auto-odd"
             master-reference="Aethiopica-master">
-            {let $tr := fo:authorheader($r/tei:teiHeader//tei:titleStmt/tei:author)
-            let $tl := 'Catalogue'
+            {let $tl := fo:authorheader($r/ancestor::tei:teiCorpus/tei:teiHeader//tei:titleStmt/tei:author)
+            let $tr := $r//tei:msDesc/tei:msIdentifier/tei:idno[not(@xml:lang)]/text()
             return fo:static($tr,$tl)}
          <fo:flow
                 flow-name="xsl-region-body"
@@ -3446,13 +3448,15 @@ declare function fo:maincontents($r){
                 text-align="justify"
                 hyphenate="true">
 <!-- CATALOGUE     -->            
-       {fo:catalogue()}
+      {fo:msheader($r//tei:msDesc/tei:msIdentifier),
+                                        <fo:block text-align="center" space-before="2mm" space-after="3mm">{$r//tei:titleStmt/tei:title[not(@xml:lang)]/text()}</fo:block>,
+                               fo:SimpleMsStructure($r)
+                               }
                   <!--  break  after Catalogue -->
                 <fo:block  page-break-after="always"/>
             </fo:flow>
-        </fo:page-sequence> 
+        </fo:page-sequence> )
 };
-
 
 declare function fo:main() {
 let $r := $local:catalogue
@@ -3473,7 +3477,7 @@ return
        case 'listofimages' return fo:list-of-images()
        case 'introduction' return fo:introduction($r/tei:text/tei:body)
        case 'bibliography' return fo:bibliographyb($r)
-       case 'catalogue' return fo:maincontents($r)
+       case 'catalogue' return fo:maincontents()
        case 'indexes' return fo:indexes()
        case 'images' return fo:back($r/tei:text/tei:back)
        default return ()
