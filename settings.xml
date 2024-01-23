@@ -41,6 +41,8 @@
     <!--if your manuscripts come from several repositories, you can group them by repository, they will be listed in alphabetical order by repository-->
     <cataloguesSettings>
         <groupByRepository>yes</groupByRepository>
+        <!--        if you wish to use the simple structure, change the value to simple -->
+        <structure>extended</structure>
     </cataloguesSettings>
 <!--    if you are printing a catalogue, here you can decide in which order to
     treat the different parts of your entry -->
