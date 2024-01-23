@@ -2130,7 +2130,7 @@ if($part[descendant::tei:msPart]) then (
                                                                                          (if($lang='ar') then () else (' Unit ' || $partN ||': ')||string-join($origdates))
                                                                                         )
                                                                             else ()
-                        let $decideDate := if(string-length($date) gt 1) 
+                        let $decideDate := if(count($date) gt 1) 
                                                          then string-join($date) 
                                                         else (
                                                         
@@ -2144,7 +2144,7 @@ if($part[descendant::tei:msPart]) then (
                                             ' '|| string-join($units)
                                             )
                     return 
-                    $material|| $form || $dimensions || $folios || $quires || $decideDate
+                    $material|| $form || $dimensions || string-join($folios) || $quires || $decideDate
 )
 else
 (
@@ -3341,10 +3341,28 @@ declare function fo:catalogue(){
                                 return  
                                 (fo:msheader($file//tei:msDesc/tei:msIdentifier),
                                         <fo:block text-align="center" space-before="2mm" space-after="3mm">{$file//tei:titleStmt/tei:title[not(@xml:lang)]/text()}</fo:block>,
+                                if ($local:settings//s:structure ='simple') then 
                                fo:SimpleMsStructure($file)
+                               else 
+                               fo:ExtendedMsStructure($file)
                                )
                         }
                                </fo:block-container>};
+
+declare function fo:ExtendedMsStructure($file){
+ fo:msStructure($file//tei:msDesc, 0),
+(:                                if there are parts :)
+                                if ($file//tei:msPart or $file//tei:msFrag) 
+                                then
+                                   (let $parts := ($file//tei:msPart, $file//tei:msFrag)
+                               (:  now that the main part is done, do the parts:)
+                                    return
+                                      ( for $mP at $p in $parts return fo:msStructure($mP, $p))) 
+                               else (), 
+fo:history($file//tei:history),
+fo:URL(string($file/@xml:id)
+)
+};
 
 declare function fo:bibliography($r){
    <fo:block id="bibliography" page-break-before="always">{(attribute font-weight {'700'},
