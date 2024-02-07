@@ -19,11 +19,13 @@ declare namespace d = "betmas.domlib";
 declare variable $local:BMappUrl := 'https://betamasaheft.eu/';
 declare variable $local:settings := doc('settings.xml')/s:settings;
 declare variable $local:catalogue := doc('driver.xml')/tei:teiCorpus;
+declare variable $local:bibliography := doc('data/bibliography.xml');
 declare variable $local:entries := $local:catalogue//tei:TEI;
 declare variable $local:prefix := $local:settings//s:localPrefix;
 declare variable $local:listPrefixDef := $local:catalogue//tei:listPrefixDef;
 declare variable $local:Z := if($local:settings/s:zotero/text()) then $local:settings/s:zotero/text() else 'https://api.zotero.org/groups/358366/items' ;
 declare variable $local:zstyle := if($local:settings/s:zstyle/text()) then $local:settings/s:zstyle/text() else 'hiob-ludolf-centre-for-ethiopian-studies' ;
+declare variable $local:bibtype := $local:settings/s:bibSettings/s:bibliographygeneration/text() ;
 
 (:the basis of transformation is a series of strings for components:)
  declare variable $local:values as element(value)+ := (
@@ -643,7 +645,7 @@ if it does not fit to the page set the width attribute in the source file, as th
                 let $languages := root($node)//tei:langUsage
                 let $matchLang := $languages/tei:language[@ident = $nl]
                 return
-                    <fo:block>Text in {$matchLang/text()}</fo:block>
+                    <fo:block>Text in {$matchLang[1]/text()}</fo:block>
     
     case element(tei:place)
         return
@@ -1128,7 +1130,7 @@ for $m in $node/tei:msItem
                     else
                         ()
                 }{if($node/tei:locus) then (fo:tei2fo($node/tei:locus)|| ': ') else ()}
-                {<fo:inline>{fo:lang($node/tei:note/@xml:lang)}{fo:tei2fo($node/tei:note/node())}</fo:inline>}
+                {<fo:inline>{if($node/tei:note/@xml:lang) then fo:lang($node/tei:note/@xml:lang) else ()}{fo:tei2fo($node/tei:note/node())}</fo:inline>}
                 {fo:tei2fo($node/node()[not(name()='locus')][not(name()='foreign')][not(name()='note')])}
             </fo:block>,
     for $text in $node/tei:foreign
@@ -2023,7 +2025,9 @@ let $quires := for $q at $p in $collation//tei:item
                             if(starts-with($cleanup, 's.l.')) then $cleanup else 's.l. ' || $cleanup) else ()
                             let $bar := if (string-length($string) ge 1) then '/' else () 
                             return $string || $bar) else ())  
-                                ||replace(translate(fo:tei2fo($q/tei:locus), 'rv', ''), 'F', 'f')||')' 
+                                ||
+                               fo:locustext($q/tei:locus) 
+                               ||')' 
                                 )
                                 }</fo:inline>
                                 </desc>
@@ -2035,6 +2039,12 @@ let $quires := for $q at $p in $collation//tei:item
 return $quires/node()/node()}</fo:block>
 )
 else ()
+};
+
+declare function fo:locustext($locus){
+let $loci := for $l in $locus return
+replace(translate(fo:tei2fo($l), 'rv', ''), 'F', 'f')
+return string-join($loci, ', ')
 };
 
 declare function fo:paleo($handDesc as element(tei:handDesc)) {
@@ -2081,11 +2091,11 @@ return if ($lang='ar')
 };
 
 declare function fo:folios($part, $lang){
-(if($lang='ar') then $part//tei:measure[@unit='leaf'][@xml:lang=$lang]/text() else $part//tei:measure[@unit='leaf'][not(@xml:lang)][1]/text()) 
+(if($lang='ar') then $part//tei:measure[@unit='leaf'][@xml:lang=$lang]/text() else ($part//tei:measure[@unit='leaf'][not(@xml:lang)])[1]/text()) 
 };
 
 declare function fo:quires($part, $lang){
-if ($part//tei:measure[@unit='quire'][1]) then ', ' ||  (if($lang='ar') then $part//tei:measure[@unit='quire'][@xml:lang=$lang]/text() else $part//tei:measure[@unit='quire'][not(@xml:lang)]/text()) || (if($lang='ar') then () else ' quires. ' ) else () (:' no measure[@unit="quire"]':)
+if ($part//tei:measure[@unit='quire'][1]) then ', ' ||  (if($lang='ar') then $part//tei:measure[@unit='quire'][@xml:lang=$lang]/text() else string-join($part//tei:measure[@unit='quire'][not(@xml:lang)]/text(), ', ')) || (if($lang='ar') then () else ' quires. ' ) else () (:' no measure[@unit="quire"]':)
 };
 
 declare function fo:dimensions($part, $lang){
@@ -2114,7 +2124,7 @@ if($part[descendant::tei:msPart]) then (
                                     let $material := fo:ms($part, $lang) 
                                     let $form :=  ' ' || lower-case(($part//tei:objectDesc/@form)[1]) ||', composite'
                                     let $dimensions := fo:dimensions($part, $lang) || ', '
-                                    let $folios := fo:folios($part, $lang) ||(if($lang='ar') then () else ' fols')
+                                    let $folios := for $f in fo:folios($part, $lang)  return $f||(if($lang='ar') then () else ' fols')
                                     let $quires := fo:quires($part, $lang)
                                     let $date := for $p in $part//tei:msPart 
                                                                     let $partN := string(substring-after($p/@xml:id, 'p'))
@@ -2144,7 +2154,7 @@ if($part[descendant::tei:msPart]) then (
                                             ' '|| string-join($units)
                                             )
                     return 
-                    $material|| $form || $dimensions || string-join($folios) || $quires || $decideDate
+                    $material|| $form || $dimensions || string-join($folios, ', ') || $quires || $decideDate
 )
 else
 (
@@ -2248,7 +2258,7 @@ $layoutDesc/ancestor::tei:TEI//tei:support//tei:material[@key != 'paper']) then
                     </fo:list-item-label>
                     <fo:list-item-body
                         start-indent="body-start()">
-                        <fo:block>{if($rulprick/preceding-sibling::tei:locus) then (fo:tei2fo($rulprick/preceding-sibling::tei:locus)|| ': ') else ()} {normalize-space(replace($rulprick/text(), ' Ruling pattern:', ''))}</fo:block>
+                        <fo:block>{if($rulprick/preceding-sibling::tei:locus) then (fo:tei2fo($rulprick/preceding-sibling::tei:locus)|| ': ') else ()} {normalize-space(replace(string-join($rulprick/text(), ' '), ' Ruling pattern:', ''))}</fo:block>
                     </fo:list-item-body>
                 </fo:list-item>
                 }</fo:list-block>
@@ -3341,7 +3351,7 @@ declare function fo:catalogue(){
                                 return  
                                 (fo:msheader($file//tei:msDesc/tei:msIdentifier),
                                         <fo:block text-align="center" space-before="2mm" space-after="3mm">{$file//tei:titleStmt/tei:title[not(@xml:lang)]/text()}</fo:block>,
-                                if ($local:settings//s:structure ='simple') then 
+                               if ($local:settings//s:structure ='simple') then 
                                fo:SimpleMsStructure($file)
                                else 
                                fo:ExtendedMsStructure($file)
@@ -3367,6 +3377,11 @@ fo:URL(string($file/@xml:id)
 declare function fo:bibliography($r){
    <fo:block id="bibliography" page-break-before="always">{(attribute font-weight {'700'},
                         attribute margin-bottom {'6.25pt'})}Bibliography</fo:block>,
+                        
+                        if($local:bibtype = 'local') 
+                        then 
+                                $local:bibliography//fo:block[starts-with(@id, 'bm_')]
+                        else
               <fo:block>   {
                    let $mspointers := for $file in $local:entries
                                 for $ptr in $file//tei:bibl/tei:ptr/@target return
@@ -3449,14 +3464,12 @@ declare function fo:bibliographyb($r){
        
 };
 
-declare function fo:maincontents(){
-for $r in $local:entries
-return
-(<fo:page-sequence
+declare function fo:maincontents($r){
+        <fo:page-sequence
             initial-page-number="auto-odd"
             master-reference="Aethiopica-master">
-            {let $tl := fo:authorheader($r/ancestor::tei:teiCorpus/tei:teiHeader//tei:titleStmt/tei:author)
-            let $tr := $r//tei:msDesc/tei:msIdentifier/tei:idno[not(@xml:lang)]/text()
+            {let $tr := fo:authorheader($r/tei:teiHeader//tei:titleStmt/tei:author)
+            let $tl := 'Catalogue'
             return fo:static($tr,$tl)}
          <fo:flow
                 flow-name="xsl-region-body"
@@ -3466,15 +3479,13 @@ return
                 text-align="justify"
                 hyphenate="true">
 <!-- CATALOGUE     -->            
-      {fo:msheader($r//tei:msDesc/tei:msIdentifier),
-                                        <fo:block text-align="center" space-before="2mm" space-after="3mm">{$r//tei:titleStmt/tei:title[not(@xml:lang)]/text()}</fo:block>,
-                               fo:SimpleMsStructure($r)
-                               }
+       {fo:catalogue()}
                   <!--  break  after Catalogue -->
                 <fo:block  page-break-after="always"/>
             </fo:flow>
-        </fo:page-sequence> )
+        </fo:page-sequence> 
 };
+
 
 declare function fo:main() {
 let $r := $local:catalogue
@@ -3495,7 +3506,7 @@ return
        case 'listofimages' return fo:list-of-images()
        case 'introduction' return fo:introduction($r/tei:text/tei:body)
        case 'bibliography' return fo:bibliographyb($r)
-       case 'catalogue' return fo:maincontents()
+       case 'catalogue' return fo:maincontents($r)
        case 'indexes' return fo:indexes()
        case 'images' return fo:back($r/tei:text/tei:back)
        default return ()
