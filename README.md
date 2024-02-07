@@ -60,14 +60,15 @@ use xi:include in the preferences. This should be set by the project itself for 
 You will need to create a directory called fonts and store in it the fonts listed in `fopconfig.xml`.
 
 ## Make the PDF
-To make the PDF, click the small red play button at the top in your Oxygen editor. 
-
-This is already setup to run the `PDF.xql` script, 
-which will take into consideration your settings, as defined in `settings.xql`. Some more details about
+To generate the PDF you need to run different transformation scenarios which are preset in the oxygen project file. Start from `driver.xml`. Click on "Configure Transformation Scenario", 
+ 
+ - select first "catalogue2FO-bibliography", click on Apply transformation scenario. If your settings have `bibliographygeneration` set to nothing (or onthefly) the result of this step is unnecessary. See settings comments. This step will produce a bibliography block and store it as bibliography.xml under the data directory.
+- second step (or first if you work with bibliography on the flly) is to generate the main catalogue file. Always from "Configure Transformation Scenario", select "catalogue2FO", click on Apply transformation scenario. This step will produce in the main directory a file called catalogue.fo which includes the bibliography.xml file if you generated it or produces one on the fly if you left the setting empty. This will take into consideration your settings, as defined in `settings.xql`.  Some more details about
 this process and how you can adapt it follow. Anything can be adapted and is likely
 to need adaptation to meet your encoding choices and desired output in the limits of
 authorial decisions.
-The produced PDF will open in your preferred system application for that.
+- now, you can optionally run the transformation scenario called "fo spaces cleanup". This will overwrite the existing catalogue.fo and remove unneeded spaces in Ethiopic and arabic using the XSLT stored under `xslt/spaces.xsl`
+- now you are ready to run the `PDF.xql` script, using the "catalogue2PDF" Transformation scenario, which takes as input catalogue.fo and produces `catalogue.pdf` taking into considearation your settings in `fopconfig.xml`. The produced PDF will open in your preferred system application unless set otherwise.
 
 There are two files loaded into the script directly, the list of editors and that of DomLib manuscripts. These can be changed to local lists or removed if not needed.
 
