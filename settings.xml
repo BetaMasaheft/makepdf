@@ -16,6 +16,7 @@
         simply move the tags and mark them with yes or no
         more parts can be added, but will require modifications to the package.
         ask and you will be served.-->
+    
     <orderOfParts>
         <!--sets the presence or not of some standard bookmarks available in the PDF-->
          <PDFbookmarks>yes</PDFbookmarks>
@@ -38,10 +39,23 @@
         <!--prints the images as listed in the back of the catalogue.xml file-->
         <images>yes</images>
     </orderOfParts>
+    <bibSettings>
+        <!--        following setting can be set to 'local' if you first run makebibliography.xql and then use data/bibliography.xml or 'onthefly' (default) if you wish to simply parse and compile. It is recommended to work onthefly, then local, edit local if necessary and stick to that -->
+        <bibliographygeneration>local</bibliographygeneration>
+        
+        <!--
+            taken into consideration only by local setting of bibliographygeneration
+            you can list here, separted by commas the bibliography identifiers from zotero you wish to include even if they are not cited, e.g. bm:Innemee2016Discoveries, bm:Samir1991Gabriel  -->
+        <bibliographyintegration></bibliographyintegration>
+        <!--
+            taken into consideration only by local setting of bibliographygeneration
+            you can list here, separted by commas the bibliography identifiers from zotero you wish to exclude, e.g. bm:Innemee2016Discoveries, bm:Samir1991Gabriel  -->
+        <bibliographyexceptions></bibliographyexceptions>
+        
+    </bibSettings>
     <!--if your manuscripts come from several repositories, you can group them by repository, they will be listed in alphabetical order by repository-->
     <cataloguesSettings>
         <groupByRepository>yes</groupByRepository>
-        <!--        if you wish to use the simple structure, change the value to simple -->
         <structure>extended</structure>
     </cataloguesSettings>
 <!--    if you are printing a catalogue, here you can decide in which order to
@@ -83,9 +97,9 @@
     <!--you can add a number here. add 3, to state for example, 
         that you do not wish to report msItems nested lower than the third level-->
     <levelsOfContents>all</levelsOfContents>
-    <!--you can list here, separated by commas without whitespace, IDs of units which you do not wish to print-->
+    <!--you can list here, separated by commas, IDs of units which you do not wish to print-->
     <contentsExceptions></contentsExceptions>
-    <!--you can list here, separted by commas without whitespace the types of additions (from the list of values allowed for the attribute on additions/item/@type) which you wish to exclude-->
+    <!--you can list here, separted by commas the types of additions (from the list of values allowed for the attribute on additions/item/@type) which you wish to exclude-->
     <additionsExceptions></additionsExceptions>
 <!--    if you set indexes above to yes, here you can decide which indexes to print
     there can be more, and they can be better specified for selection and rendering, 
@@ -98,6 +112,6 @@
         <keywords>yes</keywords>
         <languages>yes</languages>
     </indexes>
-    <!--you can list here, separted by commas without whitespace the keywords you wish to exclude-->
-    <keywordsExceptions></keywordsExceptions>
+    <!--you can list here, separted by commas the keywords you wish to exclude-->
+    <keywordsExceptions>AmharicLiterature,Apocrypha,Miracle,NewTestament,OldTestament,BetaEsraelLiterature,Bible,Biography,CanonLaw,Commentary,ChristianLiterature,Chronography,Fiction,Hagiography,HistoryAndHistoriography,Chronicles,Homily,IslamicLiterature,Koran,LegalDocument,Liturgy,Chants,Lectionary,Missal,Rituals,RitualsAndRites,TigrinyaLiterature,Translation,Vocabulary,Magic,Medicine,Miscellanea,MonasticLiterature,NaturalSciences,Other,Philosophy,Poetry,Prayers,Religion,Theology,ChristianContent,Letter,ApocalypticLiterature,DidacticMaterial</keywordsExceptions>
 </settings>
