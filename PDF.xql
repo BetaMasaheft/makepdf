@@ -349,7 +349,14 @@ declare function fo:tei2foSinRef($nodes as node()*) {
            case element(span)
                 return
                     <fo:inline>{if($node/@style[.="font-style:normal;"]) then attribute font-style {'normal'} else ()}{$node/text()}</fo:inline>
-            
+
+           case element(tei:pb)
+              return
+              ' (fol. ' || string($node/@n) ||') '
+              
+              case element(tei:cb)
+              return
+              ' (' || string($node/@n) ||') '
               
             case element(tei:gap)
                 
@@ -451,7 +458,14 @@ declare function fo:tei2fo($nodes as node()*) {
                 return
                     <fo:inline>{if($node/@style[.="font-style:normal;"]) then attribute font-style {'normal'} else ()}{$node/text()}</fo:inline>
             
+             case element(tei:pb)
+              return
+              ' (fol. ' || string($node/@n) ||') '
               
+              case element(tei:cb)
+              return
+              ' (' || string($node/@n) ||') '
+
             case element(tei:gap)
                 
                 return
