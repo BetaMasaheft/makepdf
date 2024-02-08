@@ -630,7 +630,7 @@ if it does not fit to the page set the width attribute in the source file, as th
     else ()
     case element(tei:q)
         return
-            if ($node/text()) then
+            if ($node//text()) then
                 <fo:inline>
                     {
                         if ($node/@xml:lang) then
