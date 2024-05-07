@@ -1550,8 +1550,7 @@ case element(tei:cell)
 
 case element(tei:explicit)
     return
-        <fo:block
-            start-indent="10mm">
+      <fo:inline>
             {
                 if ($node/@xml:lang) then
                     fo:lang($node/@xml:lang)
@@ -1559,7 +1558,9 @@ case element(tei:explicit)
                     ()
             }
             {fo:tei2fo($node/node()[not(name() = 'locus')])}
-        </fo:block>
+        </fo:inline>
+        
+      
 case element(tei:colophon)
     return
         (<fo:block>
