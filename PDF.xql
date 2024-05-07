@@ -4439,10 +4439,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="blank"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+               margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"/>
@@ -4453,10 +4453,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="indexes-blank"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+                margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"/>
@@ -4467,10 +4467,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-Indexes-rest-odd"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+                margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"
@@ -4488,10 +4488,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-Indexes-rest-even"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+               margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"
@@ -4509,10 +4509,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-Indexes-first-even"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+               margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"
@@ -4527,10 +4527,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-Indexes-first-odd"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+                margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"
@@ -4547,10 +4547,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-chapter-first-odd"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+                margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     
                     margin-top="37.5pt"
@@ -4566,10 +4566,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-chapter-first-even"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+                margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"/>
@@ -4580,10 +4580,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-chapter-rest-odd"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+                margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"/>
@@ -4598,10 +4598,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-chapter-rest-even"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+                margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"/>
@@ -4642,10 +4642,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-chapter-first-odd"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+                margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     
                     margin-top="37.5pt"
@@ -4659,10 +4659,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-chapter-first-even"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+                margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"/>
@@ -4674,10 +4674,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-chapter-rest-odd"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+                margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"/>
@@ -4693,10 +4693,10 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-chapter-rest-even"
-                margin-top="45mm"
-                margin-bottom="53mm"
-                margin-left="45mm"
-                margin-right="45mm">
+                margin-top="34.5mm"
+                margin-bottom="49mm"
+                margin-left="40mm"
+                margin-right="40mm">
                 <fo:region-body
                     margin-top="37.5pt"
                     margin-bottom="37.5pt"/>
