@@ -3220,7 +3220,7 @@ declare function fo:binding($binding as element(tei:binding)) {
                 page-break-inside="avoid"
                 page-break-after="avoid">Binding</fo:block>
             {
-                for $bindingNote in $binding//tei:decoNote
+                for $bindingNote in $binding//tei:decoNote[not(@type="SewingStations")]
                 return
                     fo:tei2fo($bindingNote)
             }
@@ -3581,7 +3581,7 @@ if the element is not present nothing is done:)
                 fo:deco($element, $element/@xml:lang)
         case 'layout'
             return
-                fo:colophon($element)
+                fo:layout($element)
         case 'handDesc'
             return
                 fo:palaeography($element)
