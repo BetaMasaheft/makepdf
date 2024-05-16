@@ -3475,7 +3475,7 @@ declare function fo:msStructure($part, $p) {
             else
                 (),
             fo:contents(($part//tei:msContents)[1]),
-            fo:colophon($part),
+            
             if (($part//tei:additions)[1]) then
                 fo:additions(($part//tei:additions)[1])
             else
