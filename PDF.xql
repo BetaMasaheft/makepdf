@@ -3522,7 +3522,7 @@ declare function fo:condition($condition) {
             page-break-inside="avoid"
             page-break-after="avoid">Condition</fo:block>
         
-        <fo:block>{fo:tei2fo($condition/node())}</fo:block>
+        <fo:block>{'The condition is ' || string-join(string($condition/@key), ' ') || '.'}{fo:tei2fo($condition/node())}</fo:block>
     </fo:block>
 };
 
