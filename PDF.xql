@@ -360,6 +360,7 @@ year, CAe 5886
             else
                 $fullref
             let $record := fo:getFile($ref)//tei:TEI
+            let $firsttitle := $record//tei:titleStmt/tei:title[@xml:id = 't1']
             let $geeztitle := $record//tei:titleStmt/tei:title[@xml:lang = "gez"][@xml:id][not(@type)][1]
             let $gezid := '#' || string($geeztitle/@xml:id)
             let $maintitleEN := $record//tei:titleStmt/tei:title[@xml:lang = 'en'][1]   
@@ -375,15 +376,16 @@ year, CAe 5886
             string-join($maintitleEN/text(), ' ') || ': ' || $subtitle
             
             else
-            if ($geeztitle) then
-                (
-                if ($maintitleENgez) then
-                    string-join($maintitleENgez/text(), ' ') || ' (' || string-join($geeztitle/text(), ' ') || ')'
-                else
-                    '‘' || string-join($titleENgez/text(), ' ') || '’' || ' (' || string-join($geeztitle/text(), ' ') || ')'
-                )
+            
+            if  ($maintitleENgez) then string-join($maintitleENgez/text(), ' ')
+            
             else
-                string-join($titleENNOgez/text(), ' ')
+            if ($geeztitle) then
+                '‘' || string-join($titleENgez/text(), ' ') || '’' || ' (' || string-join($geeztitle/text(), ' ') || ')'
+                
+            else
+            if ($titleENNOgez) then
+                string-join($titleENNOgez/text(), ' ') else string-join($firsttitle/text(), ' ')
             return
             if (contains($fullref, '#')) then $TITSEL else
                 $TITSEL || $incomplete || ', CAe ' || substring($ref, 4, 4) || $tigrinya || '.'
