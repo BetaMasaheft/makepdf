@@ -1451,7 +1451,7 @@ case element(tei:msItem)
                 else
                     ()
             }
-            {
+                 {
                 if ($node/tei:explicit) then
                     <fo:block
                         start-indent="10mm">
@@ -1550,7 +1550,7 @@ case element(tei:cell)
 
 case element(tei:explicit)
     return
-      <fo:inline>
+          <fo:inline>
             {
                 if ($node/@xml:lang) then
                     fo:lang($node/@xml:lang)
@@ -1560,7 +1560,7 @@ case element(tei:explicit)
             {fo:tei2fo($node/node()[not(name() = 'locus')])}
         </fo:inline>
         
-      
+        
 case element(tei:colophon)
     return
         (<fo:block>
@@ -2716,6 +2716,84 @@ declare function fo:deco($decos as element(tei:decoDesc), $lang) {
 
 
 
+(:declare function fo:deco($decos as element(tei:decoDesc), $lang) {
+<fo:block font-style="italic" 
+space-after="3mm"  space-before="2mm"  
+page-break-inside="avoid" page-break-after="avoid">Decoration</fo:block>,
+       ( 
+       ( if($decos//tei:summary) then <fo:block margin-top="3mm" margin-bottom="3mm">{fo:tei2fo($decos/tei:summary)}</fo:block> 
+      else()),
+        
+  let $deconoteMin := $decos/tei:decoNote[@type='miniature']   return
+      <fo:block font-style="italic" space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Miniatures</fo:block>,
+  <fo:list-block
+        provisional-label-separation="1em"
+        provisional-distance-between-starts="2em">
+        {let $decoSele :=  $decos/tei:decoNote[@type='miniature']
+            for $deco in $decoSele
+            let $p := count($deco/preceding::tei:decoNote[@type='miniature']) +1
+            return
+                <fo:list-item
+                    space-after="2mm" >
+                    <fo:list-item-label>
+                        {attribute end-indent{"label-end()"}}
+                        <fo:block>{$p||')'}</fo:block>
+                    </fo:list-item-label>
+                    <fo:list-item-body>
+                        {attribute start-indent{"body-start()"}}
+                        {
+                        <fo:block>
+                        {if($deco/tei:locus) then (string-join(fo:tei2fo($deco/tei:locus))|| ': ') else ()} 
+                        {fo:tei2fo($deco/tei:desc)}
+                        {if($deco/tei:q) then (' Legend: ', 
+                        fo:tei2fo($deco/tei:q[@xml:lang='gez']),
+                        if($deco/tei:q[@xml:lang='en']) 
+                        then '‘'||string-join(fo:tei2fo($deco/tei:q[@xml:lang='en']))|| '’' 
+                        else())
+                         else ()}</fo:block>}
+                    </fo:list-item-body>
+                </fo:list-item>
+        
+        }
+    
+    </fo:list-block>,
+    
+    let $deconoteOrn := $decos/tei:decoNote[@type='ornamentation']   return
+    <fo:block font-style="italic" space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Headpieces</fo:block>,
+  <fo:list-block
+        provisional-label-separation="1em"
+        provisional-distance-between-starts="2em">
+        {let $decoSele :=  $decos/tei:decoNote[@type='ornamentation']
+            for $deco in $decoSele
+            let $p := count($deco/preceding::tei:decoNote[@type='ornamentation']) +1
+            return
+                <fo:list-item
+                    space-after="2mm" >
+                    <fo:list-item-label>
+                        {attribute end-indent{"label-end()"}}
+                        <fo:block>{$p||')'}</fo:block>
+                    </fo:list-item-label>
+                    <fo:list-item-body>
+                        {attribute start-indent{"body-start()"}}
+                        {
+                        <fo:block>
+                        {if($deco/tei:locus) then (string-join(fo:tei2fo($deco/tei:locus))|| ': ') else ()} 
+                        {fo:tei2fo($deco/tei:desc)}
+                        {if($deco/tei:q) then (' Legend: ', 
+                        fo:tei2fo($deco/tei:q[@xml:lang='gez']),
+                        if($deco/tei:q[@xml:lang='en']) 
+                        then '‘'||string-join(fo:tei2fo($deco/tei:q[@xml:lang='en']))|| '’' 
+                        else())
+                         else ()}</fo:block>}
+                    </fo:list-item-body>
+                </fo:list-item>
+        
+        }
+    
+    </fo:list-block>)
+    };:)
+    
+    
 declare function fo:collation($collation as element(tei:collation)) {
     if ($collation//tei:item or $collation//tei:note) then
         let $cq := count($collation//tei:item)
@@ -4439,7 +4517,7 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="blank"
-               margin-top="34.5mm"
+                margin-top="34.5mm"
                 margin-bottom="49mm"
                 margin-left="40mm"
                 margin-right="40mm">
@@ -4547,7 +4625,7 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-chapter-first-odd"
-                margin-top="34.5mm"
+               margin-top="34.5mm"
                 margin-bottom="49mm"
                 margin-left="40mm"
                 margin-right="40mm">
@@ -4642,7 +4720,7 @@ declare function fo:layoutmaster($type) {
                 page-height="297mm"
                 page-width="210mm"
                 master-name="Aethiopica-chapter-first-odd"
-                margin-top="34.5mm"
+               margin-top="34.5mm"
                 margin-bottom="49mm"
                 margin-left="40mm"
                 margin-right="40mm">
@@ -4951,3 +5029,4 @@ declare function fo:main() {
 
 
 fo:main()
+

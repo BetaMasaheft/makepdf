@@ -34,16 +34,19 @@
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
+                                        <String>catalogue2FO</String>
                                         <String>catalogue2PDF</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
                                     <list>
                                         <String>XML_XQUERY</String>
+                                        <String>XML_XQUERY</String>
                                     </list>
                                 </field>
                                 <field name="scenarioStorageLocations">
                                     <list>
+                                        <Byte>2</Byte>
                                         <Byte>2</Byte>
                                     </list>
                                 </field>

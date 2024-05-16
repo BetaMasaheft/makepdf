@@ -19,7 +19,7 @@
     
     <orderOfParts>
         <!--sets the presence or not of some standard bookmarks available in the PDF-->
-         <PDFbookmarks>yes</PDFbookmarks>
+        <PDFbookmarks>yes</PDFbookmarks>
         <!--the page with title and authors as cover-->
         <titlePage>yes</titlePage>
         <!--print the table of contents with all included parts-->
@@ -58,7 +58,7 @@
         <groupByRepository>yes</groupByRepository>
         <structure>extended</structure>
     </cataloguesSettings>
-<!--    if you are printing a catalogue, here you can decide in which order to
+    <!--    if you are printing a catalogue, here you can decide in which order to
     treat the different parts of your entry -->
     <catalogueEntries>
         <!--prints a header before the catalogue entry-->
@@ -101,7 +101,7 @@
     <contentsExceptions></contentsExceptions>
     <!--you can list here, separted by commas the types of additions (from the list of values allowed for the attribute on additions/item/@type) which you wish to exclude-->
     <additionsExceptions></additionsExceptions>
-<!--    if you set indexes above to yes, here you can decide which indexes to print
+    <!--    if you set indexes above to yes, here you can decide which indexes to print
     there can be more, and they can be better specified for selection and rendering, 
     ask for that.-->
     <indexes>
