@@ -452,6 +452,19 @@ declare function fo:figDesc2fo($nodes as node()*) {
                     $node
 };
 
+declare function fo:cb($node) {
+     let $pb := ($node/preceding-sibling::element())[1]
+     return <fo:inline vertical-align="super"
+                            font-size="8pt">{normalize-space($node/@n)}</fo:inline>
+};
+
+declare function fo:pb($node) {
+     let $cb := ($node/following-sibling::element())[1]/name() = 'cb'
+     return <fo:inline vertical-align="super"
+                            font-size="8pt">{
+normalize-space($node/@n)}</fo:inline>
+};
+
 declare function fo:tei2foSinRef($nodes as node()*) {
     for $node in $nodes
     return
@@ -467,11 +480,11 @@ declare function fo:tei2foSinRef($nodes as node()*) {
             
             case element(tei:pb)
                 return
-                    ' (fol. ' || string($node/@n) || ') '
+                   fo:pb($node)
             
             case element(tei:cb)
                 return
-                    ' (' || string($node/@n) || ') '
+                   fo:cb($node)
             
             case element(tei:gap)
                 
@@ -573,6 +586,7 @@ declare function fo:tei2foSinRef($nodes as node()*) {
 };
 
 
+
 declare function fo:tei2fo($nodes as node()*) {
     for $node in $nodes
     return
@@ -596,11 +610,11 @@ declare function fo:tei2fo($nodes as node()*) {
             
             case element(tei:pb)
                 return
-                    ' (fol. ' || string($node/@n) || ') '
+                   fo:pb($node)
             
-            case element(tei:cb)
+            case element(tei:cb)                 
                 return
-                    ' (' || string($node/@n) || ') '
+                    fo:cb($node)
             
             case element(tei:gap)
                 
@@ -814,7 +828,7 @@ if it does not fit to the page set the width attribute in the source file, as th
     case element(tei:seg)
         return
             if ($node/@part = 'I') then
-                ('Incipit: ', fo:tei2fo($node/node()))
+                ('Incipit: ', fo:tei2fo($node/node()), '...')
             else
                 if ($node/@type = 'script') then
                     fo:tei2fo($node/node())
