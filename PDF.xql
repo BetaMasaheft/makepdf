@@ -4962,14 +4962,14 @@ declare function fo:bibliographyb($r) {
 
 };
 
-declare function fo:maincontents(){
-for $r in $local:entries
+declare function fo:maincontents($r){
+for $rr in $local:entries
 return
 (<fo:page-sequence
             initial-page-number="auto-odd"
             master-reference="Aethiopica-master">
             {let $tl := fo:authorheader($r/ancestor::tei:teiCorpus/tei:teiHeader//tei:titleStmt/tei:author)
-            let $tr := $r//tei:msDesc/tei:msIdentifier/tei:idno[not(@xml:lang)]/text()
+            let $tr := $rr//tei:msDesc/tei:msIdentifier/tei:idno[not(@xml:lang)]/text()
             return fo:static($tr,$tl)}
          <fo:flow
                 flow-name="xsl-region-body"
@@ -4979,9 +4979,9 @@ return
                 text-align="justify"
                 hyphenate="true">
 <!-- CATALOGUE     -->            
-      {fo:msheader($r//tei:msDesc/tei:msIdentifier),
-                                        <fo:block text-align="center" space-before="2mm" space-after="3mm">{$r//tei:titleStmt/tei:title[not(@xml:lang)]/text()}</fo:block>,
-                               fo:SimpleMsStructure($r)
+      {fo:msheader($rr//tei:msDesc/tei:msIdentifier),
+                                        <fo:block text-align="center" space-before="2mm" space-after="3mm">{$rr//tei:titleStmt/tei:title[not(@xml:lang)]/text()}</fo:block>,
+                               fo:catalogue()
                                }
                   <!--  break  after Catalogue -->
                 <fo:block  page-break-after="always"/>
@@ -5030,7 +5030,7 @@ declare function fo:main() {
                                     fo:bibliographyb($r)
                             case 'catalogue'
                                 return
-                                    fo:maincontents()
+                                    fo:maincontents($r)
                             case 'indexes'
                                 return
                                     fo:indexes()
@@ -5047,3 +5047,4 @@ declare function fo:main() {
 
 
 fo:main()
+
