@@ -4960,30 +4960,31 @@ declare function fo:bibliographyb($r) {
 
 };
 
-declare function fo:maincontents($r) {
-    <fo:page-sequence
-        initial-page-number="auto-odd"
-        master-reference="Aethiopica-master">
-        {
-            let $tr := fo:authorheader($r/tei:teiHeader//tei:titleStmt/tei:author)
-            let $tl := 'Catalogue'
-            return
-                fo:static($tr, $tl)
-        }
-        <fo:flow
-            flow-name="xsl-region-body"
-            font-size="10.5pt"
-            line-height="12.5pt"
-            font-family="Ludolfus"
-            text-align="justify"
-            hyphenate="true">
-            <!-- CATALOGUE     -->
-            {fo:catalogue()}
-            <!--  break  after Catalogue -->
-            <fo:block
-                page-break-after="always"/>
-        </fo:flow>
-    </fo:page-sequence>
+declare function fo:maincontents(){
+for $r in $local:entries
+return
+(<fo:page-sequence
+            initial-page-number="auto-odd"
+            master-reference="Aethiopica-master">
+            {let $tl := fo:authorheader($r/ancestor::tei:teiCorpus/tei:teiHeader//tei:titleStmt/tei:author)
+            let $tr := $r//tei:msDesc/tei:msIdentifier/tei:idno[not(@xml:lang)]/text()
+            return fo:static($tr,$tl)}
+         <fo:flow
+                flow-name="xsl-region-body"
+                font-size="10.5pt"
+                line-height="12.5pt"
+                font-family="Ludolfus"
+                text-align="justify"
+                hyphenate="true">
+<!-- CATALOGUE     -->            
+      {fo:msheader($r//tei:msDesc/tei:msIdentifier),
+                                        <fo:block text-align="center" space-before="2mm" space-after="3mm">{$r//tei:titleStmt/tei:title[not(@xml:lang)]/text()}</fo:block>,
+                               fo:SimpleMsStructure($r)
+                               }
+                  <!--  break  after Catalogue -->
+                <fo:block  page-break-after="always"/>
+            </fo:flow>
+        </fo:page-sequence> )
 };
 
 
@@ -5027,7 +5028,7 @@ declare function fo:main() {
                                     fo:bibliographyb($r)
                             case 'catalogue'
                                 return
-                                    fo:maincontents($r)
+                                    fo:maincontents()
                             case 'indexes'
                                 return
                                     fo:indexes()
@@ -5044,4 +5045,3 @@ declare function fo:main() {
 
 
 fo:main()
-
