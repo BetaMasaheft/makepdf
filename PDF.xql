@@ -4909,8 +4909,8 @@ declare function fo:introduction($r) {
         master-reference="Aethiopica-master"
         format="i">
         {
-            let $tr := fo:authorheader($r//tei:titleStmt/tei:author)
-            let $tl := 'Introduction'
+            let $tl := fo:authorheader($r//tei:titleStmt/tei:author)
+            let $tr := 'Introduction'
             return
                 fo:static($tr, $tl)
         }
@@ -4938,8 +4938,8 @@ declare function fo:bibliographyb($r) {
         master-reference="Aethiopica-master"
         format="i">
         {
-            let $tr := fo:authorheader($r//tei:titleStmt/tei:author)
-            let $tl := 'Bibliography'
+            let $tl := fo:authorheader($r//tei:titleStmt/tei:author)
+            let $tr := 'Bibliography'
             return
                 fo:static($tr, $tl)
         }
