@@ -2835,6 +2835,14 @@ declare function fo:collation($collation as element(tei:collation)) {
                 space-before="2mm"
                 page-break-inside="avoid"
                 page-break-after="avoid">Quire structure</fo:block>,
+            if ($collation/tei:note) then
+                    <fo:block>
+                        {
+                            for $i in $collation/tei:note
+                            return
+                                fo:tei2fo($i/node())
+                        }</fo:block>
+               else (),
             if ($collation/ancestor::tei:msPart//tei:signatures)
             then
                 <fo:block
