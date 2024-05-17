@@ -2660,80 +2660,25 @@ declare function fo:deco($decos as element(tei:decoDesc), $lang) {
                 margin-bottom="3mm" white-space-collapse="true">{fo:tei2fo($decos/tei:summary)}</fo:block>
         else
             ()),
-    <fo:list-block
+    <fo:block
         provisional-label-separation="1em"
         provisional-distance-between-starts="2em">
         {
-            if ($lang = 'ar') then
-                fo:lang('ar')
-            else
-                ()
-        }
-        {
             
-            let $decoSele := if ($lang = 'ar') then
-                $decos/tei:decoNote[descendant::tei:*[@xml:lang = 'ar']]
-            else
-                $decos/tei:decoNote[not(@xml:lang = 'ar')]
+            let $decoSele := $decos/tei:decoNote[not(@xml:lang = 'ar')]
             for $deco in $decoSele
             let $p := count($deco/preceding::tei:decoNote) + 1
             return
-                <fo:list-item
-                    space-after="2mm">
-                    <fo:list-item-label>
-                        {
-                            if ($lang = 'ar') then
-                                ()
-                            else
-                                attribute end-indent {"label-end()"}
-                        }
-                        <fo:block>{
-                                if ($lang = 'ar') then
-                                    ()
-                                else
-                                    $p || ')'
-                            }</fo:block>
-                    </fo:list-item-label>
-                    <fo:list-item-body>
-                        {
-                            if ($lang = 'ar') then
-                                ()
-                            else
-                                attribute start-indent {"body-start()"}
-                        }
-                        {
-                            if ($lang = 'ar') then
-                                <fo:block>
-                                    {fo:lang('ar')}
-                                    {fo:tei2fo($deco/tei:desc[@xml:lang = $lang])}
-                                    {
-                                        if ($deco/tei:q[@xml:lang = $lang])
-                                        then
-                                            (<fo:block
-                                                line-height="12.5pt"
-                                                baseline-shift="baseline"
-                                                font-family="Ludolfus"
-                                                letter-spacing="0.5pt"
-                                                font-size="10.5pt">
-                                                {fo:tei2foSinRef($deco/tei:q[@xml:lang = 'gez']/node())}
-                                            </fo:block>,
-                                            '"',
-                                            fo:tei2foSinRef($deco/tei:q[@xml:lang = $lang]),
-                                            '"'
-                                            )
-                                        else
-                                            ()
-                                    }</fo:block>
-                            else
-                                <fo:block>
-                                    {
-                                        if ($deco/tei:locus) then
+                
+                        <fo:inline>
+                        {'(' || $p || ') '}
+                        {if ($deco/tei:locus) then
                                             (string-join(fo:tei2fo($deco/tei:locus)) || ': ')
                                         else
                                             ()
                                     }
-                                    {fo:tei2fo($deco/tei:desc)}
-                                    {
+                          {fo:tei2fo($deco/tei:desc)}
+                          {
                                         if ($deco/tei:q) then
                                             (' Legend: ',
                                             fo:tei2fo($deco/tei:q[@xml:lang = 'gez']),
@@ -2744,13 +2689,11 @@ declare function fo:deco($decos as element(tei:decoDesc), $lang) {
                                                 ())
                                         else
                                             ()
-                                    }</fo:block>
-                        }
-                    </fo:list-item-body>
-                </fo:list-item>
-        }
+                                          
+                                    }</fo:inline>
+                       }
     
-    </fo:list-block>)
+    </fo:block>)
 };
 
 
