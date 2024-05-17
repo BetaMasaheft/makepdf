@@ -1421,7 +1421,8 @@ case element(tei:locus)
             $value
         ,
         if ((($node/following-sibling::element())[not(@xml:lang = 'ar')][1]/name() = 'locus') and
-        not(contains($node/following-sibling::node()[1], ' and'))) then
+        not(contains($node/following-sibling::node()[1], ' and')) and not(contains($node/following-sibling::node()[1], '.')) and
+        not(contains($node/following-sibling::node()[1], ')')) ) then
             ', '
         else
             ()
