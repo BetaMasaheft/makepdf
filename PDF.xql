@@ -839,7 +839,7 @@ if it does not fit to the page set the width attribute in the source file, as th
     case element(tei:seg)
         return
             if ($node/@part = 'I') then
-                ('Incipit: ', fo:tei2fo($node/node()), '...')
+                ('Incipit: ', fo:tei2fo($node/node()), '... ')
             else
                 if ($node/@type = 'script') then
                     fo:tei2fo($node/node())
@@ -1508,6 +1508,18 @@ case element(tei:msItem)
                 else
                     ()
             }
+             {
+               if ($node/tei:notatedMusic) then
+                    <fo:block
+                        start-indent="10mm">
+                        {
+                            for $i in $node/tei:notatedMusic/tei:desc
+                            return
+                                fo:tei2fo($i)
+                        }</fo:block>
+                else
+                    ()
+            }            
         </fo:block>,
         for $m in $node/tei:msItem
             order by count($m/preceding-sibling::tei:msItem)
@@ -3326,7 +3338,7 @@ declare function fo:palaeography($handDesc as element(tei:handDesc)) {
 declare function fo:other($part) {
     if ($part//tei:binding//tei:decoNote[descendant::tei:term[@key = 'leafStringMark']]
     or $part//tei:support/tei:p
-    or $part//tei:notatedMusic
+    or $part//tei:musicNotation
     or $part//tei:layout//tei:ab[@type = 'ruling'][not(@subtype)][contains(., 'misṭāra')]) then
         <fo:block
             space-before="2mm" white-space-collapse="true">
@@ -3346,7 +3358,7 @@ declare function fo:other($part) {
                     <fo:block>{fo:tei2fo($supportP/node())}</fo:block>
             }
             {
-                let $mN := $part//tei:musicalNotation
+                let $mN := $part//tei:musicNotation
                 return
                     <fo:block>{fo:tei2fo($mN/node())}</fo:block>
             }
