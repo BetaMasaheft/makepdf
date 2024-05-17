@@ -1337,6 +1337,10 @@ case element(tei:locus)
                 then
                     'f'
                 else
+                if (matches($clean, 'e.g.'))
+                then
+                    'f'
+                else
                     'F'
         else
             'F'
