@@ -228,15 +228,12 @@ declare function fo:entitiesWithRef($node) {
             id="{$attid}">{
                 if ($node/@target and not($node/text())) then
                     (if (starts-with($node/@target, '#')) then
-                        <fo:basic-link
-                            internal-destination="{$n}">{$n}</fo:basic-link>
+                        $n
                     else
-                        <fo:basic-link
-                            external-destination="{$node/@target}"></fo:basic-link>)
+                       ())
                 else
                     if ($node/@target and $node/text()) then
-                        <fo:basic-link
-                            external-destination="{$node/@target}">{fo:tei2fo($node/text())}</fo:basic-link>
+                        fo:tei2fo($node/text())
                     else
                         if ($node/@ref and $node/text()) then
                             fo:tei2fo($node/node())
@@ -267,8 +264,7 @@ declare function fo:entitiesWithRef($node) {
                                     else
                                         fo:printTitleID($node/@ref)
                                     return
-                                        <fo:basic-link
-                                            external-destination="{$r}">{$t}</fo:basic-link>
+                                        $t
                                 else
                                     'no title provided'
             }</fo:inline>
@@ -280,15 +276,12 @@ declare function fo:entitiesWithRefNoID($node) {
         <fo:inline>{
                 if ($node/@target and not($node/text())) then
                     if (starts-with($node/@target, '#')) then
-                        <fo:basic-link
-                            internal-destination="{$n}">{$n}</fo:basic-link>
+                        $n
                     else
-                        <fo:basic-link
-                            external-destination="{$node/@target}"></fo:basic-link>
+                      $node/@target
                 else
                     if ($node/@target and $node/text()) then
-                        <fo:basic-link
-                            external-destination="{$node/@target}">{fo:tei2fo($node/text())}</fo:basic-link>
+                        fo:tei2fo($node/text())
                     else
                         if ($node/@ref and $node/text()) then
                             fo:tei2fo($node/node())
@@ -319,8 +312,7 @@ declare function fo:entitiesWithRefNoID($node) {
                                     else
                                         fo:printTitleID($node/@ref)
                                     return
-                                        <fo:basic-link
-                                            external-destination="{$r}">{$t}</fo:basic-link>
+                                        $t
                                 else
                                     'no title provided'
             }</fo:inline>
@@ -1108,8 +1100,7 @@ case element(tei:l)
             vertical-align="super"
             font-size="8pt">{
                 if ($node/tei:ref) then
-                    <fo:basic-link
-                        external-destination="{string($node/tei:ref/@target)}">{string($node/@n)}</fo:basic-link>
+                    string($node/@n)
                 else
                     string($node/@n)
             }</fo:inline>,
@@ -1200,8 +1191,7 @@ case element(tei:bibl)
         let $rootid := string(root($node)/tei:TEI/@xml:id)
         let $bibid := string($node/tei:ptr/@target)
         return
-            <fo:basic-link
-                internal-destination="{replace($bibid, ':', '_')}"><fo:inline
+            <fo:inline
                     id="{$rootid}{generate-id($node/tei:ptr)}{replace($bibid, ':', '_')}">
                     {
                         fo:zoteroCit($node/tei:ptr/@target)
@@ -1230,7 +1220,7 @@ case element(tei:bibl)
                             string-join($citRanges, ' '))
                     else
                         ()
-                }</fo:inline></fo:basic-link>
+                }</fo:inline>
 
 case element(tei:head)
     return
@@ -1828,16 +1818,14 @@ case element(tei:ref)
                                                 let $pointerid := string(root($nodePointer)/tei:TEI/@xml:id) || string($node/@target)
                                                 return
                                                     ('p. ',
-                                                    <fo:basic-link
-                                                        internal-destination="{$pointerid}"><fo:page-number-citation
-                                                            ref-id="{$pointerid}"/></fo:basic-link>)
+                                                    <fo:page-number-citation
+                                                            ref-id="{$pointerid}"/>)
                                                 )
                                         case 'ins'
                                             return
-                                                <fo:basic-link
-                                                    external-destination="https://betamasaheft.eu/{$node/@cRef}"><fo:inline
-                                                        id="{string(root($node)/tei:TEI/@xml:id)}{generate-id($node)}ins">{$node/text()}</fo:inline></fo:basic-link>
-                                        case 'BM'
+                                                <fo:inline
+                                                        id="{string(root($node)/tei:TEI/@xml:id)}{generate-id($node)}ins">{$node/text()}</fo:inline>
+                                         case 'BM'
                                             return
                                                 <fo:basic-link
                                                     external-destination="https://betamasaheft.eu/{$node/@target}">CAe {substring($node/text(), 4, 4)}, ID: {$node/text()}</fo:basic-link>
@@ -1860,8 +1848,7 @@ case element(tei:ref)
                                                     ('Fig. ' || (count($figure/preceding::tei:graphic) + 1)))
                                         case 'work'
                                             return
-                                                <fo:basic-link
-                                                    external-destination="https://betamasaheft.eu/{$node/@corresp}">{fo:titleSelector($node/@corresp)}</fo:basic-link>
+                                                fo:titleSelector($node/@corresp)
                                         default return
                                             string($node/@target)
                             }
@@ -1883,14 +1870,12 @@ case element(tei:ref)
                                         replace($target, '\s\([a-zA-Z0-9\-_\.\s]+\)', '')
                                 else
                                     (:     if the url is too long, add here and there              &#x200b;   and it will break there if needed  :)
-                                    <fo:basic-link
-                                        external-destination="{string($node/@target)}"
-                                        hyphenate="false">&lt;{
+                                    
                                             if ($node/text()) then
                                                 $node/text()
                                             else
                                                 string($node/@target)
-                                        }&gt;</fo:basic-link>
+                                        
 
 
 
@@ -4948,11 +4933,9 @@ declare function fo:bibliography($r) {
                                 return
                                     (:            If the place in the code where the citation occurs is not printed in the 
        manuscript record, this will remain empty and show up as a "blank line" in the output. This will be always the case for listBibl elements not printed from included manuscript records, hence the above limitation :)
-                                    <fo:basic-link
-                                        internal-destination="{$bid}">
+                                    
                                         <fo:page-number-citation
-                                            ref-id="{$bid}"/>
-                                    </fo:basic-link>
+                                            ref-id="{$bid}"/>                                    
                             }
                         
                         </fo:block>
