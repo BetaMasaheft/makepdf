@@ -3313,6 +3313,20 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                                         else
                                             string($l/@writtenLines)
                                     } written lines){fo:tei2fo($l/tei:p)}</fo:block>
+                                      {
+                if ($l/tei:note) then
+                    <fo:block
+                        start-indent="10mm"
+                        space-before="3mm"
+                        space-after="3mm">
+                        {
+                            for $i in $l/tei:note
+                            return
+                                fo:tei2fo($i/node())
+                        }</fo:block>
+                else
+                    ()
+            }
                                 {
                                     if ($l/tei:dimensions[not(@type)]) then
                                         <fo:block
