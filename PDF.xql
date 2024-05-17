@@ -113,6 +113,25 @@ declare function functx:index-of-string($arg as xs:string?, $substring as xs:str
         ()
 };
 
+declare function functx:repeat-string 
+  ( $stringToRepeat as xs:string? ,
+    $count as xs:integer )  as xs:string {
+
+   string-join((for $i in 1 to $count return $stringToRepeat),
+                        '')
+ } ;
+declare function functx:pad-integer-to-length 
+  ( $integerToPad as xs:anyAtomicType? ,
+    $length as xs:integer )  as xs:string {
+
+   if ($length < string-length(string($integerToPad)))
+   then error(xs:QName('functx:Integer_Longer_Than_Length'))
+   else concat
+         (functx:repeat-string(
+            '0',$length - string-length(string($integerToPad))),
+          string($integerToPad))
+ } ;
+
 
 declare function functx:index-of-node($nodes as node()*,
 $nodeToFind as node()) as xs:integer* {
@@ -2861,7 +2880,9 @@ declare function fo:collation($collation as element(tei:collation)) {
                         's'
                 }. {
                     let $quires := for $q at $p in $collation//tei:item
-                        order by $q/@xml:id
+                    let $number := substring-after($q/xml:id, 'q')
+                    let $num := functx:pad-integer-to-length($number, 3)
+                        order by $num ascending
                     return
                         (: e.g. DSEthiop1
                 I10(fols. 1-10) – II10(fols. 11-20) – 
