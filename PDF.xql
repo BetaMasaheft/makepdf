@@ -1407,7 +1407,10 @@ case element(tei:locus)
             $value
         ,
         if ((($node/following-sibling::element())[not(@xml:lang = 'ar')][1]/name() = 'locus') and
-        not(contains($node/following-sibling::node()[1], ' and')) and not(contains($node/following-sibling::node()[1], '.')) and
+        not(contains($node/following-sibling::node()[1], ' and')) and not(contains($node/following-sibling::node()[1], '.')) and  
+         not(contains($node/following-sibling::node()[1], 'stub'))  and
+         not(contains($node/following-sibling::node()[1], 'after'))  and
+         not(contains($node/following-sibling::node()[1], 'before'))  and
         not(contains($node/following-sibling::node()[1], ')')) ) then
             ', '
         else
@@ -2900,31 +2903,16 @@ declare function fo:collation($collation as element(tei:collation)) {
                                         return
                                             (
                                             $dim ||
-                                            ' (' || (if (matches(string-join($q/text()[preceding::tei:locus]), '[a-z]+'))
-                                            then
-                                                (
-                                                let $cleanup := replace(normalize-space(string-join($q/text())), 'stub before \d+\s?', '')
-                                                => replace('stub after \d+\s?', '') => replace(' s.l.', ', ')
-                                                => replace('[\s,]+$', '')
-                                                let $string := if (string-length($cleanup) ge 1) then
-                                                    (
-                                                    if (starts-with($cleanup, 's.l.')) then
-                                                        $cleanup
-                                                    else
-                                                        's.l. ' || $cleanup)
-                                                else
-                                                    ()
-                                                let $bar := if (string-length($string) ge 1) then
-                                                    '/'
-                                                else
-                                                    ()
-                                                return
-                                                    $string || $bar)
-                                            else
-                                                ())
+                                            ' ('  
                                             ||
-                                            fo:locustext($q/tei:locus)
-                                            || ')'
+                                            string-join(fo:tei2fo($q/tei:locus[1]))
+                                            || 
+                   (:                      (if(matches(string-join($q/text()[preceding::tei:locus]), '[a-z]+')) 
+                            then (
+                          '/ ' ||   string-join(fo:tei2fo($q/text()[preceding::tei:locus])))
+                            else ())  
+                                            ||:)
+                                            ')'
                                             )
                                     }</fo:inline>
                             </desc>
