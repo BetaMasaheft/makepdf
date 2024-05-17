@@ -3296,6 +3296,19 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                         </fo:list-item>
                 }</fo:list-block>
         </fo:block>,
+        
+ if ($layoutDesc//tei:layout//tei:ab[@type='punctuation']) then
+            <fo:block
+                space-before="2mm">
+                <fo:block
+                    font-style="italic">Punctuation</fo:block>
+                <fo:block>
+                    {fo:tei2fo($layoutDesc//tei:layout//tei:ab[@type='punctuation'])}</fo:block>
+            </fo:block>
+        else
+            (),
+        
+        
         if ($layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][@subtype = 'pattern'] and
         $layoutDesc/ancestor::tei:TEI//tei:support//tei:material[@key != 'paper']) then
             <fo:block
