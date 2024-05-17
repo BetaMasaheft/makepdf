@@ -3439,11 +3439,31 @@ declare function fo:history($h) {
                 space-after="3mm"
                 page-break-inside="avoid"
                 page-break-after="avoid">History</fo:block>
-            {
-                for $his at $p in $h
-                return
-                    <fo:block>{fo:tei2fo($his/node()[not((self::tei:origDate and not(text())))][not(@xml:lang = "ar")])}</fo:block>
-            }
+                
+
+             {if ($h/tei:origin) then 
+             <fo:block>{fo:tei2fo($h/tei:origin[not(@xml:lang = "ar")])}
+             {if ($h//tei:origDate) then 
+                                        if ($h//tei:origDate/@evidence = 'lettering') then ('Dated palaeographically. ' || fo:tei2fo($h//tei:origDate)) else 
+                                         if ($h//tei:origDate/@evidence = 'internal') then ('Dated by internal evidence. ' || fo:tei2fo($h//tei:origDate)) else
+                                        if ($h//tei:origDate/@evidence = 'internal-date') then ('Dated. ' || fo:tei2fo($h//tei:origDate)) else
+                    () 
+                    else ()}</fo:block>
+                    else ()
+             
+              }          
+            {if ($h/tei:provenance) then 
+             <fo:block>{fo:tei2fo($h/tei:provenance)}
+             </fo:block>
+                    else ()
+             
+              } 
+               {if ($h/tei:acquisition) then 
+             <fo:block>{fo:tei2fo($h/tei:acquisition)}
+             </fo:block>
+                    else ()
+             
+              } 
         </fo:block>
     else
         ()
