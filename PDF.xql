@@ -2679,7 +2679,7 @@ declare function fo:deco($decos as element(tei:decoDesc), $lang) {
             
             let $decoSele := $decos/tei:decoNote[not(@xml:lang = 'ar')]
             for $deco in $decoSele
-            let $p := count($deco/preceding::tei:decoNote) + 1
+            let $p := string(substring-after($deco/@xml:id, 'd')) 
             return
                 
                         <fo:inline>
