@@ -1297,12 +1297,12 @@ case element(tei:ab)
             (<fo:block
                 font-size="1.2em"
                 space-before="2mm"
-                space-after="3mm">{functx:capitalize-first(string($node/@type))}</fo:block>,
+                space-after="3mm" white-space-collapse="true">{functx:capitalize-first(string($node/@type))}</fo:block>,
             <fo:block>{fo:tei2fo($node/node())}</fo:block>)
         
         else
             if ($node/@type = 'history') then
-                <fo:block>{fo:tei2fo($node/node())}</fo:block>
+                <fo:block white-space-collapse="true">{fo:tei2fo($node/node())}</fo:block>
             else
                 <fo:block
                     linefeed-treatment="preserve">{fo:tei2fo($node/node()[not(name() = 'title')])}</fo:block>
@@ -2554,7 +2554,7 @@ declare function fo:additions($additions as element(tei:additions)) {
                             page-break-after="avoid">Additional notes</fo:block>,
                         <fo:list-block
                             provisional-label-separation="1em"
-                            provisional-distance-between-starts="2em">
+                            provisional-distance-between-starts="2em" white-space-collapse="true">
                             {
                                 for $addition in $additions//tei:item[starts-with(@xml:id, 'a')]
                                 return
@@ -2605,7 +2605,7 @@ declare function fo:additions($additions as element(tei:additions)) {
                             page-break-after="avoid">Varia</fo:block>,
                         <fo:list-block
                             provisional-label-separation="1em"
-                            provisional-distance-between-starts="2em">
+                            provisional-distance-between-starts="2em" white-space-collapse="true">
                             {
                                 for $addition in $additions//tei:item[starts-with(@xml:id, 'e')]
                                 return
@@ -2668,7 +2668,7 @@ declare function fo:deco($decos as element(tei:decoDesc), $lang) {
         (if ($decos//tei:summary) then
             <fo:block
                 margin-top="3mm"
-                margin-bottom="3mm">{fo:tei2fo($decos/tei:summary)}</fo:block>
+                margin-bottom="3mm" white-space-collapse="true">{fo:tei2fo($decos/tei:summary)}</fo:block>
         else
             ()),
     <fo:list-block
@@ -2855,7 +2855,7 @@ declare function fo:collation($collation as element(tei:collation)) {
                 page-break-inside="avoid"
                 page-break-after="avoid">Quire structure</fo:block>,
             if ($collation/tei:note) then
-                    <fo:block>
+                    <fo:block white-space-collapse="true">
                         {
                             for $i in $collation/tei:note
                             return
@@ -3202,7 +3202,7 @@ declare function fo:intro($part, $lang) {
 
 declare function fo:contents($contents) {
     <fo:block
-        space-before="2mm">
+        space-before="2mm" white-space-collapse="true">
         <fo:block
             font-style="italic"
             space-after="3mm"
@@ -3221,7 +3221,7 @@ declare function fo:contents($contents) {
 declare function fo:colophon($part) {
     if ($part//tei:colophon) then
         <fo:block
-            space-before="2mm">
+            space-before="2mm" white-space-collapse="true">
             <fo:block
                 font-style="italic"
                 space-after="3mm"
@@ -3256,7 +3256,7 @@ declare function fo:colophon($part) {
 declare function fo:binding($binding as element(tei:binding)) {
     if ($binding[descendant::tei:decoNote[@xml:id = 'b1']]) then
         <fo:block
-            space-before="2mm">
+            space-before="2mm" white-space-collapse="true">
             <fo:block
                 font-style="italic"
                 space-after="3mm"
@@ -3276,7 +3276,7 @@ declare function fo:binding($binding as element(tei:binding)) {
 declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
     if ($layoutDesc//tei:layout) then
         (<fo:block
-            space-before="2mm">
+            space-before="2mm" white-space-collapse="true">
             <fo:block
                 font-style="italic"
                 space-after="3mm"
@@ -3391,7 +3391,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
 declare function fo:palaeography($handDesc as element(tei:handDesc)) {
     if ($handDesc//tei:handNote) then
         <fo:block
-            space-before="2mm">
+            space-before="2mm" white-space-collapse="true">
             <fo:block
                 font-style="italic"
                 space-after="3mm"
@@ -3412,7 +3412,7 @@ declare function fo:other($part) {
     or $part//tei:notatedMusic
     or $part//tei:layout//tei:ab[@type = 'ruling'][not(@subtype)][contains(., 'misṭāra')]) then
         <fo:block
-            space-before="2mm">
+            space-before="2mm" white-space-collapse="true">
             <fo:block
                 font-style="italic"
                 space-after="3mm"
@@ -3446,7 +3446,7 @@ declare function fo:other($part) {
 declare function fo:history($h) {
     if ($h/node()) then
         <fo:block
-            space-before="2mm">
+            space-before="2mm" white-space-collapse="true">
             <fo:block
                 font-style="italic"
                 space-after="3mm"
@@ -3489,7 +3489,7 @@ declare function fo:msStructure($part, $p) {
         (
         <fo:block
             space-before="2mm"
-            space-after="3mm">
+            space-after="3mm" white-space-collapse="true">
             {
                 if ($partType = '') then
                     attribute id {$part/ancestor::tei:TEI/@xml:id}
@@ -3572,7 +3572,7 @@ declare function fo:msStructure($part, $p) {
 
 declare function fo:condition($condition) {
     <fo:block
-        space-before="2mm">
+        space-before="2mm" white-space-collapse="true">
         <fo:block
             font-style="italic"
             space-after="3mm"
@@ -3702,7 +3702,7 @@ declare function fo:SimpleMsstructureelements($part) {
 declare function fo:SimpleMsStructure($file) {
     <fo:block
         space-before="2mm"
-        space-after="3mm">
+        space-after="3mm" white-space-collapse="true">
         {fo:tei2fo($file/tei:sourceDesc/node()[not(self::tei:msDesc)])}
     </fo:block>,
     let $msDesc := $file//tei:msDesc
@@ -3719,7 +3719,7 @@ declare function fo:SimpleMsStructureParts($part) {
     (
     <fo:block
         space-before="2mm"
-        space-after="3mm">
+        space-after="3mm" white-space-collapse="true">
         Part {string($part/@xml:id)}
     </fo:block>,
     fo:SimpleMsstructureelements($part)
