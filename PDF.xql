@@ -3261,7 +3261,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                                         <fo:block
                                             start-indent="10mm"
                                             space-before="3mm"
-                                            space-after="3mm">text area
+                                            space-after="3mm">Text area
                                             {
                                                 let $dim := $l/tei:dimensions[not(@type)]
                                                 return
@@ -3275,6 +3275,23 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                                     else
                                         ()
                                 }
+                               
+                                {
+                                    if ($l/tei:dimensions[@type='margin']) then
+                                        <fo:block
+                                            start-indent="10mm"
+                                            space-before="3mm"
+                                            space-after="3mm">Margins 
+                                            {
+                                                let $dim := $l/tei:dimensions[@type='margin']
+                                                return
+                                                  '(' ||  string-join($dim/node()/@type, ', ') || '): '|| string-join($dim/node()/text(), ', ') || string($dim/@unit)
+                                            }
+                                            </fo:block>
+                                    else
+                                        ()
+                                }
+                               
                             </fo:list-item-body>
                         </fo:list-item>
                 }</fo:list-block>
