@@ -3324,8 +3324,8 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                         return
                             <fo:list-item>
                                 <fo:list-item-label
-                                    end-indent="label-end()">
-                                    <fo:block>{count($rulprick/preceding::tei:ab[@type = 'pricking' or @type = 'ruling'][@subtype = 'pattern']) + 1})</fo:block>
+                                    end-indent="label-end()">{if (count($rulprick) gt 1) then 
+                                    <fo:block>{count($rulprick/preceding::tei:ab[@type = 'pricking' or @type = 'ruling'][@subtype = 'pattern']) + 1})</fo:block>else ()}
                                 </fo:list-item-label>
                                 <fo:list-item-body
                                     start-indent="body-start()">
@@ -3336,6 +3336,34 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                                                 ()
                                         }
                                         {normalize-space(replace(string-join($rulprick/text(), ' '), ' Ruling pattern:', ''))}</fo:block>
+                                </fo:list-item-body>
+                            </fo:list-item>
+                    }</fo:list-block>
+            </fo:block>
+        else
+            (),
+            
+        if ($layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][not(@subtype = 'pattern')]) then
+            <fo:block
+                space-before="2mm">
+                <fo:block
+                    font-style="italic"
+                    space-after="3mm">Pricking and ruling</fo:block>
+                <fo:list-block
+                    provisional-label-separation="1em"
+                    provisional-distance-between-starts="2em">
+                    {
+                        for $rulprick in $layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][not(@subtype = 'pattern')]
+                        return
+                            <fo:list-item>
+                                <fo:list-item-label
+                                    end-indent="label-end()">
+                                    <fo:block>-</fo:block>
+                                </fo:list-item-label>
+                                <fo:list-item-body
+                                    start-indent="body-start()">
+                                    <fo:block>
+                                        {normalize-space(string-join($rulprick/text(), ' '))}</fo:block>
                                 </fo:list-item-body>
                             </fo:list-item>
                     }</fo:list-block>
