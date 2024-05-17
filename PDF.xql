@@ -571,7 +571,7 @@ declare function fo:tei2foSinRef($nodes as node()*) {
                                     <fo:inline
                                         font-size="0.75em">{upper-case(fo:tei2fo($node/text()))}</fo:inline>
                             default return
-                                <fo:inline>{fo:tei2fo($node/node())}</fo:inline>
+                                fo:tei2fo($node/node())
                 else
                     fo:tei2fo($node/node())
     case element(tei:certainty)
@@ -1191,14 +1191,8 @@ case element(tei:bibl)
         let $rootid := string(root($node)/tei:TEI/@xml:id)
         let $bibid := string($node/tei:ptr/@target)
         return
-            <fo:inline
-                    id="{$rootid}{generate-id($node/tei:ptr)}{replace($bibid, ':', '_')}">
-                    {
-                        fo:zoteroCit($node/tei:ptr/@target)
-                    }
-                    {
-                    if ($node/tei:citedRange) then
-                            ', ' || (let $citRanges := for $cR in $node/tei:citedRange
+                 if ($node/tei:citedRange) then
+                           (let $citRanges := for $cR in $node/tei:citedRange
                             let $unit := switch ($cR/@unit)
                                 case 'paragraph'
                                     return
@@ -1217,10 +1211,10 @@ case element(tei:bibl)
                         return
                             concat($unit, replace($cR/text(), '-', '–'))
                         return
-                            string-join($citRanges, ' '))
+                            concat(fo:zoteroCit($node/tei:ptr/@target), ', ', string-join($citRanges, ' ')))
                     else
-                        ()
-                }</fo:inline>
+                        fo:zoteroCit($node/tei:ptr/@target)
+                
 
 case element(tei:head)
     return
