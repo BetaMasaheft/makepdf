@@ -3042,6 +3042,14 @@ declare function fo:dimensions($part, $lang) {
             ()
 };
 
+declare function fo:weight($part, $lang){
+if ($part//tei:measure[@type = 'weight']) then
+                ' (weight: ' ||
+            string($part//tei:measure[@type = 'weight']/node()) || string($part//tei:measure[@type = 'weight']/@unit) || ')'
+        else
+            ()
+};
+
 declare function fo:origDate($part, $lang) {
     let $od := if ($lang = 'ar')
     then
@@ -3060,7 +3068,7 @@ declare function fo:intro($part, $lang) {
         (
         let $material := fo:ms($part, $lang)
         let $form := ' ' || lower-case(($part//tei:objectDesc/@form)[1]) || ', composite'
-        let $dimensions := fo:dimensions($part, $lang) || ', '
+        let $dimensions := fo:dimensions($part, $lang) || fo:weight($part, $lang) || ', '
         let $folios := for $f in fo:folios($part, $lang)
         return
             $f || (if ($lang = 'ar') then
@@ -3118,7 +3126,7 @@ declare function fo:intro($part, $lang) {
         (
         let $material := fo:ms($part, $lang)
         let $form := ' ' || lower-case(($part//tei:objectDesc/@form)[1])
-        let $dimensions := fo:dimensions($part, $lang) || ', '
+        let $dimensions := fo:dimensions($part, $lang) || fo:weight($part, $lang) || ', '
         let $folios := fo:folios($part, $lang) || (if ($lang = 'ar') then
             ()
         else
