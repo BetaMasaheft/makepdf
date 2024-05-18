@@ -3456,7 +3456,12 @@ declare function fo:history($h) {
 
              {if ($h/tei:origin) then 
              <fo:block>{fo:tei2fo($h/tei:origin[not(@xml:lang = "ar")])}
-             </fo:block>
+             {if ($h//tei:origDate) then 
+                                        if ($h//tei:origDate/@evidence = 'lettering') then ('Dated palaeographically. ' || fo:tei2fo($h//tei:origDate)) else 
+                                         if ($h//tei:origDate/@evidence = 'internal') then ('Dated by internal evidence. ' || fo:tei2fo($h//tei:origDate)) else
+                                        if ($h//tei:origDate/@evidence = 'internal-date') then ('Dated. ' || fo:tei2fo($h//tei:origDate)) else
+                    () 
+                    else ()}</fo:block>
                     else ()
              
               }          
