@@ -3521,6 +3521,11 @@ declare function fo:msStructure($part, $p) {
             fo:binding($part//tei:binding[not(ancestor::tei:msPart)])
         else
             (),
+         if (($p = 0) and ($part[descendant::tei:msPart]) and    
+         $part//tei:foliation[not(ancestor::tei:msPart)]) then
+                fo:foliation($part//tei:foliation[not(ancestor::tei:msPart)])
+            else
+            (),
         if (($p = 0) and ($part[descendant::tei:msPart]) and
         $part//tei:collation[not(ancestor::tei:msPart)])
         then
@@ -3551,6 +3556,10 @@ declare function fo:msStructure($part, $p) {
                 (),
             if (($part//tei:binding)[1]) then
                 fo:binding(($part//tei:binding)[1])
+            else
+                (),
+             if (($part//tei:foliation)[1]) then
+                fo:foliation(($part//tei:foliation)[1])
             else
                 (),
             if (($part//tei:collation)[1] and not($part//tei:material[@key = 'paper'])) then
@@ -3592,6 +3601,18 @@ declare function fo:condition($condition) {
             page-break-after="avoid">Condition</fo:block>
         
         <fo:block>{'The condition is ' || string-join(string($condition/@key), ' ') || '.'}{fo:tei2fo($condition/node())}</fo:block>
+    </fo:block>
+};
+
+declare function fo:foliation($foliation) {
+    <fo:block
+        space-before="2mm" white-space-collapse="true">
+        <fo:block
+            font-style="italic"
+            space-after="3mm"
+            page-break-inside="avoid"
+            page-break-after="avoid">Foliation</fo:block>       
+        <fo:block>{fo:tei2fo($foliation/node())}</fo:block>
     </fo:block>
 };
 
@@ -3657,6 +3678,9 @@ if the element is not present nothing is done:)
         case 'collation'
             return
                 fo:collation($element)
+         case 'foliation'
+            return
+                fo:foliation($element)
         case 'objectDesc'
             return
                 fo:tei2fo($element/tei:physDesc/tei:objectDesc/node()[not(self::tei:collation)])
