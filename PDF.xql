@@ -1937,7 +1937,7 @@ case element(tei:foreign)
 
 case element(tei:roleName)
     return
-        fo:tei2fo($node/node())
+        <fo:inline font-style="italic">{fo:tei2fo($node/node())}</fo:inline>
 case element(tei:milestone)
     return
         <fo:block
