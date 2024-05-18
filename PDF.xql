@@ -3010,7 +3010,7 @@ declare function fo:quires($part, $lang) {
         ', ' || (if ($lang = 'ar') then
             $part//tei:measure[@unit = 'quire'][@xml:lang = $lang]/text()
         else
-            string-join($part//tei:measure[@unit = 'quire'][not(@xml:lang)]/text(), ', ')) || (if ($lang = 'ar') then
+            string-join($part//tei:measure[@unit = 'quire'][not(@xml:lang)]/text(), ' + ')) || (if ($lang = 'ar') then
             ()
         else
             ' quires. ')
