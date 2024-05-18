@@ -464,16 +464,21 @@ declare function fo:figDesc2fo($nodes as node()*) {
 };
 
 declare function fo:cb($node) {
-     let $pb := ($node/preceding-sibling::element())[1]
-     return <fo:inline vertical-align="super"
-                            font-size="8pt">{normalize-space($node/@n)}</fo:inline>
+     let $n := string($node/@n)
+     return 
+     if (not($n = 'a' and $node/preceding-sibling::tei:pb[1]))
+     then
+           ' (' || $n ||') '        
+           else ()
 };
 
 declare function fo:pb($node) {
-     let $cb := ($node/following-sibling::element())[1]/name() = 'cb'
-     return <fo:inline vertical-align="super"
-                            font-size="8pt">{
-normalize-space($node/@n)}</fo:inline>
+     let $n := string($node/@n)
+     return 
+     if (string($node/following-sibling::tei:cb[1]/@n) = 'a')
+     then
+          ' (fol. ' || string($node/@n) || 'a' ||') '        
+           else ' (fol. ' || string($node/@n) ||') ' 
 };
 
 declare function fo:tei2foSinRef($nodes as node()*) {
