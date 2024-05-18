@@ -3258,7 +3258,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
             }
                                 {
                                     if ($l/tei:dimensions[not(@type)]) then
-                                        <fo:block
+                                        <fo:block page-break-after="avoid"
                                             start-indent="10mm"
                                             space-before="3mm"
                                             space-after="3mm">Text area
@@ -3278,7 +3278,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                                
                                 {
                                     if ($l/tei:dimensions[@type='margin']) then
-                                        <fo:block
+                                        <fo:block page-break-after="avoid"
                                             start-indent="10mm"
                                             space-before="3mm"
                                             space-after="3mm">Margins 
@@ -3300,7 +3300,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
  if ($layoutDesc//tei:layout//tei:ab[@type='punctuation']) then
             <fo:block
                 space-before="2mm">
-                <fo:block
+                <fo:block page-break-after="avoid"
                     font-style="italic">Punctuation</fo:block>
                 <fo:block>
                     {fo:tei2fo($layoutDesc//tei:layout//tei:ab[@type='punctuation'])}</fo:block>
@@ -3313,7 +3313,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
         $layoutDesc/ancestor::tei:TEI//tei:support//tei:material[@key != 'paper']) then
             <fo:block
                 space-before="2mm">
-                <fo:block
+                <fo:block page-break-after="avoid"
                     font-style="italic"
                     space-after="3mm">Ruling pattern</fo:block>
                 <fo:list-block
@@ -3344,7 +3344,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
             (),
             
         if ($layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][not(@subtype = 'pattern')]) then
-            <fo:block
+            <fo:block page-break-after="avoid"
                 space-before="2mm">
                 <fo:block
                     font-style="italic"
