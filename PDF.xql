@@ -3444,7 +3444,7 @@ declare function fo:other($part) {
 };
 
 declare function fo:history($h) {
-    if ($h/node()) then
+    if (count(tokenize(string($h))) gt 1) then
         <fo:block
             space-before="2mm" white-space-collapse="true">
             <fo:block
@@ -3456,12 +3456,7 @@ declare function fo:history($h) {
 
              {if ($h/tei:origin) then 
              <fo:block>{fo:tei2fo($h/tei:origin[not(@xml:lang = "ar")])}
-             {if ($h//tei:origDate) then 
-                                        if ($h//tei:origDate/@evidence = 'lettering') then ('Dated palaeographically. ' || fo:tei2fo($h//tei:origDate)) else 
-                                         if ($h//tei:origDate/@evidence = 'internal') then ('Dated by internal evidence. ' || fo:tei2fo($h//tei:origDate)) else
-                                        if ($h//tei:origDate/@evidence = 'internal-date') then ('Dated. ' || fo:tei2fo($h//tei:origDate)) else
-                    () 
-                    else ()}</fo:block>
+             </fo:block>
                     else ()
              
               }          
@@ -3533,6 +3528,12 @@ declare function fo:msStructure($part, $p) {
          $part//tei:foliation[not(ancestor::tei:msPart)]) then
                 fo:foliation($part//tei:foliation[not(ancestor::tei:msPart)])
             else
+            (),
+         if (($p = 0) and ($part[descendant::tei:msPart]) and
+        $part//tei:history[not(ancestor::tei:msPart)])
+        then
+            fo:history($part//tei:history[not(ancestor::tei:msPart)])
+        else
             (),
         if (($p = 0) and ($part[descendant::tei:msPart]) and
         $part//tei:collation[not(ancestor::tei:msPart)])
