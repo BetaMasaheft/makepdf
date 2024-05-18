@@ -3985,7 +3985,7 @@ declare function fo:indexes() {
                                                         text-indent="-5mm"
                                                         margin-bottom="1mm">
                                                         <fo:block><fo:basic-link
-                                                                external-destination="{string($r)}"><fo:inline>{string($label)}</fo:inline></fo:basic-link></fo:block>
+                                                                external-destination="https://betamasaheft.eu/{string($r)}"><fo:inline>{string($label)}</fo:inline></fo:basic-link></fo:block>
                                                         <fo:block>{string($r)}:
                                                             {
                                                                 let $nodes := for $att in $placeAttestation
@@ -4111,8 +4111,7 @@ declare function fo:indexes() {
                                                         start-indent="5mm"
                                                         text-indent="-5mm"
                                                         margin-bottom="1mm">
-                                                        <fo:basic-link
-                                                            external-destination="{string($r)}"><fo:inline>{string($label)}</fo:inline></fo:basic-link>: {$local:prefix}
+                                                        <fo:inline>{string($label)}</fo:inline>: {$local:prefix}
                                                         {
                                                             let $nodes := for $att in $sub
                                                             let $root := $att/ancestor::tei:TEI
@@ -4159,8 +4158,7 @@ declare function fo:indexes() {
                                                     start-indent="5mm"
                                                     text-indent="-5mm"
                                                     margin-bottom="1mm">
-                                                    <fo:basic-link
-                                                        external-destination="{string($r)}"><fo:inline>{string($r)}</fo:inline></fo:basic-link>: {$local:prefix}
+                                                   <fo:inline>{string($r)}</fo:inline>: {$local:prefix}
                                                     {
                                                         let $nodes := for $att in $sub
                                                         let $root := $att/ancestor::tei:TEI
@@ -4195,7 +4193,7 @@ declare function fo:indexes() {
                                                 (attribute font-weight {'700'},
                                                 attribute margin-top {'6.25pt'},
                                                 attribute margin-bottom {'6.25pt'})
-                                            }Index of Keyword</fo:block>,
+                                            }Index of Keywords</fo:block>,
                                         {
                                             let $keywords := $local:catalogue//tei:term
                                             for $sub in $keywords
@@ -4210,8 +4208,7 @@ declare function fo:indexes() {
                                                         start-indent="5mm"
                                                         text-indent="-5mm"
                                                         margin-bottom="1mm">
-                                                        <fo:basic-link
-                                                            external-destination="{string($r)}"><fo:inline>{string($r)}</fo:inline></fo:basic-link>: {$local:prefix}
+                                                        <fo:inline>{string($r)}</fo:inline>: {$local:prefix}
                                                         {
                                                             let $nodes := for $att in $sub
                                                             let $root := $att/ancestor::tei:TEI
