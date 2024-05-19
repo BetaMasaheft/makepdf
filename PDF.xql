@@ -3341,8 +3341,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                     {fo:tei2fo($layoutDesc//tei:layout//tei:ab[@type='punctuation'])}</fo:block>
             </fo:block>
         else
-            (),
-        
+            (),        
         
         if ($layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][@subtype = 'pattern'] and
         $layoutDesc/ancestor::tei:TEI//tei:support//tei:material[@key != 'paper']) then
@@ -3350,7 +3349,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                 space-before="2mm">
                 <fo:block page-break-after="avoid"
                     font-style="italic"
-                    space-after="3mm">Ruling pattern</fo:block>
+                    space-after="3mm">Ruling and pricking</fo:block>
                 <fo:list-block
                     provisional-label-separation="1em"
                     provisional-distance-between-starts="2em">
@@ -3379,11 +3378,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
             (),
             
         if ($layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][not(@subtype = 'pattern')]) then
-            <fo:block page-break-after="avoid"
-                space-before="2mm">
-                <fo:block
-                    font-style="italic"
-                    space-after="3mm">Pricking and ruling</fo:block>
+            <fo:block page-break-after="avoid">
                 <fo:list-block
                     provisional-label-separation="1em"
                     provisional-distance-between-starts="2em">
@@ -3398,7 +3393,38 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                                 <fo:list-item-body
                                     start-indent="body-start()">
                                     <fo:block>
-                                        {normalize-space(string-join($rulprick/text(), ' '))}</fo:block>
+                                        {fo:tei2fo($rulprick)}</fo:block>
+                                </fo:list-item-body>
+                            </fo:list-item>
+                    }</fo:list-block>
+            </fo:block>
+        else
+            (),        
+        
+        if ($layoutDesc//tei:layout//tei:ab[not(@type = 'punctuation' or @type='ruling' or @type = 'pricking')]) then
+            <fo:block
+                space-before="2mm">
+                <fo:block page-break-after="avoid"
+                    font-style="italic"
+                    space-after="3mm">Other layout details</fo:block>
+                <fo:list-block
+                    provisional-label-separation="1em"
+                    provisional-distance-between-starts="2em">
+                    {
+                        for $det in $layoutDesc//tei:layout//tei:ab[not(@type = 'punctuation' or @type='ruling' or @type = 'pricking')]
+                        return
+                            <fo:list-item>
+                                <fo:list-item-label
+                                    end-indent="label-end()">
+                                    <fo:block>-</fo:block>
+                                </fo:list-item-label>
+                                <fo:list-item-body
+                                    start-indent="body-start()">
+                                    <fo:block>
+                                     {if (not($det/text())) then 
+                                     functx:capitalize-first(string($det/@type)) || ' ' || fo:tei2fo($det) 
+                                     else                                     
+                                     fo:tei2fo($det)}</fo:block>
                                 </fo:list-item-body>
                             </fo:list-item>
                     }</fo:list-block>
