@@ -1050,6 +1050,14 @@ case element(tei:date)
                if (contains($node/preceding-sibling::node()[1], ' between'))
                then<fo:inline>{string($node/@notBefore) || ' and ' || string($node/@notAfter)}</fo:inline>
                else <fo:inline>{string($node/@notBefore) || '–' || string($node/@notAfter)}</fo:inline>
+               else
+                    if ($node/@notBefore and not($node/@notAfter)) then
+                        <fo:inline>
+                               {string($node/@notBefore) || '–'}</fo:inline>
+                    else
+                        if ($node/@notAfter and not($node/@notBefore)) then
+                            <fo:inline>
+                                {'–' || string($node/@notAfter)}</fo:inline>
             else
                 if ($node/@when) then
                     <fo:inline>{string($node/@when)}</fo:inline>
@@ -1113,7 +1121,7 @@ case element(tei:origDate)
                                 }
                                 {'–' || string($node/@notAfter)}</fo:inline>
                         else
-                            ()
+                        fo:tei2fo($node/node())
 
 
 
