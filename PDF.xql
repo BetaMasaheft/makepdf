@@ -3349,7 +3349,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                 space-before="2mm">
                 <fo:block page-break-after="avoid"
                     font-style="italic"
-                    space-after="3mm">Ruling and pricking</fo:block>
+                    space-after="3mm">Ruling pattern</fo:block>
                 <fo:list-block
                     provisional-label-separation="1em"
                     provisional-distance-between-starts="2em">
@@ -3358,14 +3358,13 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                         return
                             <fo:list-item>
                                 <fo:list-item-label
-                                    end-indent="label-end()">{if (count($rulprick) gt 1) then 
-                                    <fo:block>{count($rulprick/preceding::tei:ab[@type = 'pricking' or @type = 'ruling'][@subtype = 'pattern']) + 1})</fo:block>else ()}
+                                    end-indent="label-end()"><fo:block>-</fo:block>
                                 </fo:list-item-label>
                                 <fo:list-item-body
                                     start-indent="body-start()">
                                     <fo:block>{
-                                            if ($rulprick/preceding-sibling::tei:locus) then
-                                                (fo:tei2fo($rulprick/preceding-sibling::tei:locus) || ': ')
+                                            if ($rulprick/tei:locus) then
+                                                (normalize-space(string-join(fo:tei2fo($rulprick/tei:locus), ' ')) || ': ')
                                             else
                                                 ()
                                         }
@@ -3378,7 +3377,12 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
             (),
             
         if ($layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][not(@subtype = 'pattern')]) then
-            <fo:block page-break-after="avoid">
+             <fo:block
+                space-before="2mm">
+                <fo:block page-break-after="avoid"
+                    font-style="italic"
+                    space-after="3mm">Ruling and pricking</fo:block>
+
                 <fo:list-block
                     provisional-label-separation="1em"
                     provisional-distance-between-starts="2em">
