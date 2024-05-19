@@ -3119,7 +3119,7 @@ declare function fo:intro($part, $lang) {
                 let $origdates := for $origDate in $od
                 let $formatDate := fo:tei2fo($origDate)
                 return
-                    ', ' || string-join($formatDate, ' ') || '.'
+                    ' ' || string-join($formatDate, ' ') || '.'
                 return
                     (if ($lang = 'ar') then
                         ()
