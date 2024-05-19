@@ -266,6 +266,21 @@ declare function fo:entitiesWithRef($node) {
                                     return
                                         $t
                                 else
+                                    if ($node/@key) then
+                                    
+                                    let $r := if (starts-with($node/@key, $local:BMappUrl)) then
+                                        string($node/@key)
+                                    else
+                                        $local:BMappUrl ||
+                                        '/' || string($node/@key)
+                                    
+                                    let $t := if ($node/node()) then
+                                        fo:tei2fo($node/node())
+                                    else
+                                        fo:printTitleID($node/@key)
+                                    return
+                                        $t
+                                else
                                     'no title provided'
             }</fo:inline>
 };
@@ -455,6 +470,9 @@ declare function fo:figDesc2fo($nodes as node()*) {
             case element(tei:persName)
                 return
                     fo:entitiesWithRefNoID($node)
+            case element(tei:term)
+                return
+                    fo:entitiesWithRef($node)
             case element()
                 return
                     fo:tei2fo($node)
@@ -501,7 +519,9 @@ declare function fo:tei2foSinRef($nodes as node()*) {
             case element(tei:cb)
                 return
                    fo:cb($node)
-            
+             case element(tei:term)
+                return
+                    fo:entitiesWithRef($node)
             case element(tei:gap)
                 
                 return
@@ -631,7 +651,9 @@ declare function fo:tei2fo($nodes as node()*) {
             case element(tei:cb)                 
                 return
                     fo:cb($node)
-            
+            case element(tei:term)
+                return
+                    fo:entitiesWithRef($node)            
             case element(tei:gap)
                 
                 return
