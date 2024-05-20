@@ -2707,18 +2707,122 @@ declare function fo:deco($decos as element(tei:decoDesc), $lang) {
                 margin-bottom="3mm" white-space-collapse="true">{fo:tei2fo($decos/tei:summary)}</fo:block>
         else
             ()),
+ let $deconoteMin := $decos/tei:decoNote[@type='miniature']   return
+  <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Miniatures</fo:block>,
     <fo:block
         provisional-label-separation="1em"
         provisional-distance-between-starts="2em">
         {
             
-            let $decoSele := $decos/tei:decoNote[not(@xml:lang = 'ar')]
+            let $decoSele :=  $decos/tei:decoNote[not(@xml:lang = 'ar')][@type='miniature']
             for $deco in $decoSele
-            let $p := string(substring-after($deco/@xml:id, 'd')) 
+            let $p := count($deco/preceding::tei:decoNote[@type='miniature']) +1
             return
                 
                         <fo:inline>
                         {'(' || $p || ') '}
+                        {if ($deco/tei:locus) then
+                                            (string-join(fo:tei2fo($deco/tei:locus)) || ': ')
+                                        else
+                                            ()
+                                    }
+                          {fo:tei2fo($deco/tei:desc)}
+                          {
+                                        if ($deco/tei:q) then
+                                            (' Legend: ',
+                                            fo:tei2fo($deco/tei:q[@xml:lang = 'gez']),
+                                            if ($deco/tei:q[@xml:lang = 'en'])
+                                            then
+                                                '‘' || string-join(fo:tei2fo($deco/tei:q[@xml:lang = 'en'])) || '’'
+                                            else
+                                                ())
+                                        else
+                                            ()
+                                          
+                                    }</fo:inline>
+        }
+    
+    </fo:block>,
+    
+    let $deconoteOrn := $decos/tei:decoNote[@type='ornamentation' or @type='frame' or @type='headpiece' or @type='headpieceBand' or @type='headpieceFrame' or @type='band']   return
+    <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Headpieces</fo:block>,
+  <fo:block
+        provisional-label-separation="1em"
+        provisional-distance-between-starts="2em">
+        {let $decoSele :=  $decos/tei:decoNote[@type='ornamentation' or @type='frame' or @type='headpiece' or @type='headpieceBand' or @type='headpieceFrame' or @type='band']
+            for $deco in $decoSele
+            let $p := count($deco/preceding::tei:decoNote[@type='ornamentation' or @type='frame' or @type='headpiece' or @type='headpieceBand' or @type='headpieceFrame' or @type='band']) +1
+            return
+                <fo:inline>
+                        {'(' || $p || ') '}
+                        {if ($deco/tei:locus) then
+                                            (string-join(fo:tei2fo($deco/tei:locus)) || ': ')
+                                        else
+                                            ()
+                                    }
+                          {fo:tei2fo($deco/tei:desc)}
+                          {
+                                        if ($deco/tei:q) then
+                                            (' Legend: ',
+                                            fo:tei2fo($deco/tei:q[@xml:lang = 'gez']),
+                                            if ($deco/tei:q[@xml:lang = 'en'])
+                                            then
+                                                '‘' || string-join(fo:tei2fo($deco/tei:q[@xml:lang = 'en'])) || '’'
+                                            else
+                                                ())
+                                        else
+                                            ()
+                                          
+                                    }</fo:inline>
+        }
+    
+    </fo:block>,
+    
+     let $deconoteMin := $decos/tei:decoNote[@type='drawing']   return
+      <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Drawings</fo:block>,
+  <fo:block
+        provisional-label-separation="1em"
+        provisional-distance-between-starts="2em">
+        {let $decoSele :=  $decos/tei:decoNote[@type='drawing']
+            for $deco in $decoSele
+            let $p := count($deco/preceding::tei:decoNote[@type='drawing']) +1
+            return
+                <fo:inline>
+                        {'(' || $p || ') '}
+                        {if ($deco/tei:locus) then
+                                            (string-join(fo:tei2fo($deco/tei:locus)) || ': ')
+                                        else
+                                            ()
+                                    }
+                          {fo:tei2fo($deco/tei:desc)}
+                          {
+                                        if ($deco/tei:q) then
+                                            (' Legend: ',
+                                            fo:tei2fo($deco/tei:q[@xml:lang = 'gez']),
+                                            if ($deco/tei:q[@xml:lang = 'en'])
+                                            then
+                                                '‘' || string-join(fo:tei2fo($deco/tei:q[@xml:lang = 'en'])) || '’'
+                                            else
+                                                ())
+                                        else
+                                            ()
+                                          
+                                    }</fo:inline>
+        }
+    
+    </fo:block>,
+
+ let $deconoteMin := $decos/tei:decoNote[not(@type='miniature') and not(@type='ornamentation') and not(@type='frame') and not(@type='headpiece') and not (@type='headpieceBand') and not(@type='headpieceFrame') and not(@type='band') and not(@type='drawing')]   return
+      <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Other</fo:block>,
+  <fo:block
+        provisional-label-separation="1em"
+        provisional-distance-between-starts="2em">
+        {let $decoSele :=  $decos/tei:decoNote[not(@type='miniature') and not(@type='ornamentation') and not(@type='frame') and not(@type='headpiece') and not (@type='headpieceBand') and not(@type='headpieceFrame') and not(@type='band') and not(@type='drawing')]
+            for $deco in $decoSele
+                     
+            return
+                <fo:inline>
+                        {'' || '-' || ' '}
                         {if ($deco/tei:locus) then
                                             (string-join(fo:tei2fo($deco/tei:locus)) || ': ')
                                         else
