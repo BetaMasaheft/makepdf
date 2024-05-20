@@ -3464,12 +3464,32 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                 else
                     ()
             }
+            {
+                                    if ($l/ancestor::tei:physDesc//tei:dimensions[@type='leaf']) then
+                                        <fo:block page-break-after="avoid"
+                                            start-indent="10mm"
+                                            space-before="3mm"
+                                            space-after="3mm">Leaf dimensions:
+                                            {
+                                                let $dim := $l/ancestor::tei:physDesc//tei:dimensions[@type='leaf']
+                                                return
+                                                    string-join($dim/node()/text(), ' × ') || string($dim/@unit)
+                                            } 
+                                                           {
+                                                let $dimID := string($l/ancestor::tei:physDesc//tei:dimensions[@type='leaf']/@xml:id)
+                                                return
+                                                    ' (' || lower-case(fo:tei2fo($l/ancestor::tei:physDesc//tei:note[1][matches(@corresp, $dimID)]/tei:locus)) || ')'
+                                            }.
+                                            </fo:block>
+                                    else
+                                        ()
+                                }
                                 {
                                     if ($l/tei:dimensions[not(@type)]) then
                                         <fo:block page-break-after="avoid"
                                             start-indent="10mm"
                                             space-before="3mm"
-                                            space-after="3mm">Text area
+                                            space-after="3mm">Text area:
                                             {
                                                 let $dim := $l/tei:dimensions[not(@type)]
                                                 return
