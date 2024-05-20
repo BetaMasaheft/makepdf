@@ -4473,7 +4473,7 @@ declare function fo:indexes() {
                                                         start-indent="5mm"
                                                         text-indent="-5mm"
                                                         margin-bottom="1mm">
-                                                        <fo:inline>{string($r)}</fo:inline>: {$local:prefix}
+                                                        <fo:inline>{fo:printTitleID($r)}</fo:inline>: {$local:prefix}
                                                         {
                                                             let $nodes := for $att in $sub
                                                             let $root := $att/ancestor::tei:TEI
