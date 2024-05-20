@@ -3200,6 +3200,24 @@ declare function fo:dimensions($part, $lang) {
             ()
 };
 
+declare function fo:margins($part) {
+    let $dimensions := 
+        $part//tei:dimensions[@type = 'margin'][not(@xml:lang)]
+    return
+        if ($dimensions) then
+        let $dims := for $dim at $d in $dimensions/tei:dim
+        let $string := string($dim/@type) || ': ' || string($dim/node()) || ' ' ||
+                string($dimensions/@unit)
+        return
+            (
+            string-join($string, ', '))
+            return
+            (
+            string-join($dims, ', '))
+        else
+            ()
+};
+
 declare function fo:weight($part, $lang){
 if ($part//tei:measure[@type = 'weight']) then
                 ' (weight: ' ||
@@ -3452,12 +3470,13 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                                         <fo:block page-break-after="avoid"
                                             start-indent="10mm"
                                             space-before="3mm"
-                                            space-after="3mm">Margins 
-                                            {
-                                                let $dim := $l/tei:dimensions[@type='margin']
+                                            space-after="3mm">Margins: 
+                                            {fo:margins($l)}
+                                             {
+                                                let $dimID := string($l/tei:dimensions[not(@type)]/@xml:id)
                                                 return
-                                                  '(' ||  string-join($dim/node()/@type, ', ') || '): '|| string-join($dim/node()/text(), ', ') || string($dim/@unit)
-                                            }
+                                                    ' (' || lower-case(fo:tei2fo($l/tei:note[matches(@corresp, $dimID)]/tei:locus)) || ')'
+                                            }.
                                             </fo:block>
                                     else
                                         ()
