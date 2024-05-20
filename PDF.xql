@@ -3475,13 +3475,13 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                     }
                     {
                  for $rulprick in $layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][@subtype = 'pattern']
-                        let $rp := 'Ruling pattern'
+                        let $rp := ' Ruling pattern'
                         return
                                 $rp ||                        
                                            ( if ($rulprick/tei:locus) then
                                            ' ('   ||   (normalize-space(lower-case(string-join(fo:tei2fo($rulprick/tei:locus), ' '))) || '): ' || normalize-space(replace(string-join($rulprick/text(), ' '), 'Ruling pattern:', '')) )
                                             else                                               
-                                normalize-space(replace(string-join($rulprick/text(), ' '), 'Ruling pattern:', ''))    ) 
+                                ': '   ||  normalize-space(replace(string-join($rulprick/text(), ' '), 'Ruling pattern:', ''))    ) 
                                 }</fo:inline>
                     </fo:block>
             </fo:block>
