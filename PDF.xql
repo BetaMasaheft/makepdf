@@ -3758,6 +3758,12 @@ declare function fo:msStructure($part, $p) {
             fo:collation($part//tei:collation[not(ancestor::tei:msPart)])
         else
             (),
+         if (($p = 0) and ($part[descendant::tei:msPart]) and
+        $part//tei:listBibl[not(ancestor::tei:msPart)])
+        then
+         fo:bibliopart($part)
+         else
+         (),
         (:if(($p = 0) and ($part[descendant::tei:msPart]) and 
             $part//tei:condition[not(ancestor::tei:msPart)]) 
             then fo:condition($part//tei:condition[not(ancestor::tei:msPart)]) else (),:)
@@ -5223,6 +5229,20 @@ declare function fo:bibliography($r) {
 
 
 
+declare function fo:bibliopart($ms) {
+<fo:block space-before="2mm" >
+<fo:block font-style="italic" space-after="3mm"  page-break-inside="avoid" page-break-after="avoid">Bibliography</fo:block>
+{let $ptrs := distinct-values($ms//tei:additional//tei:bibl/tei:ptr/@target)
+        return
+               let $bib := for $ptr in distinct-values($ptrs)
+                        order by $ptr
+                    return                        
+                            fo:zoteroCit($ptr)
+                    return
+                     string-join($bib, '; ') || '.'
+                     }</fo:block>             
+};
+    
 declare function fo:introduction($r) {
     <fo:page-sequence
         initial-page-number="auto-odd"
