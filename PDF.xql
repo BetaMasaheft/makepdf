@@ -4460,7 +4460,8 @@ declare function fo:indexes() {
                                                 attribute margin-bottom {'6.25pt'})
                                             }Index of Keywords</fo:block>,
                                         {
-                                            let $keywords := $local:catalogue//tei:term
+                                            let $subj := distinct-values($local:catalogue//tei:keywords/tei:term/@key)
+                                            let $keywords := $local:catalogue//tei:term[not(@key = $subj)]
                                             for $sub in $keywords
                                             let $ref := $sub/@key
                                                 group by $r := $ref
