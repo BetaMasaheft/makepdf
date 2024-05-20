@@ -1053,11 +1053,11 @@ case element(tei:date)
                else
                     if ($node/@notBefore and not($node/@notAfter)) then
                         <fo:inline>
-                               {string($node/@notBefore) || '–'}</fo:inline>
+                               { 'not before ' || string($node/@notBefore)}</fo:inline>
                     else
                         if ($node/@notAfter and not($node/@notBefore)) then
                             <fo:inline>
-                                {'–' || string($node/@notAfter)}</fo:inline>
+                                {'not after ' || string($node/@notAfter)}</fo:inline>
             else
                 if ($node/@when) then
                     <fo:inline>{string($node/@when)}</fo:inline>
@@ -3060,8 +3060,32 @@ declare function fo:paleo($handDesc as element(tei:handDesc)) {
                                 hyphenate="true">
                                 
                                 <!-- {fo:tei2fo($handnote/tei:seg[@type='script'])}{' '}-->
-                                {fo:tei2fo($handnote/tei:desc)}
                                 {
+                                        if ($handnote/tei:locus) then
+                                            (string-join(fo:tei2fo($handnote/tei:locus)) || '. ')
+                                        else
+                                            ()
+                                    }
+                                    {
+                                        if ($handnote/tei:date) then
+                                            ( ''|| string-join(fo:tei2fo($handnote/tei:date)) || '')
+                                        else
+                                            ()
+                                    }
+                                    {
+                                        if ($handnote//tei:persName[@role='scribe']) then
+                                       ' (scribe: ' ||  (string-join(fo:entitiesWithRefNoID($handnote//tei:persName[@role='scribe']))) || ') '
+                                        else
+                                            ()
+                                    }
+                                    {'. ' || fo:tei2fo($handnote/tei:desc)}
+                                    {
+                                    if ($handnote/tei:seg[@type = 'script']/node()) then
+                                        <fo:inline>{fo:tei2fo($handnote/tei:seg[@type = 'script']/node())}</fo:inline>
+                                    else
+                                        ()
+                                }
+                                      {
                                     if ($handnote/tei:seg[@type = 'ink']) then
                                         <fo:block>Ink: {fo:tei2fo($handnote/tei:seg[@type = 'ink']/node())}</fo:block>
                                     else
