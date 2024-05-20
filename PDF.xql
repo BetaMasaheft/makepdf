@@ -3455,64 +3455,35 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
         else
             (),        
         
-        if ($layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][@subtype = 'pattern'] and
+        
+        if ($layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'] and
         $layoutDesc/ancestor::tei:TEI//tei:support//tei:material[@key != 'paper']) then
-            <fo:block
-                space-before="2mm">
-                <fo:block page-break-after="avoid"
-                    font-style="italic"
-                    space-after="3mm">Ruling pattern</fo:block>
-                <fo:list-block
-                    provisional-label-separation="1em"
-                    provisional-distance-between-starts="2em">
-                    {
-                        for $rulprick in $layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][@subtype = 'pattern']
-                        return
-                            <fo:list-item>
-                                <fo:list-item-label
-                                    end-indent="label-end()"><fo:block>-</fo:block>
-                                </fo:list-item-label>
-                                <fo:list-item-body
-                                    start-indent="body-start()">
-                                    <fo:block>{
-                                            if ($rulprick/tei:locus) then
-                                                (normalize-space(string-join(fo:tei2fo($rulprick/tei:locus), ' ')) || ': ')
-                                            else
-                                                ()
-                                        }
-                                        {normalize-space(replace(string-join($rulprick/text(), ' '), ' Ruling pattern:', ''))}</fo:block>
-                                </fo:list-item-body>
-                            </fo:list-item>
-                    }</fo:list-block>
-            </fo:block>
-        else
-            (),
-            
-        if ($layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][not(@subtype = 'pattern')]) then
              <fo:block
                 space-before="2mm">
                 <fo:block page-break-after="avoid"
                     font-style="italic"
                     space-after="3mm">Ruling and pricking</fo:block>
 
-                <fo:list-block
+                <fo:block
                     provisional-label-separation="1em"
-                    provisional-distance-between-starts="2em">
+                    provisional-distance-between-starts="2em"><fo:inline>
                     {
                         for $rulprick in $layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][not(@subtype = 'pattern')]
                         return
-                            <fo:list-item>
-                                <fo:list-item-label
-                                    end-indent="label-end()">
-                                    <fo:block>-</fo:block>
-                                </fo:list-item-label>
-                                <fo:list-item-body
-                                    start-indent="body-start()">
-                                    <fo:block>
-                                        {fo:tei2fo($rulprick)}</fo:block>
-                                </fo:list-item-body>
-                            </fo:list-item>
-                    }</fo:list-block>
+                            
+                                string-join(fo:tei2fo($rulprick), ' ')                            
+                    }
+                    {
+                 for $rulprick in $layoutDesc//tei:layout//tei:ab[@type = 'pricking' or @type = 'ruling'][@subtype = 'pattern']
+                        let $rp := 'Ruling pattern'
+                        return
+                                $rp ||                        
+                                           ( if ($rulprick/tei:locus) then
+                                           ' ('   ||   (normalize-space(lower-case(string-join(fo:tei2fo($rulprick/tei:locus), ' '))) || '): ' || normalize-space(replace(string-join($rulprick/text(), ' '), 'Ruling pattern:', '')) )
+                                            else                                               
+                                normalize-space(replace(string-join($rulprick/text(), ' '), 'Ruling pattern:', ''))    ) 
+                                }</fo:inline>
+                    </fo:block>
             </fo:block>
         else
             (),        
