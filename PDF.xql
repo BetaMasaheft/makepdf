@@ -3966,9 +3966,8 @@ declare function fo:msheader($msId) {
             font-weight="800">{$msId/tei:idno[not(@xml:lang)]/text()}</fo:block>
         <fo:block>{
                 if ($msId/tei:altIdentifier/tei:idno)
-                then
-                    ('(',
-                    for $altID in $msId/tei:altIdentifier[tei:idno]
+                then                   
+                    let $altIDs := for $altID in $msId/tei:altIdentifier[tei:idno]
                     let $all := count($msId/tei:altIdentifier[tei:idno])
                     return
                         <fo:inline>{
@@ -3978,7 +3977,7 @@ declare function fo:msheader($msId) {
                                     (),
                                 $altID/tei:idno/text()
                             }</fo:inline>
-                    , ')')
+                return '(' || string-join($altIDs, ', ') || ')'
                 else
                     ()
             }
