@@ -3171,7 +3171,7 @@ declare function fo:quires($part, $lang) {
             string-join($part//tei:measure[@unit = 'quire'][not(@xml:lang)]/text(), ' + ')) || (if ($lang = 'ar') then
             ()
         else
-            ' quires. ')
+            ' quires')
     else
         () (:' no measure[@unit="quire"]':)
 };
@@ -3251,7 +3251,7 @@ declare function fo:intro($part, $lang) {
                 ()
             else
                 ' fols')
-        let $quires := fo:quires($part, $lang)
+        let $quires := fo:quires($part, $lang) || '. '
         let $date := for $p in $part//tei:msPart
         let $partN := string(substring-after($p/@xml:id, 'p'))
         return
@@ -3316,6 +3316,25 @@ declare function fo:intro($part, $lang) {
         return
             $material || $form || $dimensions || $folios || $quires || $date || '.'
         )
+};
+
+declare function fo:intropart($part, $lang) {
+        let $material := fo:ms($part, $lang)
+        let $dimensions := fo:dimensions($part, $lang) || ', '
+        let $folios := fo:folios($part, $lang) || (if ($lang = 'ar') then
+            ()
+        else
+            ' fols')
+        let $extent := lower-case(fo:tei2fo($part//tei:extent/tei:locus))
+        let $quires := fo:quires($part, $lang)
+        let $date := if ($part//tei:origDate[@when or @notBefore or @notAfter])
+        then
+            fo:origDate($part, $lang)
+        else
+            ()
+        return
+            $material || $dimensions || $folios || ' ('|| $extent ||')' || $quires || $date || '.'
+
 };
 
 declare function fo:contents($contents) {
@@ -3733,6 +3752,11 @@ declare function fo:msStructure($part, $p) {
                 <fo:block
                     space-before="2mm"
                     space-after="3mm">{functx:capitalize-first($partType) || ' ' || $p}</fo:block>
+            else
+                (),
+             if ($partType != '')
+            then
+                <fo:block>{fo:intropart($part, '')}</fo:block>
             else
                 (),
             fo:contents(($part//tei:msContents)[1]),
