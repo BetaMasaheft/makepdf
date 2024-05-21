@@ -3163,6 +3163,13 @@ declare function fo:folios($part, $lang) {
         ($part//tei:measure[@unit = 'leaf'][not(@xml:lang)])[1]/text())
 };
 
+declare function fo:blank($part, $lang) {
+    (if ($lang = 'ar') then
+        $part//tei:measure[@type = 'blank'][@xml:lang = $lang]/text()
+    else
+        ($part//tei:measure[@type = 'blank'][not(@xml:lang)])[1]/text())
+};
+
 declare function fo:quires($part, $lang) {
     if ($part//tei:measure[@unit = 'quire'][1]) then
         ', ' || (if ($lang = 'ar') then
@@ -3251,6 +3258,15 @@ declare function fo:intro($part, $lang) {
                 ()
             else
                 ' fols')
+        let $blank := for $f in fo:blank($part, $lang)
+        return
+           ' (' || $f || (if ($lang = 'ar') then
+                ()
+            else
+                  if ($part//tei:measure[@type = 'blank'][@unit='page']) then
+                  ' p. blank)' 
+                  else
+                ' blank)')
         let $quires := fo:quires($part, $lang) || '. '
         let $date := for $p in $part//tei:msPart
         let $partN := string(substring-after($p/@xml:id, 'p'))
@@ -3296,7 +3312,7 @@ declare function fo:intro($part, $lang) {
                 ' ' || string-join($units)
             )
         return
-            $material || $form || $dimensions || string-join($folios, ', ') || $quires || $decideDate
+            $material || $form || $dimensions || string-join($folios, ', ') || $blank || $quires || $decideDate
         )
     else
         (
@@ -3307,6 +3323,15 @@ declare function fo:intro($part, $lang) {
             ()
         else
             ' fols')
+        let $blank := for $f in fo:blank($part, $lang)
+        return
+           ' (' || $f || (if ($lang = 'ar') then
+                ()
+            else
+                  if ($part//tei:measure[@type = 'blank'][@unit='page']) then
+                  ' p. blank)' 
+                  else
+                ' blank)')
         let $quires := fo:quires($part, $lang)
         let $date := if ($part//tei:origDate[@when or @notBefore or @notAfter])
         then
@@ -3314,7 +3339,7 @@ declare function fo:intro($part, $lang) {
         else
             ()
         return
-            $material || $form || $dimensions || $folios || $quires || $date || '.'
+            $material || $form || $dimensions || $folios || $blank|| $quires || $date || '.'
         )
 };
 
