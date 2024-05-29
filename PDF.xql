@@ -3848,6 +3848,10 @@ declare function fo:msStructure($part, $p) {
             if (($part//tei:history)[1]) then
                 fo:history($part//tei:history)
             else
+                (),
+            if (($part//tei:additional//tei:listBibl)[1]) then
+                fo:bibliopart($part)
+            else
                 ()
             )
         )
