@@ -5348,7 +5348,7 @@ return
                 hyphenate="true">
 <!-- CATALOGUE     -->            
       {fo:msheader($r//tei:msDesc/tei:msIdentifier),
-                                        <fo:block text-align="center" space-before="2mm" space-after="3mm">{$r//tei:titleStmt/tei:title[not(@xml:lang)]/text()}</fo:block>,
+                                        <fo:block text-align="center" space-before="2mm" space-after="3mm">{fo:tei2fo($r//tei:titleStmt/tei:title[not(@xml:lang)])}</fo:block>,
                                fo:ExtendedMsStructure($r)
                                }
                   <!--  break  after Catalogue -->
