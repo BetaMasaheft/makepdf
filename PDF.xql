@@ -399,24 +399,24 @@ year, CAe 5886
             let $TITSEL := 
             if (contains($fullref, '#')) then
             
-            string-join($maintitleEN/text(), ' ') || ': ' || $subtitle
+            string-join(fo:tei2fo($maintitleEN), ' ') || ': ' || $subtitle
             
             else
             
-            if  ($maintitleENgez) then string-join($maintitleENgez/text(), ' ')
+            if  ($maintitleENgez) then string-join(fo:tei2fo($maintitleENgez), ' ')
             
             else
             if ($geeztitle) then
-                '‘' || string-join($titleENgez/text(), ' ') || '’' || ' (' || string-join($geeztitle/text(), ' ') || ')'
+                '‘' || string-join(fo:tei2fo($titleENgez), ' ') || '’' || ' (' || string-join(fo:tei2fo($geeztitle), ' ') || ')'
                 
             else
             if ($titleENNOgez) then
-                string-join($titleENNOgez/text(), ' ') else string-join($firsttitle/text(), ' ')
+                string-join(fo:tei2fo($titleENNOgez), ' ') else string-join(fo:tei2fo($firsttitle), ' ')
             return
             if (contains($fullref, '#')) then $TITSEL else
                 $TITSEL || $incomplete || ', CAe ' || substring($ref, 4, 4) || $tigrinya || '.'
         else
-            $title/text()
+            fo:tei2fo($title)
 
 };
 
