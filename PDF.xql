@@ -3523,7 +3523,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                                             {
                                                 let $dimID := string($l/tei:dimensions[not(@type)]/@xml:id)
                                                 return
-                                                    ' (' || lower-case(fo:tei2fo($l/tei:note[matches(@corresp, $dimID)]/tei:locus)) || ')'
+                                                    ' (' || lower-case(fo:tei2fo($l/tei:note[matches(@corresp, $dimID)]/tei:locus[1])) || ')'
                                             }</fo:block>
                                     else
                                         ()
@@ -3539,7 +3539,7 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                                              {
                                                 let $dimID := string($l/tei:dimensions[not(@type)]/@xml:id)
                                                 return
-                                                    ' (' || lower-case(fo:tei2fo($l/tei:note[matches(@corresp, $dimID)]/tei:locus)) || ')'
+                                                    ' (' || lower-case(fo:tei2fo($l/tei:note[matches(@corresp, $dimID)]/tei:locus[1])) || ')'
                                             }.
                                             </fo:block>
                                     else
