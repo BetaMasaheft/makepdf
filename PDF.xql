@@ -3259,15 +3259,21 @@ declare function fo:intro($part, $lang) {
                 ()
             else
                 ' fols')
-        let $blank := for $f in fo:blank($part, $lang)
+        let $blank := for $f in $part//tei:measure[@type = 'blank']
         return
-           ' (' || $f || (if ($lang = 'ar') then
+           ' (' || string-join($f/text()) || (if ($f[@xml:lang = 'ar']) then
                 ()
             else
-                  if ($part//tei:measure[@type = 'blank'][@unit='page']) then
-                  ' p. blank)' 
+                  if ($f[@unit='page']) then
+                  ' p. blank' 
                   else
-                ' blank)')
+                ' blank')  || (if ($f[@xml:lang = 'ar']) then
+                ()
+            else
+                  if ($f/tei:locus) then
+                 ' [' || fo:tei2fo($f/tei:locus) || '] '
+                  else
+                () ) || ')'
         let $quires := fo:quires($part, $lang) || '. '
         let $date := for $p in $part//tei:msPart
         let $partN := string(substring-after($p/@xml:id, 'p'))
@@ -3324,15 +3330,21 @@ declare function fo:intro($part, $lang) {
             ()
         else
             ' fols')
-        let $blank := for $f in fo:blank($part, $lang)
+        let $blank := for $f in $part//tei:measure[@type = 'blank']
         return
-           ' (' || $f || (if ($lang = 'ar') then
+           ' (' || string-join($f/text()) || (if ($f[@xml:lang = 'ar']) then
                 ()
             else
-                  if ($part//tei:measure[@type = 'blank'][@unit='page']) then
-                  ' p. blank)' 
+                  if ($f[@unit='page']) then
+                  ' p. blank' 
                   else
-                ' blank)')
+                ' blank')  || (if ($f[@xml:lang = 'ar']) then
+                ()
+            else
+                  if ($f/tei:locus) then
+                 ' [' || fo:tei2fo($f/tei:locus) || '] '
+                  else
+                () ) || ')'
         let $quires := fo:quires($part, $lang)
         let $date := if ($part//tei:origDate[@when or @notBefore or @notAfter])
         then
