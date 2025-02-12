@@ -222,7 +222,7 @@ declare function fo:lang($lang as xs:string) {
 
 declare function fo:entitiesWithRef($node) {
     let $n := substring-after($node/@target, '#')
-    let $attid := string(root($node)/tei:TEI/@xml:id) || generate-id($node) || string($node/@ref)
+    let $attid := string(root($node[1])/tei:TEI/@xml:id) || generate-id($node[1]) || string($node[1]/@ref)
     return
         <fo:inline
             id="{$attid}">{
@@ -246,7 +246,7 @@ declare function fo:entitiesWithRef($node) {
                                     $node/following-sibling::tei:textLang/@mainLang
                                 return
                                     if ($lang) then
-                                        fo:lang($lang)
+                                        fo:lang($lang[1])
                                     else
                                         (),
                                 fo:tei2fo($node/node()))
