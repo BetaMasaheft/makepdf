@@ -2604,7 +2604,8 @@ declare function fo:additions($additions as element(tei:additions)) {
                                             <fo:block>
                                                 {
                                                     if ($addition/tei:locus) then
-                                                        concat(fo:tei2fo($addition/tei:locus), ': ')
+                                                        fo:tei2fo($addition/tei:locus[1]) ||
+                                                        (if (count($addition/tei:locus) gt 1) then fo:tei2fo($addition/tei:locus[2]) else ()) || ': '
                                                     else
                                                         ()
                                                 }{
