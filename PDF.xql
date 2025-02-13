@@ -3253,13 +3253,14 @@ declare function fo:intro($part, $lang) {
         let $material := fo:ms($part, $lang)
         let $form := ' ' || lower-case(($part//tei:objectDesc/@form)[1]) || ', composite'
         let $dimensions := fo:dimensions($part, $lang) || fo:weight($part, $lang) || ', '
+        let $top := $part/ancestor::tei:TEI//tei:msDesc[1]/tei:physDesc[1]/tei:objectDesc[1]/tei:supportDesc[1]/tei:extent[1]
         let $folios := for $f in fo:folios($part, $lang)
         return
             $f || (if ($lang = 'ar') then
                 ()
             else
                 ' fols')
-        let $blank := for $f in $part//tei:measure[@type = 'blank']
+        let $blank := for $f in $top//tei:measure[@type = 'blank']
         return
            ' (' || string-join($f/text()) || (if ($f[@xml:lang = 'ar']) then
                 ()
@@ -3274,7 +3275,7 @@ declare function fo:intro($part, $lang) {
                  ' [' || fo:tei2fo($f/tei:locus) || '] '
                   else
                 () ) || ')'
-        let $quires := fo:quires($part, $lang) || '. '
+        let $quires := fo:quires($top, $lang) || '. '
         let $date := for $p in $part//tei:msPart
         let $partN := string(substring-after($p/@xml:id, 'p'))
         return
