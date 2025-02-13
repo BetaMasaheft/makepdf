@@ -1354,7 +1354,7 @@ case element(tei:locus)
             let $prevTextNode := $node/preceding-sibling::text()
             let $clean := replace(string-join($prevTextNode), '\s', '')
             return
-                if (matches($clean, '[^\.]$'))
+                if (matches($clean, '[^\.]$') or matches($clean, ' ca.'))
                 then
                     'f'
                 else
@@ -1368,10 +1368,10 @@ case element(tei:locus)
         let $fFornot := if (($node/preceding-sibling::element())[1]/name() = 'locus' and matches($node/preceding-sibling::node()[1], ' and ')) then
             ($fF || 'ol')
         else
-            if (($node/preceding-sibling::element())[1]/name() = 'locus') then
+            if ((($node/preceding-sibling::element())[1]/name() = 'locus') and not($node/preceding-sibling::text())) then
                 'x'
             else
-                if ((($node/following-sibling::element())[1]/name() = 'locus') and
+                if ((($node/following-sibling::element())[1]/name() = 'locus') and not($node/following-sibling::text()) and
                 not(contains($node/following-sibling::node()[1], ' and'))) then
                     ($fF || 'ols')
                 else
