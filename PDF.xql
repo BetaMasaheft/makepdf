@@ -3069,17 +3069,17 @@ declare function fo:paleo($handDesc as element(tei:handDesc)) {
                                     }
                                     {
                                         if ($handnote/tei:date) then
-                                            ( ''|| string-join(fo:tei2fo($handnote/tei:date)) || '')
+                                            ( ''|| string-join(fo:tei2fo($handnote/tei:date)) || '. ')
                                         else
                                             ()
                                     }
                                     {
                                         if ($handnote//tei:persName[@role='scribe']) then
-                                       ' (scribe: ' ||  (string-join(fo:entitiesWithRefNoID($handnote//tei:persName[@role='scribe']))) || ') '
+                                       ' (Scribe: ' ||  (string-join(fo:entitiesWithRefNoID($handnote//tei:persName[@role='scribe']))) || '.) '
                                         else
                                             ()
                                     }
-                                    {'. ' || fo:tei2fo($handnote/tei:desc)}
+                                    {'' || fo:tei2fo($handnote/tei:desc)}
                                     {
                                     if ($handnote/tei:seg[@type = 'script']/node()) then
                                         <fo:inline>{fo:tei2fo($handnote/tei:seg[@type = 'script']/node())}</fo:inline>
