@@ -3363,7 +3363,7 @@ declare function fo:intropart($part, $lang) {
             ()
         else
             ' fols')
-        let $extent := lower-case(fo:tei2fo($part//tei:extent/tei:locus))
+        let $extent := lower-case(fo:tei2fo($part//tei:extent/tei:locus[1])) || (if ($part//tei:extent/tei:locus[2])  then  lower-case(fo:tei2fo($part//tei:extent/tei:locus[2])) else ()) || (if ($part//tei:extent/tei:locus[3])  then  lower-case(fo:tei2fo($part//tei:extent/tei:locus[3])) else ())
         let $quires := fo:quires($part, $lang)
         let $date := if ($part//tei:origDate[@when or @notBefore or @notAfter])
         then
