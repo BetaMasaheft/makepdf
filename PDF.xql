@@ -3346,7 +3346,7 @@ declare function fo:intro($part, $lang) {
                  ' [' || fo:tei2fo($f/tei:locus) || '] '
                   else
                 () ) || ')'
-        let $quires := fo:quires($part, $lang)
+        let $quires := fo:quires($part, $lang) || '. '
         let $date := if ($part//tei:origDate[@when or @notBefore or @notAfter])
         then
             fo:origDate($part, $lang)
