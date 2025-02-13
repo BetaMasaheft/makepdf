@@ -2708,8 +2708,9 @@ declare function fo:deco($decos as element(tei:decoDesc), $lang) {
                 margin-bottom="3mm" white-space-collapse="true">{fo:tei2fo($decos/tei:summary)}</fo:block>
         else
             ()),
+       (if ($decos/tei:decoNote[@type='miniature']) then
+  <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Miniatures</fo:block> else ()),      
  let $deconoteMin := $decos/tei:decoNote[@type='miniature']   return
-  <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Miniatures</fo:block>,
     <fo:block
         provisional-label-separation="1em"
         provisional-distance-between-starts="2em">
@@ -2744,9 +2745,9 @@ declare function fo:deco($decos as element(tei:decoDesc), $lang) {
         }
     
     </fo:block>,
-    
-    let $deconoteOrn := $decos/tei:decoNote[@type='ornamentation' or @type='frame' or @type='headpiece' or @type='headpieceBand' or @type='headpieceFrame' or @type='band']   return
-    <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Headpieces</fo:block>,
+           (if ($decos/tei:decoNote[@type='ornamentation' or @type='frame' or @type='headpiece' or @type='headpieceBand' or @type='headpieceFrame' or @type='band']) then
+  <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Headpieces</fo:block> else ()),
+    let $deconoteOrn := $decos/tei:decoNote[@type='ornamentation' or @type='frame' or @type='headpiece' or @type='headpieceBand' or @type='headpieceFrame' or @type='band']   return    
   <fo:block
         provisional-label-separation="1em"
         provisional-distance-between-starts="2em">
@@ -2778,9 +2779,10 @@ declare function fo:deco($decos as element(tei:decoDesc), $lang) {
         }
     
     </fo:block>,
-    
-     let $deconoteMin := $decos/tei:decoNote[@type='drawing']   return
-      <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Drawings</fo:block>,
+               (if ($decos/tei:decoNote[@type='drawing']) then
+  <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Drawings</fo:block> else ()),
+
+     let $deconoteDraw := $decos/tei:decoNote[@type='drawing']   return      
   <fo:block
         provisional-label-separation="1em"
         provisional-distance-between-starts="2em">
@@ -2812,9 +2814,10 @@ declare function fo:deco($decos as element(tei:decoDesc), $lang) {
         }
     
     </fo:block>,
+ (if ($decos/tei:decoNote[not(@type='miniature') and not(@type='ornamentation') and not(@type='frame') and not(@type='headpiece') and not (@type='headpieceBand') and not(@type='headpieceFrame') and not(@type='band') and not(@type='drawing')]) then
+  <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Other</fo:block> else ()),
 
  let $deconoteMin := $decos/tei:decoNote[not(@type='miniature') and not(@type='ornamentation') and not(@type='frame') and not(@type='headpiece') and not (@type='headpieceBand') and not(@type='headpieceFrame') and not(@type='band') and not(@type='drawing')]   return
-      <fo:block space-after="3mm"  space-before="2mm"  page-break-inside="avoid" page-break-after="avoid">Other</fo:block>,
   <fo:block
         provisional-label-separation="1em"
         provisional-distance-between-starts="2em">
