@@ -1354,7 +1354,7 @@ case element(tei:locus)
             let $prevTextNode := $node/preceding-sibling::text()
             let $clean := replace(string-join($prevTextNode), '\s', '')
             return
-                if (matches($clean, '[^\.]$') or matches($clean, ' ca.'))
+                if (matches($clean, '[^\.]$') or matches($clean, ' ca.') or matches($clean, ' cp.')  or matches($clean, '  esp.'))
                 then
                     'f'
                 else
@@ -1408,7 +1408,7 @@ case element(tei:locus)
                     let $targets :=
                     if (contains($node/@target, ' '))
                     then
-                        let $ts := for $t in tokenize($node/@target, ' ')
+                        let $ts := for $t in tokenize(normalize-space($node/@target), ' ')
                         return
                             substring-after($t, '#')
                         return
@@ -3349,7 +3349,7 @@ declare function fo:intro($part, $lang) {
                  ' [' || fo:tei2fo($f/tei:locus) || '] '
                   else
                 () ) || ')'
-        let $quires := fo:quires($part, $lang) || '. '
+        let $quires := fo:quires($part, $lang) || ''
         let $date := if ($part//tei:origDate[@when or @notBefore or @notAfter])
         then
             fo:origDate($part, $lang)
@@ -3883,7 +3883,7 @@ declare function fo:condition($condition) {
             page-break-inside="avoid"
             page-break-after="avoid">Condition</fo:block>
         
-        <fo:block>{'The condition is ' || string-join(string($condition/@key), ' ') || '.'}{fo:tei2fo($condition/node())}</fo:block>
+        <fo:block>{'The condition is ' || string-join(string($condition/@key), ' ') || '. '}{fo:tei2fo($condition/node())}</fo:block>
     </fo:block>
 };
 
