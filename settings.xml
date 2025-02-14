@@ -41,7 +41,7 @@
     </orderOfParts>
     <bibSettings>
         <!--        following setting can be set to 'local' if you first run makebibliography.xql and then use data/bibliography.xml or 'onthefly' (default) if you wish to simply parse and compile. It is recommended to work onthefly, then local, edit local if necessary and stick to that -->
-        <bibliographygeneration>local</bibliographygeneration>
+        <bibliographygeneration>onthefly</bibliographygeneration>
         
         <!--
             taken into consideration only by local setting of bibliographygeneration
