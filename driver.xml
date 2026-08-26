@@ -136,40 +136,10 @@
       here you can use xi:include to point to the manuscripts files. 
       You can have as many as you want, here there is one simple example
    -->
-<!--   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd16.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd16.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd16.xml-\->
+      href="file:/C:/Users/Eugenia/Desktop/BetaMesaheft/Manuscripts/ES/ESmy003.xml">
       <xi:fallback>
-         <p>Bodleian Aeth. d. 16</p>
-      </xi:fallback>
-   </xi:include>-->
-   
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLZ-ad\Documents\GitHub\Manuscripts\ES\ESmy001.xml">
-      <xi:fallback>
-         <p>ESmy001</p>
-      </xi:fallback>
-   </xi:include>
-   
-   
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLZ-ad\Documents\GitHub\Manuscripts\ES\ESmy002.xml">
-
-      <xi:fallback>
-         <p>ESmy002</p>
-      </xi:fallback>
-   </xi:include>
-   
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLZ-ad\Documents\GitHub\Manuscripts\ES\ESmy001.xml">
-       
-     <xi:fallback>
          <p>ESmy003</p>
       </xi:fallback>
    </xi:include>
