@@ -165,8 +165,9 @@ declare function fo:printTitleID($ref as xs:string?) as xs:string? {
         substring-after($ref, $local:BMappUrl)
     else
         $ref
+         let $url := replace(concat($local:BMappUrl, 'api/', replace($r, ':', '_'), '/title'), '\s', '')
     return
-        json-doc(replace(concat($local:BMappUrl, 'api/', replace($r, ':', '_'), '/title/json'), '\s', ''))?title
+ normalize-space(unparsed-text($url))
 };
 
 declare function fo:getFile($id) {
