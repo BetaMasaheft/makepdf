@@ -96,10 +96,14 @@ if(string-length($ref) != 2 ) then () else (
    )
 };
 
-declare function fo:printTitleID($ref as xs:string?) as xs:string?{
-let $r := if(starts-with($ref, $local:BMappUrl)) then substring-after($ref, $local:BMappUrl) else $ref
-return
- json-doc(replace(concat($local:BMappUrl,'api/', replace($r, ':', '_'),'/title/json'), '\s', ''))?title
+declare function fo:printTitleID($ref as xs:string?) as xs:string? {
+    let $r := if (starts-with($ref, $local:BMappUrl)) then
+        substring-after($ref, $local:BMappUrl)
+    else
+        $ref
+    let $url := replace(concat($local:BMappUrl, 'api/', replace($r, ':', '_'), '/title'), '\s', '')
+    return
+        normalize-space(unparsed-text($url))
 };
 
 declare function fo:getFile($id){
