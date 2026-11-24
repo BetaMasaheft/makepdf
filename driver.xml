@@ -140,47 +140,92 @@
       here you can use xi:include to point to the manuscripts files. 
       You can have as many as you want, here there is one simple example
    -->
-<!--   
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd16.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd16.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd16.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. d. 16</p>
-      </xi:fallback>
-   </xi:include>-->
    
-   <xi:include 
+<!--   <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml">
-     <!-- C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml-->
-      <!--  C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml-->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\ExampleSimple.xml">
+      <!-\- C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml-\->
+      <!-\-  C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml-\->
       <xi:fallback>
-         <p>Bodleian Aeth. c. 14</p>
+         <p>ExampleSimple</p>
       </xi:fallback>
    </xi:include>
    
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\ExampleComposite.xml">
+      <!-\- C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml-\->
+      <!-\-  C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml-\->
+      <xi:fallback>
+         <p>ExampleComposite</p>
+      </xi:fallback>
+   </xi:include>
    
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\ExampleScroll.xml">
+      <!-\- C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml-\->
+      <!-\-  C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml-\->
+      <xi:fallback>
+         <p>ExampleScroll</p>
+      </xi:fallback>
+   </xi:include>-->
+   
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd16.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. d. 16</p>
+      </xi:fallback>
+   </xi:include>
+   
+<!--<xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. c. 14</p>
+      </xi:fallback>
+   </xi:include>-->
+   
+  <!-- <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg28.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. g. 28</p>
+      </xi:fallback>
+   </xi:include>-->
+   
+<!--   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf26.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. f. 26</p>
+      </xi:fallback>
+   </xi:include>-->
+   
+   <!--   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
       href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd20.xml">
-      <!-- C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd20.xml-->
-      <!--  C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd20.xml-->
+      <!-\- C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd20.xml-\->
+      <!-\-  C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd20.xml-\->
       <xi:fallback>
          <p>Bodleian Aeth. d. 20</p>
       </xi:fallback>
    </xi:include>
    
+   
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
       href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe30.xml">
-       <!--C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe30.xml-->
-         <!--C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe30.xml-->
+       <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe30.xml-\->
+         <!-\-C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe30.xml-\->
      <xi:fallback>
          <p>Bodleian Aeth. e. 30</p>
       </xi:fallback>
-   </xi:include>
+   </xi:include>-->
    
    <!-- 
    <xi:include 
