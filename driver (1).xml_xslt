@@ -1,0 +1,1389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+   <fo:layout-master-set>
+      <fo:page-sequence-master master-name="Aethiopica-master">
+         <fo:repeatable-page-master-alternatives>
+            <fo:conditional-page-master-reference master-reference="blank" blank-or-not-blank="blank"/>
+            <fo:conditional-page-master-reference page-position="first"
+                                                  odd-or-even="odd"
+                                                  master-reference="Aethiopica-chapter-first-odd"/>
+            <fo:conditional-page-master-reference page-position="first"
+                                                  odd-or-even="even"
+                                                  master-reference="Aethiopica-chapter-first-even"/>
+            <fo:conditional-page-master-reference page-position="rest"
+                                                  odd-or-even="odd"
+                                                  master-reference="Aethiopica-chapter-rest-odd"/>
+            <fo:conditional-page-master-reference page-position="rest"
+                                                  odd-or-even="even"
+                                                  master-reference="Aethiopica-chapter-rest-even"/>
+         </fo:repeatable-page-master-alternatives>
+      </fo:page-sequence-master>
+      <fo:page-sequence-master master-name="Aethiopica-Indexes">
+         <fo:repeatable-page-master-alternatives>
+            <fo:conditional-page-master-reference master-reference="indexes-blank" blank-or-not-blank="blank"/>
+            <fo:conditional-page-master-reference page-position="first"
+                                                  odd-or-even="odd"
+                                                  master-reference="Aethiopica-Indexes-first-odd"/>
+            <fo:conditional-page-master-reference page-position="first"
+                                                  odd-or-even="even"
+                                                  master-reference="Aethiopica-Indexes-first-even"/>
+            <fo:conditional-page-master-reference page-position="rest"
+                                                  odd-or-even="odd"
+                                                  master-reference="Aethiopica-Indexes-rest-odd"/>
+            <fo:conditional-page-master-reference page-position="rest"
+                                                  odd-or-even="even"
+                                                  master-reference="Aethiopica-Indexes-rest-even"/>
+         </fo:repeatable-page-master-alternatives>
+      </fo:page-sequence-master>
+      <fo:simple-page-master page-height="297mm"
+                             page-width="210mm"
+                             master-name="blank"
+                             margin-top="34.5mm"
+                             margin-bottom="49mm"
+                             margin-left="40mm"
+                             margin-right="40mm">
+         <fo:region-body margin-top="37.5pt" margin-bottom="37.5pt"/>
+      </fo:simple-page-master>
+      <fo:simple-page-master page-height="297mm"
+                             page-width="210mm"
+                             master-name="indexes-blank"
+                             margin-top="34.5mm"
+                             margin-bottom="49mm"
+                             margin-left="40mm"
+                             margin-right="40mm">
+         <fo:region-body margin-top="37.5pt" margin-bottom="37.5pt"/>
+      </fo:simple-page-master>
+      <fo:simple-page-master page-height="297mm"
+                             page-width="210mm"
+                             master-name="Aethiopica-Indexes-rest-odd"
+                             margin-top="34.5mm"
+                             margin-bottom="49mm"
+                             margin-left="40mm"
+                             margin-right="40mm">
+         <fo:region-body margin-top="37.5pt"
+                         margin-bottom="37.5pt"
+                         column-count="2"
+                         column-gap="10mm"/>
+         <fo:region-before region-name="rest-region-before-odd" extent="25pt"/>
+         <fo:region-after region-name="rest-region-after-odd" extent="12.5pt"/>
+      </fo:simple-page-master>
+      <fo:simple-page-master page-height="297mm"
+                             page-width="210mm"
+                             master-name="Aethiopica-Indexes-rest-even"
+                             margin-top="34.5mm"
+                             margin-bottom="49mm"
+                             margin-left="40mm"
+                             margin-right="40mm">
+         <fo:region-body margin-top="37.5pt"
+                         margin-bottom="37.5pt"
+                         column-count="2"
+                         column-gap="10mm"/>
+         <fo:region-before region-name="rest-region-before-even" extent="25pt"/>
+         <fo:region-after region-name="rest-region-after-even" extent="12.5pt"/>
+      </fo:simple-page-master>
+      <fo:simple-page-master page-height="297mm"
+                             page-width="210mm"
+                             master-name="Aethiopica-Indexes-first-even"
+                             margin-top="34.5mm"
+                             margin-bottom="49mm"
+                             margin-left="40mm"
+                             margin-right="40mm">
+         <fo:region-body margin-top="37.5pt"
+                         margin-bottom="37.5pt"
+                         column-count="2"
+                         column-gap="10mm"/>
+         <fo:region-after extent="25pt"/>
+      </fo:simple-page-master>
+      <fo:simple-page-master page-height="297mm"
+                             page-width="210mm"
+                             master-name="Aethiopica-Indexes-first-odd"
+                             margin-top="34.5mm"
+                             margin-bottom="49mm"
+                             margin-left="40mm"
+                             margin-right="40mm">
+         <fo:region-body margin-top="37.5pt"
+                         margin-bottom="37.5pt"
+                         column-count="2"
+                         column-gap="10mm"/>
+         <fo:region-before region-name="rest-region-before-first" extent="25pt"/>
+         <fo:region-after region-name="rest-region-after-first" extent="12.5pt"/>
+      </fo:simple-page-master>
+      <fo:simple-page-master page-height="297mm"
+                             page-width="210mm"
+                             master-name="Aethiopica-chapter-first-odd"
+                             margin-top="34.5mm"
+                             margin-bottom="49mm"
+                             margin-left="40mm"
+                             margin-right="40mm">
+         <fo:region-body margin-top="37.5pt" margin-bottom="37.5pt"/>
+         <fo:region-before region-name="rest-region-before-first" extent="25pt"/>
+         <fo:region-after region-name="rest-region-after-first" extent="12.5pt"/>
+      </fo:simple-page-master>
+      <fo:simple-page-master page-height="297mm"
+                             page-width="210mm"
+                             master-name="Aethiopica-chapter-first-even"
+                             margin-top="34.5mm"
+                             margin-bottom="49mm"
+                             margin-left="40mm"
+                             margin-right="40mm">
+         <fo:region-body margin-top="37.5pt" margin-bottom="37.5pt"/>
+         <fo:region-after extent="25pt"/>
+      </fo:simple-page-master>
+      <fo:simple-page-master page-height="297mm"
+                             page-width="210mm"
+                             master-name="Aethiopica-chapter-rest-odd"
+                             margin-top="34.5mm"
+                             margin-bottom="49mm"
+                             margin-left="40mm"
+                             margin-right="40mm">
+         <fo:region-body margin-top="37.5pt" margin-bottom="37.5pt"/>
+         <fo:region-before region-name="rest-region-before-odd" extent="25pt"/>
+         <fo:region-after region-name="rest-region-after-odd" extent="12.5pt"/>
+      </fo:simple-page-master>
+      <fo:simple-page-master page-height="297mm"
+                             page-width="210mm"
+                             master-name="Aethiopica-chapter-rest-even"
+                             margin-top="34.5mm"
+                             margin-bottom="49mm"
+                             margin-left="40mm"
+                             margin-right="40mm">
+         <fo:region-body margin-top="37.5pt" margin-bottom="37.5pt"/>
+         <fo:region-before region-name="rest-region-before-even" extent="25pt"/>
+         <fo:region-after region-name="rest-region-after-even" extent="12.5pt"/>
+      </fo:simple-page-master>
+   </fo:layout-master-set>
+   <fo:bookmark-tree>
+      <fo:bookmark internal-destination="BDLaethb3">
+         <fo:bookmark-title>Bodleian Aeth. b. 3</fo:bookmark-title>
+      </fo:bookmark>
+   </fo:bookmark-tree>
+   <fo:page-sequence master-reference="Aethiopica-master">
+      <fo:flow flow-name="xsl-region-body" font-family="Ludolfus">
+         <fo:block-container font-size="12pt"
+                             space-before="25.2pt"
+                             space-after="12.24pt"
+                             font-family="Ludolfus"
+                             font-weight="700"
+                             text-align="center"
+                             display-align="center">
+            <fo:block>The Ethiopic Manuscripts of the Bodleian Library</fo:block>
+         </fo:block-container>
+         <fo:block font-size="12pt"
+                   space-before="25.2pt"
+                   space-after="12.24pt"
+                   font-family="Ludolfus"
+                   font-weight="700"
+                   text-align="center"
+                   display-align="center">Eliana Dal Sasso, Jacopo Gnisci, Jonas Karlsson, Dorothea Reule, Massimo Villa</fo:block>
+         <fo:block text-align="center"
+                   font-size="20pt"
+                   font-style="italic"
+                   space-before="2em"
+                   space-after="2em"/>
+      </fo:flow>
+   </fo:page-sequence>
+   <fo:page-sequence initial-page-number="auto-odd"
+                     master-reference="Aethiopica-master"
+                     format="i">
+      <fo:static-content flow-name="rest-region-before-odd">
+         <fo:block-container height="100%" display-align="center">
+            <fo:table>
+               <fo:table-column column-width="30%"/>
+               <fo:table-column column-width="40%"/>
+               <fo:table-column column-width="30%"/>
+               <fo:table-body>
+                  <fo:table-row>
+                     <fo:table-cell>
+                        <fo:block text-align="right"/>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="right">
+                           <fo:page-number/>
+                        </fo:block>
+                     </fo:table-cell>
+                  </fo:table-row>
+               </fo:table-body>
+            </fo:table>
+         </fo:block-container>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-even">
+         <fo:block-container height="100%" display-align="center">
+            <fo:table>
+               <fo:table-column column-width="30%"/>
+               <fo:table-column column-width="40%"/>
+               <fo:table-column column-width="30%"/>
+               <fo:table-body>
+                  <fo:table-row>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="left">
+                           <fo:page-number/>
+                        </fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block text-align="center" font-size="9pt" font-family="Ludolfus">Table of Contents</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                     </fo:table-cell>
+                  </fo:table-row>
+               </fo:table-body>
+            </fo:table>
+         </fo:block-container>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-first">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="left"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="right" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-odd">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"><!--<fo:page-number/>--></fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-even">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="left"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="center"><!--<fo:page-number/>--></fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="left"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-first">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="xsl-footnote-separator">
+         <fo:block space-before="5mm" space-after="5mm">
+            <fo:leader leader-length="30%" rule-thickness="0pt"/>
+         </fo:block>
+      </fo:static-content>
+      <fo:flow flow-name="xsl-region-body" font-family="Ludolfus">
+         <fo:block-container font-size="12pt"
+                             space-before="25.2pt"
+                             space-after="12.24pt"
+                             font-family="Ludolfus"
+                             font-weight="700"
+                             text-align="center"
+                             display-align="center">
+            <fo:block>The Ethiopic Manuscripts of the Bodleian Library</fo:block>
+         </fo:block-container>
+         <fo:block font-size="12pt"
+                   space-before="25.2pt"
+                   space-after="12.24pt"
+                   font-family="Ludolfus"
+                   font-weight="700"
+                   text-align="center"
+                   display-align="center">Table of Contents</fo:block>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus"
+                   margin-bottom="0.5cm">
+            <fo:inline>Acknowledgements</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="Acknowledgement">
+               <fo:page-number-citation ref-id="Acknowledgement"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus"
+                   margin-bottom="0.5cm">
+            <fo:inline>List of Figures</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="listfigures">
+               <fo:page-number-citation ref-id="listfigures"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus"
+                   margin-bottom="0.5cm">
+            <fo:inline>Introduction</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="introduction">
+               <fo:page-number-citation ref-id="introduction"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus"
+                   margin-bottom="0.5cm">
+            <fo:inline>Bibliography</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="bibliography">
+               <fo:page-number-citation ref-id="introduction"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus"
+                   margin-bottom="0.5cm">
+            <fo:inline>Catalogue</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   margin-left="1cm"
+                   font-family="Ludolfus">
+            <fo:inline font-weight="800">Bodleian Aeth. b. 3</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="BDLaethb3">
+               <fo:page-number-citation ref-id="BDLaethb3"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block margin-top="0.5cm"/>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus">
+            <fo:inline>Index of Persons</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="IndexPersons">
+               <fo:page-number-citation ref-id="IndexPersons"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus">
+            <fo:inline>Index of Places</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="IndexPlaces">
+               <fo:page-number-citation ref-id="IndexPlaces"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus">
+            <fo:inline>Index of Texts</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="IndexWorks">
+               <fo:page-number-citation ref-id="IndexWorks"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus">
+            <fo:inline>Index of Subjects</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="IndexSubjects">
+               <fo:page-number-citation ref-id="IndexSubjects"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus">
+            <fo:inline>Index of Keywords</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="IndexKeywords">
+               <fo:page-number-citation ref-id="IndexKeywords"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus">
+            <fo:inline>Index of Languages</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="IndexLanguages">
+               <fo:page-number-citation ref-id="IndexSubjects"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block margin-top="0.5cm"/>
+         <fo:block text-align-last="justify"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus">
+            <fo:inline>Plates</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="Appendix">
+               <fo:page-number-citation ref-id="Appendix"/>
+            </fo:basic-link>
+         </fo:block>
+      </fo:flow>
+   </fo:page-sequence>
+   <fo:page-sequence initial-page-number="auto-odd"
+                     master-reference="Aethiopica-master"
+                     format="i">
+      <fo:static-content flow-name="rest-region-before-odd">
+         <fo:block-container height="100%" display-align="center">
+            <fo:table>
+               <fo:table-column column-width="30%"/>
+               <fo:table-column column-width="40%"/>
+               <fo:table-column column-width="30%"/>
+               <fo:table-body>
+                  <fo:table-row>
+                     <fo:table-cell>
+                        <fo:block text-align="right"/>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="right">
+                           <fo:page-number/>
+                        </fo:block>
+                     </fo:table-cell>
+                  </fo:table-row>
+               </fo:table-body>
+            </fo:table>
+         </fo:block-container>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-even">
+         <fo:block-container height="100%" display-align="center">
+            <fo:table>
+               <fo:table-column column-width="30%"/>
+               <fo:table-column column-width="40%"/>
+               <fo:table-column column-width="30%"/>
+               <fo:table-body>
+                  <fo:table-row>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="left">
+                           <fo:page-number/>
+                        </fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block text-align="center" font-size="9pt" font-family="Ludolfus">Acknowledgement</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                     </fo:table-cell>
+                  </fo:table-row>
+               </fo:table-body>
+            </fo:table>
+         </fo:block-container>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-first">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="left"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="right" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-odd">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"><!--<fo:page-number/>--></fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-even">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="left"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="center"><!--<fo:page-number/>--></fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="left"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-first">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="xsl-footnote-separator">
+         <fo:block space-before="5mm" space-after="5mm">
+            <fo:leader leader-length="30%" rule-thickness="0pt"/>
+         </fo:block>
+      </fo:static-content>
+      <fo:flow flow-name="xsl-region-body"
+               font-size="10.5pt"
+               line-height="12.5pt"
+               font-family="Ludolfus"
+               text-align="justify"
+               hyphenate="true">
+         <fo:block-container id="Acknowledgement">
+            <fo:block hyphenate="true">
+               <fo:block hyphenate="true" page-break-after="avoid" id="d1e99">Acknowledgements</fo:block>
+               <fo:block xml:lang="en" hyphenate="true">Acknowledgements text</fo:block>
+            </fo:block>
+            <fo:block>This output is based on collaboratively edited data from the project Beta maṣāḥǝft: Manuscripts of Ethiopia and Eritrea (Schriftkultur des christlichen Äthiopiens und Eritreas: eine multimediale Forschungsumgebung). </fo:block>
+            <fo:block>Contributors to the files directly included are: Dorothea Reule, Jacopo Gnisci, Massimo Villa, Susanne Hummel, Jonas Karlsson. This list does not include contributors to other related entities. Please follow links to the source data where contributions are listed and versioned.</fo:block>
+         </fo:block-container>
+      </fo:flow>
+   </fo:page-sequence>
+   <fo:page-sequence initial-page-number="auto-odd"
+                     master-reference="Aethiopica-master"
+                     format="i">
+      <fo:static-content flow-name="rest-region-before-odd">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus">List of Figures</fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right">
+                        <fo:page-number/>
+                     </fo:block>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-even">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="left">
+                        <fo:page-number/>
+                     </fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus">List of Figures</fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-first">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="xsl-footnote-separator">
+         <fo:block space-before="5mm" space-after="5mm">
+            <fo:leader leader-length="30%" rule-thickness="0pt"/>
+         </fo:block>
+      </fo:static-content>
+      <fo:flow flow-name="xsl-region-body" font-family="Ludolfus">
+         <fo:block id="listfigures"
+                   font-size="12pt"
+                   space-before="25.2pt"
+                   space-after="12.24pt"
+                   font-family="Ludolfus"
+                   font-weight="700"
+                   text-align="center"
+                   display-align="center">List of Figures</fo:block>
+         <fo:block text-align-last="justify"
+                   start-indent="1cm"
+                   text-indent="-1cm"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus">
+            <fo:inline font-weight="bold">Fig. 1 </fo:inline>
+            <fo:inline>Caption of my image on the left</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="d1e149">
+               <fo:page-number-citation ref-id="d1e149"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   start-indent="1cm"
+                   text-indent="-1cm"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus">
+            <fo:inline font-weight="bold">Fig. 2 </fo:inline>
+            <fo:inline>Caption of my image on the right</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="d1e158">
+               <fo:page-number-citation ref-id="d1e158"/>
+            </fo:basic-link>
+         </fo:block>
+         <fo:block text-align-last="justify"
+                   start-indent="1cm"
+                   text-indent="-1cm"
+                   space-after="1pt"
+                   font-size="10.5pt"
+                   font-family="Ludolfus">
+            <fo:inline font-weight="bold">Fig. 3 </fo:inline>
+            <fo:inline>Caption of my image</fo:inline>
+            <fo:leader leader-pattern="dots"/>
+            <fo:basic-link internal-destination="d1e169">
+               <fo:page-number-citation ref-id="d1e169"/>
+            </fo:basic-link>
+         </fo:block>
+      </fo:flow>
+   </fo:page-sequence>
+   <fo:page-sequence initial-page-number="auto-odd"
+                     master-reference="Aethiopica-master"
+                     format="i">
+      <fo:static-content flow-name="rest-region-before-odd">
+         <fo:block-container height="100%" display-align="center">
+            <fo:table>
+               <fo:table-column column-width="30%"/>
+               <fo:table-column column-width="40%"/>
+               <fo:table-column column-width="30%"/>
+               <fo:table-body>
+                  <fo:table-row>
+                     <fo:table-cell>
+                        <fo:block text-align="right"/>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block text-align="center" font-size="9pt" font-family="Ludolfus">Introduction</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="right">
+                           <fo:page-number/>
+                        </fo:block>
+                     </fo:table-cell>
+                  </fo:table-row>
+               </fo:table-body>
+            </fo:table>
+         </fo:block-container>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-even">
+         <fo:block-container height="100%" display-align="center">
+            <fo:table>
+               <fo:table-column column-width="30%"/>
+               <fo:table-column column-width="40%"/>
+               <fo:table-column column-width="30%"/>
+               <fo:table-body>
+                  <fo:table-row>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="left">
+                           <fo:page-number/>
+                        </fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                     </fo:table-cell>
+                  </fo:table-row>
+               </fo:table-body>
+            </fo:table>
+         </fo:block-container>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-first">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="left"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="right" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-odd">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"><!--<fo:page-number/>--></fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-even">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="left"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="center"><!--<fo:page-number/>--></fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="left"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-first">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="xsl-footnote-separator">
+         <fo:block space-before="5mm" space-after="5mm">
+            <fo:leader leader-length="30%" rule-thickness="0pt"/>
+         </fo:block>
+      </fo:static-content>
+      <fo:flow flow-name="xsl-region-body"
+               font-size="10.5pt"
+               line-height="12.5pt"
+               font-family="Ludolfus"
+               text-align="justify"
+               hyphenate="true"><!-- INTRODUCTION     -->
+         <fo:block id="introduction">
+            <fo:block hyphenate="true">
+               <fo:block hyphenate="true" page-break-after="avoid" id="d1e109">Intro</fo:block>
+               <fo:block xml:lang="en" hyphenate="true"> your introduction!</fo:block>
+               <fo:block hyphenate="true">
+                  <fo:block hyphenate="true"
+                            page-break-after="avoid"
+                            id="d1e115"
+                            font-weight="700"
+                            font-size="12pt"
+                            text-align="center"
+                            space-before="25.2pt"
+                            space-after="12.24pt">chapter head</fo:block>
+                  <fo:block xml:lang="en" hyphenate="true">my text</fo:block>
+                  <!--    <p> You can use here 
+                  <list>
+                     <item><ref target="http://www.thelevantinefoundation.co.uk"/></item>
+                     <item>ref with type figure, internal, manuscript, work with 
+                        respectively the ids of a figure in a figure element, a chapter 
+                        or any other node with a xml:id, a manuscript in BM a work in BM</item>
+                     <item><bibl><ptr target="bm:Meinardus1961Monks"/><citedRange unit="page">117</citedRange></bibl></item>
+                     <item><placeName ref="LOC6126WadinN"></placeName></item>
+                     <item><persName ref="PRS7185Mosesof"></persName></item>
+                     <item><note>to make a footnote</note></item>
+                     <item>lists like this one</item>
+                     <item>cit and quote</item>
+                  </list>
+               </p>-->
+                  <fo:block hyphenate="true">
+                     <fo:block hyphenate="true"
+                               page-break-after="avoid"
+                               id="d1e123"
+                               font-weight="700"
+                               margin-top="12.5pt"
+                               margin-bottom="6.25pt">1.1.1 section head</fo:block>
+                     <fo:block xml:lang="en" hyphenate="true">my section text</fo:block>
+                  </fo:block>
+               </fo:block>
+            </fo:block>
+         </fo:block>
+      </fo:flow>
+   </fo:page-sequence>
+   <fo:page-sequence initial-page-number="auto-odd"
+                     master-reference="Aethiopica-master"
+                     format="i">
+      <fo:static-content flow-name="rest-region-before-odd">
+         <fo:block-container height="100%" display-align="center">
+            <fo:table>
+               <fo:table-column column-width="30%"/>
+               <fo:table-column column-width="40%"/>
+               <fo:table-column column-width="30%"/>
+               <fo:table-body>
+                  <fo:table-row>
+                     <fo:table-cell>
+                        <fo:block text-align="right"/>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block text-align="center" font-size="9pt" font-family="Ludolfus">Bibliography</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="right">
+                           <fo:page-number/>
+                        </fo:block>
+                     </fo:table-cell>
+                  </fo:table-row>
+               </fo:table-body>
+            </fo:table>
+         </fo:block-container>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-even">
+         <fo:block-container height="100%" display-align="center">
+            <fo:table>
+               <fo:table-column column-width="30%"/>
+               <fo:table-column column-width="40%"/>
+               <fo:table-column column-width="30%"/>
+               <fo:table-body>
+                  <fo:table-row>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="left">
+                           <fo:page-number/>
+                        </fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block text-align="center" font-size="9pt" font-family="Ludolfus">
+                           <fo:inline>Eliana</fo:inline>
+                           <fo:inline>Dal</fo:inline>
+                           <fo:inline>Sasso</fo:inline>, <fo:inline>Jacopo</fo:inline>
+                           <fo:inline>Gnisci</fo:inline>, <fo:inline>Jonas</fo:inline>
+                           <fo:inline>Karlsson</fo:inline>, <fo:inline>Dorothea</fo:inline>
+                           <fo:inline>Reule</fo:inline>, <fo:inline>Massimo</fo:inline>
+                           <fo:inline>Villa</fo:inline>
+                        </fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                     </fo:table-cell>
+                  </fo:table-row>
+               </fo:table-body>
+            </fo:table>
+         </fo:block-container>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-first">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="left"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="right" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-odd">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"><!--<fo:page-number/>--></fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-even">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="left"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="center"><!--<fo:page-number/>--></fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="left"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-first">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="xsl-footnote-separator">
+         <fo:block space-before="5mm" space-after="5mm">
+            <fo:leader leader-length="30%" rule-thickness="0pt"/>
+         </fo:block>
+      </fo:static-content>
+      <fo:flow flow-name="xsl-region-body"
+               font-size="10.5pt"
+               line-height="12.5pt"
+               font-family="Ludolfus"
+               text-align="justify"
+               hyphenate="true"><!-- BIBLIOGRAPHY           -->
+         <fo:block id="bibliography"
+                   page-break-before="always"
+                   font-weight="700"
+                   margin-bottom="6.25pt">Bibliography</fo:block>
+         <fo:block id="bm_TasfaGiyorgis1956Taammera"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">[Tasfā Gabra Śǝllāse], ed., 1963. ተአምረ፡ ማርያም። ንባቡ፡ በግዕዝ፡ ትርጓሜው፡ በአማርኛ። (Taʾammǝra Māryām: nǝbābu ba-gǝʿz tǝrgwāmew ba-ʾamārǝññā , ‘Miracles of Mary: Its reading in Gǝʿǝz and its translation in Amharic’) (ʾAddis ʾAbabā: Tasfā Gabra Śǝllāse māttamiyā bet, 1963).</fo:block>
+         <fo:block id="bm_Budge1923Miracles"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Budge, E. A. [Thompson] W. 1923. One hundred and ten miracles of Our Lady Mary (London: Medici Society, 1923).</fo:block>
+         <fo:block id="bm_Bassano1922BiluyKidan"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Da Bassano, F., ed., 1923–1926. ብሉይ፡ ኪዳን። ዘተሰናአወ፡ ምስለ፡ መጻሕፍት፡ ቀደምት፡ ዘብራና፡ ወምስለ፡ መጻሕፍተ፡ ሶርያ፡ ወጽርእ፡ ወዓረብ ። (Bǝluy kidān. Zatasanāʾawa mǝsla maṣāḥǝft qaddamt zabǝrānnā wamǝsla maṣāḥǝfta soryā waṣǝrʾ waʿārab), I–IV (Asmarae: Typis missionis catholicae, 1923–1926).</fo:block>
+         <fo:block id="bm_DegeMueller2015Psalter"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Dege-Müller, S. 2015. ‘The Ethiopic Psalter manuscripts: scribal practices and text arrangement’, in A. Bausi, A. Gori, D. Nosnitsin, and E. Sokolinski, eds, Essays in Ethiopian Manuscript Studies: Proceedings of the International Conference Manuscripts and Texts, Languages and Contexts: the Transmission of Knowledge in the Horn of Africa, Hamburg, 17–19 July 2014, Supplement to Aethiopica, 4 (Wiesbaden: Harrassowitz Verlag, 2015), 59–74.</fo:block>
+         <fo:block id="bm_2019GnisciGospel"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Delamarter, S. and J. Gnisci 2019. ‘The Psalter in Geʿez’, in J. Gnisci, ed., Treasure of Ethiopia and Eritrea in the Bodleian Library, Oxford (Oxford: Manar al-Athar, University of Oxford, 2019), 37–51.Gnisci, J. 2019. ‘The Gospel in Geʿez’, in J. Gnisci, ed., Treasures of Ethiopia and Eritrea in the Bodleian Library, Oxford, Manar al-Athar Monograph, 5 (Oxford: Manar al-Athar, University of Oxford, 2019), 29–36.</fo:block>
+         <fo:block id="bm_Devens2007Mahaleya"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Devens, M. 2007. ‘Mäḥalǝyä näbiyat’, in S. Uhlig, ed., Encyclopaedia Aethiopica, III (Wiesbaden: Harrassowitz Verlag, 2007), 646a-b.</fo:block>
+         <fo:block id="bm_Fries1892Weddase"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Fries, K. 1892. ውዳሴ፡ ማርያማ፡ Weddâsê Mârjâm. Ein äthiopischer Lobgesang an Maria, nach mehreren Handschriften herausgegeben und übersetzt. Inaugural-Dissertation zur Erlangung der Doktorwürde bei der Hohen Philosophischen Fakultät der Königlichen Universität Upsala (Leipzig: Gustav Fock, 1892).</fo:block>
+         <fo:block id="bm_Getatchew2003Anqasa"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Getatchew Haile 2003. ‘Anqäṣä bǝrhan’, in S. Uhlig, ed., Encyclopaedia Aethiopica, I (Wiesbaden: Harrassowitz Verlag, 2003), 278b–279b.</fo:block>
+         <fo:block id="bm_Gleave1951Songof"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Gleave, H. C. 1951. The Ethiopic Version of the Song of Songs, ed., tr. H. C. Gleave (London: Taylor’s Foreign Press, 1951).</fo:block>
+         <fo:block id="bm_Grohmann1919Marien"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Grohmann, A. 1919. Aethiopische Marienhymnen, ed., tr. A. Grohmann, Abhandlungen der Sächsischen Akademie der Wissenschaften, 68, Abhandlungen der philologisch-historischen Klasse der Sächsischen Akademie der Wissenschaften, 33/4 (Leipzig: Bei B. G. Teubner, 1919).</fo:block>
+         <fo:block id="bm_Heldman2010Psalter"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Heldman, M. E. 2010. ‘Psalter’, in S. Uhlig and A. Bausi, eds, Encyclopaedia Aethiopica, IV (Wiesbaden: Harrassowitz Verlag, 2010), 231a–233a.</fo:block>
+         <fo:block id="bm_2017HeldmanYared"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Heldman, M. E. and K. K. Shelemay 2017. ‘Concerning Saint Yared’, in A. C. McCollum, ed., Studies in Ethiopian Languages, Literature, and History: Festschrift for Getatchew Haile Presented by his Friends and Colleagues, Aethiopistische Forschungen, 83 (Wiesbaden: Harrassowitz Verlag, 2017), 65–93.</fo:block>
+         <fo:block id="bm_JuelJensen1996MikaelZata"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Juel-Jensen, B. 1996. ‘The Mikael Zata Gospels: A Late Fifteenth Century Ethiopian Manuscript with Miniatures by Nicolo Brancaleone’, The Book Collector, 45/1 (1996), 29–45.</fo:block>
+         <fo:block id="bm_Knibb2000Psalms"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Knibb, M. A. 2000. ‘The Ethiopic Translation of the Psalms’, in A. Q. Aejmelaeus, ed., Der Septuaginta-Psalter und seine Tochterübersetzungen (Göttingen: Vandenhoeck &amp; Ruprecht, 2000), 107–122.</fo:block>
+         <fo:block id="bm_Lash1972Gateof"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Lash, C. 1972. ‘“Gate of Light”: an Ethiopian Hymn to the Blessed Virgin’, Eastern Church Review, 4; 5 (1972), 36–46; 143–156.</fo:block>
+         <fo:block id="bm_Ludolf1701Psalterium"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Ludolf, H. 1701. መጽሐፈ፡ መዝሙራት፡ ዘዳዊት — Psalterium Davidis aethiopice et latine cum duobus impressis &amp; tribus MSStis codicibus diligenter collatum &amp; emendatum, nec non variis lectionibus &amp; notis philologicis illustratum, ut in præfatione pluribus dicetur. Accedunt Æthiopicè tantùm Hymni et Orationes aliquot Vet. et Novi Testamenti, item Canticum Canticorum, cum variis lectionibus &amp; notis (Francofurti ad Moenum: prostat apud Johannem David Zunner et Nicolaum Wilhelmum Helwig, 1701).</fo:block>
+         <fo:block id="bm_Tasfa1966Dawit"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Täsfa Gäbrä Śǝllase 1966. መዝሙረ፡ ዳዊት፡ ወጸሎታት፡ ዘነቢያት፡ (Mäzmurä Dawit wäṣälotat zänäbiyat, ‘Songs of David and the prayers of the Prophets’) (Addis Abäba: n.pub., 1966).</fo:block>
+         <fo:block id="bm_Weninger2010EAEWeddaseMaryam"
+                   margin-bottom="2pt"
+                   start-indent="0.5cm"
+                   text-indent="-0.5cm">Weninger, S. 2010. ‘Wǝddase Maryam’, in S. Uhlig and A. Bausi, eds, Encyclopaedia Aethiopica, IV (Wiesbaden: Harrassowitz Verlag, 2010), 1173a–74a.</fo:block>
+         <!--  break  before Catalogue -->
+         <fo:block page-break-after="always"/>
+      </fo:flow>
+   </fo:page-sequence>
+   <fo:page-sequence initial-page-number="auto-odd" master-reference="Aethiopica-master">
+      <fo:static-content flow-name="rest-region-before-odd">
+         <fo:block-container height="100%" display-align="center">
+            <fo:table>
+               <fo:table-column column-width="30%"/>
+               <fo:table-column column-width="40%"/>
+               <fo:table-column column-width="30%"/>
+               <fo:table-body>
+                  <fo:table-row>
+                     <fo:table-cell>
+                        <fo:block text-align="right"/>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block text-align="center" font-size="9pt" font-family="Ludolfus">Bodleian Aeth. b. 3</fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="right">
+                           <fo:page-number/>
+                        </fo:block>
+                     </fo:table-cell>
+                  </fo:table-row>
+               </fo:table-body>
+            </fo:table>
+         </fo:block-container>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-even">
+         <fo:block-container height="100%" display-align="center">
+            <fo:table>
+               <fo:table-column column-width="30%"/>
+               <fo:table-column column-width="40%"/>
+               <fo:table-column column-width="30%"/>
+               <fo:table-body>
+                  <fo:table-row>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="left">
+                           <fo:page-number/>
+                        </fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block text-align="center" font-size="9pt" font-family="Ludolfus">
+                           <fo:inline>Eliana</fo:inline>
+                           <fo:inline>Dal</fo:inline>
+                           <fo:inline>Sasso</fo:inline>, <fo:inline>Jacopo</fo:inline>
+                           <fo:inline>Gnisci</fo:inline>, <fo:inline>Jonas</fo:inline>
+                           <fo:inline>Karlsson</fo:inline>, <fo:inline>Dorothea</fo:inline>
+                           <fo:inline>Reule</fo:inline>, <fo:inline>Massimo</fo:inline>
+                           <fo:inline>Villa</fo:inline>
+                        </fo:block>
+                     </fo:table-cell>
+                     <fo:table-cell>
+                        <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                     </fo:table-cell>
+                  </fo:table-row>
+               </fo:table-body>
+            </fo:table>
+         </fo:block-container>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-first">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="left"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="right" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-odd">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"><!--<fo:page-number/>--></fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-after-even">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="left"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="center"><!--<fo:page-number/>--></fo:block>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="left"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="rest-region-before-first">
+         <fo:table>
+            <fo:table-column column-width="30%"/>
+            <fo:table-column column-width="40%"/>
+            <fo:table-column column-width="30%"/>
+            <fo:table-body>
+               <fo:table-row>
+                  <fo:table-cell>
+                     <fo:block text-align="right"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block text-align="center" font-size="9pt" font-family="Ludolfus"/>
+                  </fo:table-cell>
+                  <fo:table-cell>
+                     <fo:block font-size="9pt" font-family="Ludolfus" text-align="right"/>
+                  </fo:table-cell>
+               </fo:table-row>
+            </fo:table-body>
+         </fo:table>
+      </fo:static-content>
+      <fo:static-content flow-name="xsl-footnote-separator">
+         <fo:block space-before="5mm" space-after="5mm">
+            <fo:leader leader-length="30%" rule-thickness="0pt"/>
+         </fo:block>
+      </fo:static-content>
+      <fo:flow flow-name="xsl-region-body"
+               font-size="10.5pt"
+               line-height="12.5pt"
+               font-family="Ludolfus"
+               text-align="justify"
+               hyphenate="true"><!-- CATALOGUE     -->
+         <fo:block id="BDLaethb3"
+                   text-align="center"
+                   page-break-inside="avoid"
+                   page-break-after="avoid"
+                   space-before="3mm">
+            <fo:block font-weight="800">Bodleian Aeth. b. 3</fo:block>
+            <fo:block>(Juel-Jensen 25, EMIP 03453)</fo:block>
+            <fo:block/>
+         </fo:block>
+         <fo:block text-align="center" space-before="2mm" space-after="3mm"/>
+         <fo:block space-before="2mm" space-after="3mm" white-space-collapse="true">Parchment codex435×375 mm, 294 fols, 31 quires, 1730–1755.</fo:block>
+         <fo:block space-before="2mm" white-space-collapse="true">
+            <fo:block font-style="italic"
+                      space-after="3mm"
+                      page-break-inside="avoid"
+                      page-break-after="avoid">Main Contents</fo:block>
+            <fo:block hyphenate="true"
+                      font-family="Ludolfus"
+                      space-after="3mm"
+                      id="d1e313LIT1560Gospel">
+               <fo:inline>I) Fols 5ra–293vb: <fo:inline xml:lang="en" hyphenate="true">Four Gospels, CAe 1560.</fo:inline>
+               </fo:inline>
+            </fo:block>
+            <fo:block hyphenate="true"
+                      font-family="Ludolfus"
+                      space-after="3mm"
+                      id="d1e321LIT2705Introd">
+               <fo:inline>I-1) Fols 5ra–14ra: <fo:inline xml:lang="en" hyphenate="true">Introduction to the Gospels, CAe 2705.</fo:inline>
+               </fo:inline>
+            </fo:block>
+            <fo:block hyphenate="true"
+                      font-family="Ludolfus"
+                      space-after="3mm"
+                      id="d1e327LIT4872MaqdemaWangel">
+               <fo:inline>I-1-1) Fols 5ra–9vb: <fo:inline xml:lang="en" hyphenate="true">‘Introduction to the Gospels’ (​መቅ​ድመ፡ ​ወን​ጌል፡), CAe 4872.</fo:inline>
+               </fo:inline>
+               <fo:block start-indent="10mm">Incipit: <fo:inline font-family="Ludolfus" letter-spacing="0.5pt" font-size="0.9em">
+                                         ​በስ​መ፡ ​አብ፡ ​ወወ​ልድ፡ ​ወመ ​ንፈ​ስ፡ ​ቅዱ​ስ፡ ​አሐ​ዱ፡ ​አም​ላክ ፨
+                                         ​ንቀ​ድም፡ ​በረ​ድኤ​ተ፡ ​እግዚ ​አብ​ሔር፡ ​ይት​ባረ​ክ፡ ​ስሙ፡
+                                         ​ወይ ​ትለ​ዓል፡ ​ዝክ​ሩ፡ ​ወፍ​ጽም​ናሁ፡ ​ዘእ ​ምኔ​ሁ፡ ​ኵሉ፡ ​ሢመ​ተ፡ ​ኃይ​ል፡ ​ወቦ​ቱ፡  ​ተፍ​ጻሜ​ተ፡ ​ኵሉ፡ ​ስእ​ለት።
+                                             ​ወኀቤ ​ሁ፡ ​ምብ​ጻሐ፡ ​ኵሉ፡ ​አስ​ተብ​ቍዖ​ት፡ ​በጽ​ሒፈ፡ ​መቅ​ድመ፡  ፬  ​ወን​ጌላ​ት፡ ​ስቡ​ሐት፡ ወ ፲  ​አቅ​ማራ​ት፡
+                                         ​በሰ​ላመ፡  ​እግ​ዚአ​ብሔ​ር፡  ​አሜን ፨
+                                     </fo:inline>
+               </fo:block>
+               <fo:block start-indent="10mm">Explicit: <fo:inline font-family="Ludolfus" letter-spacing="0.5pt" font-size="0.9em">
+                                         
+                                         ​ቀመ​ር፡ ​ዓሥ​ር፡ ​በዘ​ተሌ​ለየ፡ ​ቦቱ፡ ​ኵሉ፡  ፩  ​እም​ሰባ​ክያ​ን፡  ​፪፻፶  ​መስ​መር፡
+                                         ​ማቴ​ዎስ፡  ​፷ወ፪  ​መስ​መር ፨ 
+                                         ​ማር​ቆስ፡
+                                          ​፲ወ፩  ​መስ​መር። ​ሉቃ​ስ፡  ​፸፪  ​መስ​መር ፨  ​ዮሐ​ንስ፡ ​፺ወ፰
+                                         ​መስ​መር ፨
+                                     </fo:inline>
+               </fo:block>
+            </fo:block>
+            <fo:block hyphenate="true"
+                      font-family="Ludolfus"
+                      space-after="3mm"
+                      id="d1e399LIT4873Stichometry">
+               <fo:inline>I-1-2) Fol. 9vb: <fo:inline xml:lang="en" hyphenate="true">Stichometry, CAe 4873.</fo:inline>
+               </fo:inline>
+               <fo:block start-indent="10mm">Incipit: <fo:inline font-family="Ludolfus" letter-spacing="0.5pt" font-size="0.9em">
+                                             ​ወን​ጌል፡ ​ቅዱ​ስ፡ ​ዘዜ​ነወ፡ ​ማቴ​ዎስ፡ ​ቃሉ፡  ​፳፻​ወ፯፻
+                                         </fo:inline>
+               </fo:block>
+               <fo:block start-indent="10mm">Explicit: <fo:inline font-family="Ludolfus" letter-spacing="0.5pt" font-size="0.9em">
+                                             ​ወም​ግባ​ራተ፡ ​ቃሎ​ሙ፡ ለ ፬  ​ወን​ጌላ​ት፡  ​፺፻ ወ ​፬፻፡፵ ወ ​፱።  ​ወከ​መዝ፡ ​ኃብ​ሩ፡ ​አር​ባዕ​ቲሆ​ሙ፡ ​ወን​ጌላ​ት፡
+                                             ​ለዓ​ለመ፡ ​ዓለም ፨
+                                         </fo:inline>
+               </fo:block>
+            </fo:block>
+            <fo:block hyphenate="true"
+                      font-family="Ludolfus"
+                      space-after="3mm"
+                      id="d1e430LIT4870EvangelistsSymbols">
+               <fo:inline>I-1-3) Fol. 9vb: <fo:inline xml:lang="en" hyphenate="true">The Evangelists and their Symbols, CAe 4870.</fo:inline>
+               </fo:inline>
+               <fo:block start-indent="10mm">The entire text is reproduced below.</fo:block>
+               <fo:block start-indent="10mm">Incipit: <fo:inline font-family="Ludolfus" letter-spacing="0.5pt" font-size="0.9em">
+         

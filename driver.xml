@@ -174,266 +174,183 @@
    
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd16.xml">
-      <xi:fallback>
-         <p>Bodleian Aeth. d. 16</p>
-      </xi:fallback>
-   </xi:include>
-   
-<!--<xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml">
-      <xi:fallback>
-         <p>Bodleian Aeth. c. 14</p>
-      </xi:fallback>
-   </xi:include>-->
-   
-  <!-- <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
       href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg28.xml">
       <xi:fallback>
          <p>Bodleian Aeth. g. 28</p>
       </xi:fallback>
-   </xi:include>-->
-   
-<!--   <xi:include 
+   </xi:include>
+
+   <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
       href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf26.xml">
       <xi:fallback>
          <p>Bodleian Aeth. f. 26</p>
       </xi:fallback>
-   </xi:include>-->
+   </xi:include>
    
-   <!--   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe36.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. e. 36</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf30.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. f. 30</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf24.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. f. 24</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg30.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. g. 30</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg29.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. g. 29</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg28.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. g. 28</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe30.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. e. 30</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe37.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. e. 37</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe34.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. e. 34</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg34.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. g. 34</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg33.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. g. 33</p>
+      </xi:fallback>
+   </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
       href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd20.xml">
-      <!-\- C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd20.xml-\->
-      <!-\-  C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd20.xml-\->
       <xi:fallback>
          <p>Bodleian Aeth. d. 20</p>
       </xi:fallback>
    </xi:include>
    
-   
-   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe30.xml">
-       <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe30.xml-\->
-         <!-\-C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe30.xml-\->
-     <xi:fallback>
-         <p>Bodleian Aeth. e. 30</p>
-      </xi:fallback>
-   </xi:include>-->
-   
-   <!-- 
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg28.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg28.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg28.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. g. 28</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd18.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd18.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd18.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd18.xml">
       <xi:fallback>
          <p>Bodleian Aeth. d. 18</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe39.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe39.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe39.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe39.xml">
       <xi:fallback>
          <p>Bodleian Aeth. e. 39</p>
       </xi:fallback>
    </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf29.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf29.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf29.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. f. 29</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf31.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf31.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf31.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. f. 31</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe33.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe33.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe33.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. e. 33</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf33.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf33.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf33.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. f. 33</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf26.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf26.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf26.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. f. 26</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf24.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf24.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf24.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. f. 24</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe36.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe36.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe36.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. e. 36</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf30.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf30.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf30.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. f. 30</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg30.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg30.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg30.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. g. 30</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg29.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg29.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg29.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. g. 29</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg38.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg38.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg38.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. g. 38</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLjj29.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLjj29.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLjj29.xml-\->
-      <xi:fallback>
-         <p>Bodleian Juel-Jensen 29</p>
-      </xi:fallback>
-   </xi:include>
    
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg34.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg34.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg34.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. g. 34</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg33.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg33.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg33.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. g. 33</p>
-      </xi:fallback>
-   </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe32.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe32.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe32.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe32.xml">
       <xi:fallback>
          <p>Bodleian Aeth. e. 32</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg31.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg31.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg31.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf29.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. f. 29</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg31.xml">
       <xi:fallback>
          <p>Bodleian Aeth. g. 31</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb4.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb4.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb4.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf31.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. f. 31</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb4.xml">
       <xi:fallback>
          <p>Bodleian Aeth. b. 4</p>
       </xi:fallback>
    </xi:include>
-   <xi:include 
-      xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb3.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb3.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb3.xml-\->
-      <xi:fallback>
-         <p>Bodleian Aeth. b. 3</p>
-      </xi:fallback>
-   </xi:include>
-   
    
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf32.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf32.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf32.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe35.xml">
       <xi:fallback>
-         <p>Bodleian Aeth. f. 32</p>
+         <p>Bodleian Aeth. e. 35</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf27.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf27.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf27.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf27.xml">
       <xi:fallback>
          <p>Bodleian Aeth. f. 27</p>
       </xi:fallback>
@@ -441,31 +358,63 @@
    
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg35.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg35.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg35.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb3.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. b. 3</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf32.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. f. 32</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf25.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. f. 25</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg35.xml">
       <xi:fallback>
          <p>Bodleian Aeth. g. 35</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd17.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd17.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd17.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLjj29.xml">
+      <xi:fallback>
+         <p>Bodleian JJ 29</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg36.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. g. 36</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd17.xml">
       <xi:fallback>
          <p>Bodleian Aeth. d. 17</p>
       </xi:fallback>
    </xi:include>
    
-   
-   
-   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb5.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb5.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb5.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb5.xml">
       <xi:fallback>
          <p>Bodleian Aeth. b. 5</p>
       </xi:fallback>
@@ -473,92 +422,143 @@
    
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg45.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg45.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg45.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg45.xml">
       <xi:fallback>
          <p>Bodleian Aeth. g. 45</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg39.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg39.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg39.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg39.xml">
       <xi:fallback>
          <p>Bodleian Aeth. g. 39</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg40.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg40.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg40.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd16.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. d. 16</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg40.xml">
       <xi:fallback>
          <p>Bodleian Aeth. g. 40</p>
       </xi:fallback>
    </xi:include>
-   <xi:include 
+   
+<xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg43.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg43.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg43.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg43.xml">
       <xi:fallback>
          <p>Bodleian Aeth. g. 43</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf34.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf34.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf34.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf34.xml">
       <xi:fallback>
          <p>Bodleian Aeth. f. 34</p>
       </xi:fallback>
    </xi:include>
    
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd19.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. d. 19</p>
+      </xi:fallback>
+   </xi:include>
    
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe38.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe38.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe38.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe38.xml">
       <xi:fallback>
          <p>Bodleian Aeth. e. 38</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb6.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb6.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb6.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe33.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. e. 33</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf33.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. f. 33</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd23.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. d. 23</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethb6.xml">
       <xi:fallback>
          <p>Bodleian Aeth. b. 6</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf23.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf23.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf23.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethc14.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. c. 14</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf23.xml">
       <xi:fallback>
          <p>Bodleian Aeth. f. 23</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg37.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg37.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg37.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethe31.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. e. 31</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg41.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. g. 41</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg37.xml">
       <xi:fallback>
          <p>Bodleian Aeth. g. 37</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd22.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd22.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd22.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd22.xml">
       <xi:fallback>
          <p>Bodleian Aeth. d. 22</p>
       </xi:fallback>
@@ -566,74 +566,138 @@
    
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg32.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg32.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg32.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethd21.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. d. 21</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethf28.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. f. 28</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg32.xml">
       <xi:fallback>
          <p>Bodleian Aeth. g. 32</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg41.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg41.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Juel-Jensen\BDLaethg41.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu1.xml">
       <xi:fallback>
-         <p>Bodleian Aeth. g. 41</p>
+         <p>Bodleian Ullendorff 1</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Ullendorff\BDLeu1.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Ullendorff\BDLeu1.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu1.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu2.xml">
       <xi:fallback>
-         <p>Bodleian Ullendorff I</p>
+         <p>Bodleian Ullendorff 2</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Ullendorff\BDLeu2.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Ullendorff\BDLeu2.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu2.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu3.xml">
       <xi:fallback>
-         <p>Bodleian Ullendorff II</p>
+         <p>Bodleian Ullendorff 3</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Ullendorff\BDLeu3.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Ullendorff\BDLeu3.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu3.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu4.xml">
       <xi:fallback>
-         <p>Bodleian Ullendorff III</p>
+         <p>Bodleian Ullendorff 4</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Ullendorff\BDLeu5.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Ullendorff\BDLeu5.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu5.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu5.xml">
       <xi:fallback>
-         <p>Bodleian Ullendorff V</p>
+         <p>Bodleian Ullendorff 5</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Ullendorff\BDLeu6.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\Ullendorff\BDLeu6.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu6.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu6.xml">
       <xi:fallback>
-         <p>Bodleian Ullendorff VI</p>
+         <p>Bodleian Ullendorff 6</p>
       </xi:fallback>
    </xi:include>
+   
    <xi:include 
       xmlns:xi="http://www.w3.org/2001/XInclude" 
-      href="C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\BodNewMSS\BDLaethf35.xml">
-      <!-\-C:\Users\HLC\OneDrive - Universität Hamburg\Desktop\BetaMasaheft\Manuscripts\OxfordBodleian\BodNewMSS\BDLaethf35.xml
-      C:\Users\Dorothea\Desktop\BetMas\Manuscripts\OxfordBodleian\BodNewMSS\BDLaethf35.xml-\->
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu7.xml">
+      <xi:fallback>
+         <p>Bodleian Ullendorff 7</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu8.xml">
+      <xi:fallback>
+         <p>Bodleian Ullendorff 8</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu9.xml">
+      <xi:fallback>
+         <p>Bodleian Ullendorff 9</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\Ullendorff\BDLeu10.xml">
+      <xi:fallback>
+         <p>Bodleian Ullendorff 10</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\BodNewMSS\BDLaethd24.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. d. 24</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\BodNewMSS\BDLaethg46.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. g. 46</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\BodNewMSS\BDLaethg47.xml">
+      <xi:fallback>
+         <p>Bodleian Aeth. g. 47</p>
+      </xi:fallback>
+   </xi:include>
+   
+   <xi:include 
+      xmlns:xi="http://www.w3.org/2001/XInclude" 
+      href="C:\Users\theam\Desktop\BetMas\Manuscripts\OxfordBodleian\BodNewMSS\BDLaethf35.xml">
       <xi:fallback>
          <p>Bodleian Aeth. f. 35</p>
       </xi:fallback>
-   </xi:include>-->
+   </xi:include>
+   
 </teiCorpus>

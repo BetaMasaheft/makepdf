@@ -263,7 +263,7 @@ declare function fo:entitiesWithRef($node) {
                                     let $t := if ($node/node()) then
                                         fo:tei2fo($node/node())
                                     else
-                                        fo:printTitleID($node/@ref)
+                                        fo:printTitleID(string($node/@ref[1]))
                                     return
                                         $t
                                 else
@@ -314,21 +314,24 @@ declare function fo:entitiesWithRefNoID($node) {
                                     else
                                         (),
                                 fo:tei2fo($node/node()))
-                            else
-                                if ($node/@ref) then
-                                    
-                                    let $r := if (starts-with($node/@ref, $local:BMappUrl)) then
-                                        string($node/@ref)
-                                    else
-                                        $local:BMappUrl ||
-                                        '/' || string($node/@ref)
-                                    
-                                    let $t := if ($node/node()) then
-                                        fo:tei2fo($node/node())
-                                    else
-                                        fo:printTitleID($node/@ref)
-                                    return
-                                        $t
+                                
+                  else
+    if ($node/@ref) then
+
+        for $singleRef in $node/@ref
+        let $r := if (starts-with($singleRef, $local:BMappUrl)) then
+            string($singleRef)
+        else
+            $local:BMappUrl ||
+            '/' || string($singleRef)
+
+        let $t := if ($node/node()) then
+            fo:tei2fo($node/node())
+        else
+            fo:printTitleID($singleRef)
+        return
+            $t
+                                        
                                 else
                                     'no title provided'
             }</fo:inline>
@@ -2605,7 +2608,8 @@ declare function fo:additions($additions as element(tei:additions)) {
                                             <fo:block>
                                                 {
                                                     if ($addition/tei:locus) then
-                                                        concat(fo:tei2fo($addition/tei:locus), ': ')
+                                                         fo:tei2fo($addition/tei:locus[1]) ||
+                                                        (if (count($addition/tei:locus) gt 1) then fo:tei2fo($addition/tei:locus[2]) else ()) || ': '
                                                     else
                                                         ()
                                                 }{
@@ -2656,7 +2660,8 @@ declare function fo:additions($additions as element(tei:additions)) {
                                             <fo:block>
                                                 {
                                                     if ($addition/tei:locus) then
-                                                        concat(fo:tei2fo($addition/tei:locus), ': ')
+   fo:tei2fo($addition/tei:locus[1]) ||
+                                                        (if (count($addition/tei:locus) gt 1) then fo:tei2fo($addition/tei:locus[2]) else ()) || ': '
                                                     else
                                                         ()
                                                 }{
@@ -3185,43 +3190,44 @@ declare function fo:quires($part, $lang) {
 };
 
 declare function fo:dimensions($part, $lang) {
-    let $dimensions := if ($lang = 'ar') then
-        $part//tei:dimensions[@type = 'outer'][@xml:lang = $lang]
-    else
-        $part//tei:dimensions[@type = 'outer'][not(@xml:lang)]
+    let $dimensions :=
+        if ($lang = 'ar') then
+            $part//tei:dimensions[@type = 'outer'][@xml:lang = $lang]
+        else
+            $part//tei:dimensions[@type = 'outer'][not(@xml:lang)]
     return
-        if ($dimensions) then
-            (if ($lang = 'ar') then
-                '،'
-            else
-                ', ') ||
-            (if ($lang = 'ar') then
-                'مم'
-            else
-                ()) ||
-            string-join($dimensions/node()/text(), '×') || ' ' ||
-            (if ($lang = 'ar') then
-                'مم'
-            else
-                string($dimensions/@unit))
+        if (exists($dimensions)) then
+            string-join(
+                for $d in $dimensions
+                return
+                    string-join(
+                        for $value in $d/*[self::tei:height or self::tei:width]
+                        return normalize-space(string($value)),
+                        '×'
+                    )
+                    || ' ' ||
+                    (if ($lang = 'ar') then 'مم' else string($d/@unit)),
+                if ($lang = 'ar') then '، ' else ', '
+            )
         else
             ()
 };
-
 declare function fo:margins($part) {
-    let $dimensions := 
+    let $dimensions :=
         $part//tei:dimensions[@type = 'margin'][not(@xml:lang)]
     return
-        if ($dimensions) then
-        let $dims := for $dim at $d in $dimensions/tei:dim
-        let $string := string($dim/@type) || ': ' || string($dim/node()) || ' ' ||
-                string($dimensions/@unit)
-        return
-            (
-            string-join($string, ', '))
-            return
-            (
-            string-join($dims, ', '))
+        if (exists($dimensions)) then
+            string-join(
+                for $dimension in $dimensions
+                for $dim in $dimension/tei:dim
+                return
+                    string($dim/@type)
+                    || ': '
+                    || normalize-space(string($dim))
+                    || ' '
+                    || string($dimension/@unit),
+                ', '
+            )
         else
             ()
 };
@@ -3253,22 +3259,29 @@ declare function fo:intro($part, $lang) {
         let $material := fo:ms($part, $lang)
         let $form := ' ' || lower-case(($part//tei:objectDesc/@form)[1]) || ', composite'
         let $dimensions := fo:dimensions($part, $lang) || fo:weight($part, $lang) || ', '
+           let $top := $part/ancestor::tei:TEI//tei:msDesc[1]/tei:physDesc[1]/tei:objectDesc[1]/tei:supportDesc[1]/tei:extent[1]
         let $folios := for $f in fo:folios($part, $lang)
         return
             $f || (if ($lang = 'ar') then
                 ()
             else
                 ' fols')
-        let $blank := for $f in fo:blank($part, $lang)
+        let $blank := for $f in $top//tei:measure[@type = 'blank']
         return
-           ' (' || $f || (if ($lang = 'ar') then
+           ' (' || string-join($f/text()) || (if ($f[@xml:lang = 'ar']) then
                 ()
             else
-                  if ($part//tei:measure[@type = 'blank'][@unit='page']) then
-                  ' p. blank)' 
+               if ($f[@unit='page']) then
+                  ' p. blank' 
                   else
-                ' blank)')
-        let $quires := fo:quires($part, $lang) || '. '
+                 ' blank')  || (if ($f[@xml:lang = 'ar']) then
+                ()
+            else
+                  if ($f/tei:locus) then
+                 ' [' || fo:tei2fo($f/tei:locus) || '] '
+                  else
+                () ) || ')'
+        let $quires := fo:quires($top, $lang) || '. '
         let $date := for $p in $part//tei:msPart
         let $partN := string(substring-after($p/@xml:id, 'p'))
         return
@@ -3324,15 +3337,21 @@ declare function fo:intro($part, $lang) {
             ()
         else
             ' fols')
-        let $blank := for $f in fo:blank($part, $lang)
+        let $blank := for $f in $part//tei:measure[@type = 'blank']
         return
-           ' (' || $f || (if ($lang = 'ar') then
+           ' (' || string-join($f/text()) || (if ($f[@xml:lang = 'ar']) then
                 ()
             else
-                  if ($part//tei:measure[@type = 'blank'][@unit='page']) then
-                  ' p. blank)' 
+                  if ($f[@unit='page']) then
+                  ' p. blank' 
                   else
-                ' blank)')
+                ' blank')  || (if ($f[@xml:lang = 'ar']) then
+                ()
+            else
+               if ($f/tei:locus) then
+                 ' [' || fo:tei2fo($f/tei:locus) || '] '
+                  else
+               () ) || ')'
         let $quires := fo:quires($part, $lang)
         let $date := if ($part//tei:origDate[@when or @notBefore or @notAfter])
         then
@@ -3351,7 +3370,7 @@ declare function fo:intropart($part, $lang) {
             ()
         else
             ' fols')
-        let $extent := lower-case(fo:tei2fo($part//tei:extent/tei:locus))
+    let $extent := lower-case(string-join(fo:tei2fo($part//tei:extent/tei:locus), ' '))
         let $quires := fo:quires($part, $lang)
         let $date := if ($part//tei:origDate[@when or @notBefore or @notAfter])
         then
@@ -3497,15 +3516,34 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                                             space-before="3mm"
                                             space-after="3mm">Leaf dimensions:
                                             {
-                                                let $dim := $l/ancestor::tei:physDesc//tei:dimensions[@type='leaf']
-                                                return
-                                                    string-join($dim/node()/text(), ' × ') || string($dim/@unit)
+                                             let $dims := $l/ancestor::tei:physDesc//tei:dimensions[@type='leaf']
+return
+    string-join(
+        for $dim in $dims
+        return
+            string-join($dim/node()/text(), ' × ')
+            || ' '
+            || string($dim/@unit),
+        '; '
+    )
                                             } 
                                                            {
-                                                let $dimID := string($l/ancestor::tei:physDesc//tei:dimensions[@type='leaf']/@xml:id)
-                                                return
-                                                    ' (' || lower-case(fo:tei2fo($l/ancestor::tei:physDesc//tei:note[1][matches(@corresp, $dimID)]/tei:locus)) || ')'
-                                            }.
+                                            let $dims := $l/ancestor::tei:physDesc//tei:dimensions[@type='leaf']
+let $loci :=
+    for $dim in $dims
+    let $dimID := string($dim/@xml:id)
+    return
+        lower-case(
+            fo:tei2fo(
+                $l/ancestor::tei:physDesc//tei:note[matches(@corresp, $dimID)][1]/tei:locus
+            )
+        )
+return
+    if (exists($loci[. != ''])) then
+        ' (' || string-join($loci[. != ''], '; ') || ')'
+    else
+        ()
+       }.
                                             </fo:block>
                                     else
                                         ()
@@ -3517,9 +3555,16 @@ declare function fo:layout($layoutDesc as element(tei:layoutDesc)) {
                                             space-before="3mm"
                                             space-after="3mm">Text area:
                                             {
-                                                let $dim := $l/tei:dimensions[not(@type)]
-                                                return
-                                                    string-join($dim/node()/text(), ' × ') || string($dim/@unit)
+                                           let $dims := $l/tei:dimensions[not(@type)]
+return
+    string-join(
+        for $dim in $dims
+        return
+            string-join($dim/node()/text(), ' × ')
+            || ' '
+            || string($dim/@unit),
+        '; '
+    )
                                             }
                                             {
                                                 let $dimID := string($l/tei:dimensions[not(@type)]/@xml:id)
